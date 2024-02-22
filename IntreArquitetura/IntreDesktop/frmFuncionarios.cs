@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace IntreDesktop
 {
-    public partial class frmGaleria : Form
+    public partial class frmFuncionarios : Form
     {
-        public frmGaleria()
+        public frmFuncionarios()
         {
             InitializeComponent();
         }
