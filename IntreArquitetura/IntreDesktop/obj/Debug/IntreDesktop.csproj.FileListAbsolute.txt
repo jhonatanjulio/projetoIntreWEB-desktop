@@ -1,0 +1,34 @@
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.AssemblyReference.cache
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.Properties.Resources.resources
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.GenerateResource.cache
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CoreCompileInputs.cache
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
+C:\Users\jhonatan.jgmachado\source\repos\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.AssemblyReference.cache
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.Properties.Resources.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.GenerateResource.cache
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CoreCompileInputs.cache
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.AssemblyReference.cache
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.Form1.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmMenuPrincipal.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.Properties.Resources.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.GenerateResource.cache
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CoreCompileInputs.cache
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmClientes.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmProjetos.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmClientes.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmMenuPrincipal.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmProjetos.resources
