@@ -30,21 +30,21 @@ namespace IntreDesktop
         private void InitializeComponent()
         {
             this.dgvFuncDisp = new System.Windows.Forms.DataGridView();
+            this.dgvCodFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNomeFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnArquivar = new System.Windows.Forms.Button();
-            this.btnConcluir = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnDesativar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblSenha = new System.Windows.Forms.Label();
             this.txtNomeUser = new System.Windows.Forms.TextBox();
             this.lblNomeUser = new System.Windows.Forms.Label();
-            this.dgvCodFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvNomeFunc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtFunc = new System.Windows.Forms.TextBox();
             this.lblFunc = new System.Windows.Forms.Label();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncDisp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,11 +57,24 @@ namespace IntreDesktop
             this.dgvFuncDisp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvCodFunc,
             this.dgvNomeFunc});
-            this.dgvFuncDisp.Location = new System.Drawing.Point(745, 95);
+            this.dgvFuncDisp.Location = new System.Drawing.Point(750, 101);
             this.dgvFuncDisp.Name = "dgvFuncDisp";
             this.dgvFuncDisp.ReadOnly = true;
             this.dgvFuncDisp.Size = new System.Drawing.Size(223, 359);
             this.dgvFuncDisp.TabIndex = 2;
+            // 
+            // dgvCodFunc
+            // 
+            this.dgvCodFunc.HeaderText = "Código";
+            this.dgvCodFunc.Name = "dgvCodFunc";
+            this.dgvCodFunc.ReadOnly = true;
+            this.dgvCodFunc.Width = 80;
+            // 
+            // dgvNomeFunc
+            // 
+            this.dgvNomeFunc.HeaderText = "Nome";
+            this.dgvNomeFunc.Name = "dgvNomeFunc";
+            this.dgvNomeFunc.ReadOnly = true;
             // 
             // btnVoltar
             // 
@@ -69,7 +82,7 @@ namespace IntreDesktop
             this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(933, 531);
+            this.btnVoltar.Location = new System.Drawing.Point(906, 545);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(130, 67);
             this.btnVoltar.TabIndex = 26;
@@ -82,51 +95,27 @@ namespace IntreDesktop
             this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(794, 531);
+            this.btnPesquisar.Location = new System.Drawing.Point(634, 545);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(130, 67);
             this.btnPesquisar.TabIndex = 25;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
-            // btnArquivar
+            // btnDesativar
             // 
-            this.btnArquivar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnArquivar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArquivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArquivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArquivar.Location = new System.Drawing.Point(649, 531);
-            this.btnArquivar.Name = "btnArquivar";
-            this.btnArquivar.Size = new System.Drawing.Size(130, 67);
-            this.btnArquivar.TabIndex = 24;
-            this.btnArquivar.Text = "Arquivar";
-            this.btnArquivar.UseVisualStyleBackColor = false;
-            // 
-            // btnConcluir
-            // 
-            this.btnConcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnConcluir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConcluir.Location = new System.Drawing.Point(503, 531);
-            this.btnConcluir.Name = "btnConcluir";
-            this.btnConcluir.Size = new System.Drawing.Size(130, 67);
-            this.btnConcluir.TabIndex = 23;
-            this.btnConcluir.Text = "Concluir";
-            this.btnConcluir.UseVisualStyleBackColor = false;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Location = new System.Drawing.Point(358, 531);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(130, 67);
-            this.btnAlterar.TabIndex = 22;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnDesativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnDesativar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesativar.Location = new System.Drawing.Point(498, 545);
+            this.btnDesativar.Name = "btnDesativar";
+            this.btnDesativar.Size = new System.Drawing.Size(130, 67);
+            this.btnDesativar.TabIndex = 24;
+            this.btnDesativar.Text = "Desativar";
+            this.btnDesativar.UseVisualStyleBackColor = false;
+            this.btnDesativar.Click += new System.EventHandler(this.btnDesativar_Click);
             // 
             // btnCadastrar
             // 
@@ -134,12 +123,13 @@ namespace IntreDesktop
             this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(212, 531);
+            this.btnCadastrar.Location = new System.Drawing.Point(226, 545);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(130, 67);
             this.btnCadastrar.TabIndex = 21;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnNovo
             // 
@@ -147,12 +137,13 @@ namespace IntreDesktop
             this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(67, 531);
+            this.btnNovo.Location = new System.Drawing.Point(90, 545);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(130, 67);
             this.btnNovo.TabIndex = 20;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // txtSenha
             // 
@@ -190,19 +181,6 @@ namespace IntreDesktop
             this.lblNomeUser.TabIndex = 15;
             this.lblNomeUser.Text = "Nome do Usuário:";
             // 
-            // dgvCodFunc
-            // 
-            this.dgvCodFunc.HeaderText = "Código";
-            this.dgvCodFunc.Name = "dgvCodFunc";
-            this.dgvCodFunc.ReadOnly = true;
-            this.dgvCodFunc.Width = 80;
-            // 
-            // dgvNomeFunc
-            // 
-            this.dgvNomeFunc.HeaderText = "Nome";
-            this.dgvNomeFunc.Name = "dgvNomeFunc";
-            this.dgvNomeFunc.ReadOnly = true;
-            // 
             // txtFunc
             // 
             this.txtFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -221,19 +199,47 @@ namespace IntreDesktop
             this.lblFunc.TabIndex = 27;
             this.lblFunc.Text = "Funcionário:";
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(770, 545);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(130, 67);
+            this.btnLimpar.TabIndex = 29;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterar.Location = new System.Drawing.Point(362, 545);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(130, 67);
+            this.btnAlterar.TabIndex = 22;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1131, 653);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.txtFunc);
             this.Controls.Add(this.lblFunc);
             this.Controls.Add(this.dgvFuncDisp);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.btnArquivar);
-            this.Controls.Add(this.btnConcluir);
+            this.Controls.Add(this.btnDesativar);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnNovo);
@@ -259,9 +265,7 @@ namespace IntreDesktop
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvNomeFunc;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Button btnArquivar;
-        private System.Windows.Forms.Button btnConcluir;
-        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnDesativar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.TextBox txtSenha;
@@ -270,5 +274,7 @@ namespace IntreDesktop
         private System.Windows.Forms.Label lblNomeUser;
         private System.Windows.Forms.TextBox txtFunc;
         private System.Windows.Forms.Label lblFunc;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnAlterar;
     }
 }

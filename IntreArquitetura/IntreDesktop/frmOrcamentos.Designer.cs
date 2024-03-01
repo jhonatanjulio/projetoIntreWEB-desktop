@@ -30,31 +30,30 @@ namespace IntreDesktop
         private void InitializeComponent()
         {
             this.dgvCarrinhoExtra = new System.Windows.Forms.DataGridView();
+            this.dgvCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvValorUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNomeCliente = new System.Windows.Forms.Label();
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.txtEmailCliente = new System.Windows.Forms.TextBox();
             this.lblEmailCliente = new System.Windows.Forms.Label();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnConcluir = new System.Windows.Forms.Button();
             this.btnArquivar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
-            this.dgvValorUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlOptionsCarrinho = new System.Windows.Forms.Panel();
-            this.cbbItemExtra = new System.Windows.Forms.ComboBox();
-            this.nudMetragem = new System.Windows.Forms.NumericUpDown();
-            this.txtValorExtra = new System.Windows.Forms.TextBox();
-            this.txtValorExtraTotal = new System.Windows.Forms.TextBox();
-            this.lblItemExtra = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblQtdeExtra = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblQtdeExtra = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lblItemExtra = new System.Windows.Forms.Label();
+            this.txtValorExtraTotal = new System.Windows.Forms.TextBox();
+            this.txtValorExtra = new System.Windows.Forms.TextBox();
+            this.nudMetragem = new System.Windows.Forms.NumericUpDown();
+            this.cbbItemExtra = new System.Windows.Forms.ComboBox();
             this.pnlCarrinho = new System.Windows.Forms.Panel();
             this.cbbOrcamento = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -85,6 +84,26 @@ namespace IntreDesktop
             this.dgvCarrinhoExtra.ReadOnly = true;
             this.dgvCarrinhoExtra.Size = new System.Drawing.Size(340, 359);
             this.dgvCarrinhoExtra.TabIndex = 2;
+            // 
+            // dgvCodigo
+            // 
+            this.dgvCodigo.HeaderText = "Código";
+            this.dgvCodigo.Name = "dgvCodigo";
+            this.dgvCodigo.ReadOnly = true;
+            this.dgvCodigo.Width = 80;
+            // 
+            // dgvDescricao
+            // 
+            this.dgvDescricao.HeaderText = "Descrição";
+            this.dgvDescricao.Name = "dgvDescricao";
+            this.dgvDescricao.ReadOnly = true;
+            // 
+            // dgvValorUnit
+            // 
+            this.dgvValorUnit.HeaderText = "Valor Unitário";
+            this.dgvValorUnit.Name = "dgvValorUnit";
+            this.dgvValorUnit.ReadOnly = true;
+            this.dgvValorUnit.Width = 120;
             // 
             // lblNomeCliente
             // 
@@ -128,7 +147,7 @@ namespace IntreDesktop
             this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(40, 531);
+            this.btnNovo.Location = new System.Drawing.Point(144, 534);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(133, 67);
             this.btnNovo.TabIndex = 7;
@@ -137,28 +156,13 @@ namespace IntreDesktop
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnNovo.UseVisualStyleBackColor = false;
             // 
-            // btnCadastrar
-            // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCadastrar.Location = new System.Drawing.Point(192, 531);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(133, 67);
-            this.btnCadastrar.TabIndex = 8;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnCadastrar.UseVisualStyleBackColor = false;
-            // 
             // btnAlterar
             // 
             this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Location = new System.Drawing.Point(344, 531);
+            this.btnAlterar.Location = new System.Drawing.Point(422, 534);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(133, 67);
             this.btnAlterar.TabIndex = 9;
@@ -173,7 +177,7 @@ namespace IntreDesktop
             this.btnConcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConcluir.Location = new System.Drawing.Point(493, 531);
+            this.btnConcluir.Location = new System.Drawing.Point(283, 534);
             this.btnConcluir.Name = "btnConcluir";
             this.btnConcluir.Size = new System.Drawing.Size(133, 67);
             this.btnConcluir.TabIndex = 10;
@@ -188,7 +192,7 @@ namespace IntreDesktop
             this.btnArquivar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArquivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArquivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArquivar.Location = new System.Drawing.Point(643, 531);
+            this.btnArquivar.Location = new System.Drawing.Point(561, 534);
             this.btnArquivar.Name = "btnArquivar";
             this.btnArquivar.Size = new System.Drawing.Size(133, 67);
             this.btnArquivar.TabIndex = 11;
@@ -203,7 +207,7 @@ namespace IntreDesktop
             this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(793, 531);
+            this.btnPesquisar.Location = new System.Drawing.Point(700, 534);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
             this.btnPesquisar.TabIndex = 12;
@@ -218,7 +222,7 @@ namespace IntreDesktop
             this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(941, 531);
+            this.btnVoltar.Location = new System.Drawing.Point(839, 534);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(133, 67);
             this.btnVoltar.TabIndex = 13;
@@ -226,26 +230,6 @@ namespace IntreDesktop
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnVoltar.UseVisualStyleBackColor = false;
-            // 
-            // dgvValorUnit
-            // 
-            this.dgvValorUnit.HeaderText = "Valor Unitário";
-            this.dgvValorUnit.Name = "dgvValorUnit";
-            this.dgvValorUnit.ReadOnly = true;
-            this.dgvValorUnit.Width = 120;
-            // 
-            // dgvDescricao
-            // 
-            this.dgvDescricao.HeaderText = "Descrição";
-            this.dgvDescricao.Name = "dgvDescricao";
-            this.dgvDescricao.ReadOnly = true;
-            // 
-            // dgvCodigo
-            // 
-            this.dgvCodigo.HeaderText = "Código";
-            this.dgvCodigo.Name = "dgvCodigo";
-            this.dgvCodigo.ReadOnly = true;
-            this.dgvCodigo.Width = 80;
             // 
             // pnlOptionsCarrinho
             // 
@@ -264,73 +248,38 @@ namespace IntreDesktop
             this.pnlOptionsCarrinho.Size = new System.Drawing.Size(210, 358);
             this.pnlOptionsCarrinho.TabIndex = 1;
             // 
-            // cbbItemExtra
+            // label2
             // 
-            this.cbbItemExtra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbItemExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbItemExtra.FormattingEnabled = true;
-            this.cbbItemExtra.Items.AddRange(new object[] {
-            "Teste",
-            "TESTE 2",
-            "TESATE 4"});
-            this.cbbItemExtra.Location = new System.Drawing.Point(16, 38);
-            this.cbbItemExtra.Name = "cbbItemExtra";
-            this.cbbItemExtra.Size = new System.Drawing.Size(181, 32);
-            this.cbbItemExtra.TabIndex = 0;
+            this.label2.AutoEllipsis = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label2.Location = new System.Drawing.Point(10, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(165, 24);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Valor Extra (Total):";
             // 
-            // nudMetragem
+            // label1
             // 
-            this.nudMetragem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudMetragem.Location = new System.Drawing.Point(16, 100);
-            this.nudMetragem.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudMetragem.Name = "nudMetragem";
-            this.nudMetragem.Size = new System.Drawing.Size(181, 29);
-            this.nudMetragem.TabIndex = 1;
+            this.label1.AutoEllipsis = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.label1.Location = new System.Drawing.Point(10, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 24);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Valor Extra (Unitário):";
             // 
-            // txtValorExtra
+            // lblQtdeExtra
             // 
-            this.txtValorExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorExtra.Location = new System.Drawing.Point(15, 159);
-            this.txtValorExtra.Name = "txtValorExtra";
-            this.txtValorExtra.Size = new System.Drawing.Size(180, 29);
-            this.txtValorExtra.TabIndex = 2;
-            this.txtValorExtra.Text = "R$";
-            // 
-            // txtValorExtraTotal
-            // 
-            this.txtValorExtraTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorExtraTotal.Location = new System.Drawing.Point(14, 218);
-            this.txtValorExtraTotal.Name = "txtValorExtraTotal";
-            this.txtValorExtraTotal.Size = new System.Drawing.Size(180, 29);
-            this.txtValorExtraTotal.TabIndex = 3;
-            this.txtValorExtraTotal.Text = "R$";
-            // 
-            // lblItemExtra
-            // 
-            this.lblItemExtra.AutoSize = true;
-            this.lblItemExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblItemExtra.Location = new System.Drawing.Point(12, 11);
-            this.lblItemExtra.Name = "lblItemExtra";
-            this.lblItemExtra.Size = new System.Drawing.Size(98, 24);
-            this.lblItemExtra.TabIndex = 11;
-            this.lblItemExtra.Text = "Item Extra:";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(48, 304);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 40);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Remover";
-            this.button2.UseVisualStyleBackColor = false;
+            this.lblQtdeExtra.AutoEllipsis = true;
+            this.lblQtdeExtra.AutoSize = true;
+            this.lblQtdeExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.lblQtdeExtra.Location = new System.Drawing.Point(12, 73);
+            this.lblQtdeExtra.Name = "lblQtdeExtra";
+            this.lblQtdeExtra.Size = new System.Drawing.Size(113, 24);
+            this.lblQtdeExtra.TabIndex = 12;
+            this.lblQtdeExtra.Text = "Quantidade:";
             // 
             // button1
             // 
@@ -345,38 +294,73 @@ namespace IntreDesktop
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // lblQtdeExtra
+            // button2
             // 
-            this.lblQtdeExtra.AutoEllipsis = true;
-            this.lblQtdeExtra.AutoSize = true;
-            this.lblQtdeExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.lblQtdeExtra.Location = new System.Drawing.Point(12, 73);
-            this.lblQtdeExtra.Name = "lblQtdeExtra";
-            this.lblQtdeExtra.Size = new System.Drawing.Size(113, 24);
-            this.lblQtdeExtra.TabIndex = 12;
-            this.lblQtdeExtra.Text = "Quantidade:";
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(48, 304);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 40);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Remover";
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // lblItemExtra
             // 
-            this.label1.AutoEllipsis = true;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label1.Location = new System.Drawing.Point(10, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 24);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Valor Extra (Unitário):";
+            this.lblItemExtra.AutoSize = true;
+            this.lblItemExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.lblItemExtra.Location = new System.Drawing.Point(12, 11);
+            this.lblItemExtra.Name = "lblItemExtra";
+            this.lblItemExtra.Size = new System.Drawing.Size(98, 24);
+            this.lblItemExtra.TabIndex = 11;
+            this.lblItemExtra.Text = "Item Extra:";
             // 
-            // label2
+            // txtValorExtraTotal
             // 
-            this.label2.AutoEllipsis = true;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label2.Location = new System.Drawing.Point(10, 191);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(165, 24);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Valor Extra (Total):";
+            this.txtValorExtraTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorExtraTotal.Location = new System.Drawing.Point(14, 218);
+            this.txtValorExtraTotal.Name = "txtValorExtraTotal";
+            this.txtValorExtraTotal.Size = new System.Drawing.Size(180, 29);
+            this.txtValorExtraTotal.TabIndex = 3;
+            this.txtValorExtraTotal.Text = "R$";
+            // 
+            // txtValorExtra
+            // 
+            this.txtValorExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorExtra.Location = new System.Drawing.Point(15, 159);
+            this.txtValorExtra.Name = "txtValorExtra";
+            this.txtValorExtra.Size = new System.Drawing.Size(180, 29);
+            this.txtValorExtra.TabIndex = 2;
+            this.txtValorExtra.Text = "R$";
+            // 
+            // nudMetragem
+            // 
+            this.nudMetragem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudMetragem.Location = new System.Drawing.Point(16, 100);
+            this.nudMetragem.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nudMetragem.Name = "nudMetragem";
+            this.nudMetragem.Size = new System.Drawing.Size(181, 29);
+            this.nudMetragem.TabIndex = 1;
+            // 
+            // cbbItemExtra
+            // 
+            this.cbbItemExtra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbItemExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbItemExtra.FormattingEnabled = true;
+            this.cbbItemExtra.Items.AddRange(new object[] {
+            "Teste",
+            "TESTE 2",
+            "TESATE 4"});
+            this.cbbItemExtra.Location = new System.Drawing.Point(16, 38);
+            this.cbbItemExtra.Name = "cbbItemExtra";
+            this.cbbItemExtra.Size = new System.Drawing.Size(181, 32);
+            this.cbbItemExtra.TabIndex = 0;
             // 
             // pnlCarrinho
             // 
@@ -481,7 +465,6 @@ namespace IntreDesktop
             this.Controls.Add(this.btnArquivar);
             this.Controls.Add(this.btnConcluir);
             this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.pnlCalculoValores);
             this.Controls.Add(this.txtEmailCliente);
@@ -513,7 +496,6 @@ namespace IntreDesktop
         private System.Windows.Forms.TextBox txtEmailCliente;
         private System.Windows.Forms.Label lblEmailCliente;
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnConcluir;
         private System.Windows.Forms.Button btnArquivar;
