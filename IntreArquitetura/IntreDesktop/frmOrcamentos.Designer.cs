@@ -29,6 +29,7 @@ namespace IntreDesktop
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrcamentos));
             this.dgvCarrinhoExtra = new System.Windows.Forms.DataGridView();
             this.dgvCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,12 +38,8 @@ namespace IntreDesktop
             this.txtNomeCliente = new System.Windows.Forms.TextBox();
             this.txtEmailCliente = new System.Windows.Forms.TextBox();
             this.lblEmailCliente = new System.Windows.Forms.Label();
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
             this.btnConcluir = new System.Windows.Forms.Button();
             this.btnArquivar = new System.Windows.Forms.Button();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.pnlOptionsCarrinho = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +59,11 @@ namespace IntreDesktop
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.pnlCalculoValores = new System.Windows.Forms.Panel();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrinhoExtra)).BeginInit();
             this.pnlOptionsCarrinho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMetragem)).BeginInit();
@@ -141,49 +143,20 @@ namespace IntreDesktop
             this.lblEmailCliente.TabIndex = 4;
             this.lblEmailCliente.Text = "E-mail do Cliente:";
             // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(144, 534);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(133, 67);
-            this.btnNovo.TabIndex = 7;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnNovo.UseVisualStyleBackColor = false;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Location = new System.Drawing.Point(422, 534);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(133, 67);
-            this.btnAlterar.TabIndex = 9;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            // 
             // btnConcluir
             // 
             this.btnConcluir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.btnConcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConcluir.Location = new System.Drawing.Point(283, 534);
+            this.btnConcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnConcluir.Image")));
+            this.btnConcluir.Location = new System.Drawing.Point(223, 536);
             this.btnConcluir.Name = "btnConcluir";
             this.btnConcluir.Size = new System.Drawing.Size(133, 67);
             this.btnConcluir.TabIndex = 10;
             this.btnConcluir.Text = "Concluir";
             this.btnConcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnConcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnConcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConcluir.UseVisualStyleBackColor = false;
             // 
             // btnArquivar
@@ -192,44 +165,15 @@ namespace IntreDesktop
             this.btnArquivar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArquivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArquivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArquivar.Location = new System.Drawing.Point(561, 534);
+            this.btnArquivar.Image = ((System.Drawing.Image)(resources.GetObject("btnArquivar.Image")));
+            this.btnArquivar.Location = new System.Drawing.Point(501, 536);
             this.btnArquivar.Name = "btnArquivar";
             this.btnArquivar.Size = new System.Drawing.Size(133, 67);
             this.btnArquivar.TabIndex = 11;
             this.btnArquivar.Text = "Arquivar";
             this.btnArquivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnArquivar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnArquivar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnArquivar.UseVisualStyleBackColor = false;
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(700, 534);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
-            this.btnPesquisar.TabIndex = 12;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnPesquisar.UseVisualStyleBackColor = false;
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(839, 534);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(133, 67);
-            this.btnVoltar.TabIndex = 13;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnVoltar.UseVisualStyleBackColor = false;
             // 
             // pnlOptionsCarrinho
             // 
@@ -454,18 +398,98 @@ namespace IntreDesktop
             this.pnlCalculoValores.Size = new System.Drawing.Size(269, 329);
             this.pnlCalculoValores.TabIndex = 6;
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
+            this.btnLimpar.Location = new System.Drawing.Point(779, 536);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(133, 67);
+            this.btnLimpar.TabIndex = 54;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
+            this.btnVoltar.Location = new System.Drawing.Point(918, 536);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(133, 67);
+            this.btnVoltar.TabIndex = 57;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnPesquisar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.Location = new System.Drawing.Point(640, 536);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
+            this.btnPesquisar.TabIndex = 56;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
+            this.btnNovo.Location = new System.Drawing.Point(84, 536);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(133, 67);
+            this.btnNovo.TabIndex = 55;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNovo.UseVisualStyleBackColor = false;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
+            this.btnAlterar.Location = new System.Drawing.Point(362, 536);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(133, 67);
+            this.btnAlterar.TabIndex = 58;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            // 
             // frmOrcamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1123, 645);
+            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.btnNovo);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnArquivar);
             this.Controls.Add(this.btnConcluir);
-            this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.pnlCalculoValores);
             this.Controls.Add(this.txtEmailCliente);
             this.Controls.Add(this.lblEmailCliente);
@@ -495,12 +519,8 @@ namespace IntreDesktop
         private System.Windows.Forms.TextBox txtNomeCliente;
         private System.Windows.Forms.TextBox txtEmailCliente;
         private System.Windows.Forms.Label lblEmailCliente;
-        private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnConcluir;
         private System.Windows.Forms.Button btnArquivar;
-        private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.DataGridView dgvCarrinhoExtra;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDescricao;
@@ -524,6 +544,11 @@ namespace IntreDesktop
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Panel pnlCalculoValores;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnAlterar;
     }
 }
 
