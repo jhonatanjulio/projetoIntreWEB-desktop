@@ -37,3 +37,7 @@ C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\Intr
 C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmLogin.resources
 C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmOrcamentos.resources
 C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmUsuarios.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmFuncionarios.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmGaleria.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmOrcamentos.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmUsuarios.resources
