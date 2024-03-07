@@ -106,11 +106,7 @@ namespace IntreDesktop
             this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInserir.Image = ((System.Drawing.Image)(resources.GetObject("btnInserir.Image")));
-<<<<<<< HEAD
-            this.btnInserir.Location = new System.Drawing.Point(223, 549);
-=======
             this.btnInserir.Location = new System.Drawing.Point(118, 531);
->>>>>>> 168321f343d604a69cff116c101e099382d3eccd
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(133, 67);
             this.btnInserir.TabIndex = 6;
@@ -126,11 +122,7 @@ namespace IntreDesktop
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-<<<<<<< HEAD
-            this.btnAlterar.Location = new System.Drawing.Point(362, 549);
-=======
             this.btnAlterar.Location = new System.Drawing.Point(266, 531);
->>>>>>> 168321f343d604a69cff116c101e099382d3eccd
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(133, 67);
             this.btnAlterar.TabIndex = 7;
@@ -146,11 +138,7 @@ namespace IntreDesktop
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-<<<<<<< HEAD
-            this.btnExcluir.Location = new System.Drawing.Point(501, 549);
-=======
             this.btnExcluir.Location = new System.Drawing.Point(415, 531);
->>>>>>> 168321f343d604a69cff116c101e099382d3eccd
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(133, 67);
             this.btnExcluir.TabIndex = 8;
@@ -166,11 +154,7 @@ namespace IntreDesktop
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-<<<<<<< HEAD
-            this.btnPesquisar.Location = new System.Drawing.Point(640, 549);
-=======
             this.btnPesquisar.Location = new System.Drawing.Point(565, 531);
->>>>>>> 168321f343d604a69cff116c101e099382d3eccd
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
             this.btnPesquisar.TabIndex = 9;
@@ -186,11 +170,7 @@ namespace IntreDesktop
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-<<<<<<< HEAD
-            this.btnVoltar.Location = new System.Drawing.Point(779, 549);
-=======
             this.btnVoltar.Location = new System.Drawing.Point(863, 531);
->>>>>>> 168321f343d604a69cff116c101e099382d3eccd
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(133, 67);
             this.btnVoltar.TabIndex = 10;

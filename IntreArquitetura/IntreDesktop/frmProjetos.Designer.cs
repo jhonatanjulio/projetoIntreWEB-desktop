@@ -32,7 +32,7 @@ namespace IntreDesktop
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProjetos));
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
-            this.btnArquivar = new System.Windows.Forms.Button();
+            this.btnDesativar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -97,22 +97,8 @@ namespace IntreDesktop
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
             // 
-            // btnArquivar
+            // btnDesativar
             // 
-<<<<<<< HEAD
-            this.btnArquivar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnArquivar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArquivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArquivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArquivar.Location = new System.Drawing.Point(569, 549);
-            this.btnArquivar.Name = "btnArquivar";
-            this.btnArquivar.Size = new System.Drawing.Size(133, 67);
-            this.btnArquivar.TabIndex = 24;
-            this.btnArquivar.Text = "Arquivar";
-            this.btnArquivar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArquivar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnArquivar.UseVisualStyleBackColor = false;
-=======
             this.btnDesativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.btnDesativar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -126,7 +112,6 @@ namespace IntreDesktop
             this.btnDesativar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDesativar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDesativar.UseVisualStyleBackColor = false;
->>>>>>> 168321f343d604a69cff116c101e099382d3eccd
             // 
             // btnAlterar
             // 
@@ -466,7 +451,7 @@ namespace IntreDesktop
             this.Controls.Add(this.lblFormaContato);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.btnArquivar);
+            this.Controls.Add(this.btnDesativar);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.btnNovo);
@@ -485,7 +470,7 @@ namespace IntreDesktop
 
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.Button btnArquivar;
+        private System.Windows.Forms.Button btnDesativar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
