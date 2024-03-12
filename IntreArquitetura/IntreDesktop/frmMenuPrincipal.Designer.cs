@@ -174,7 +174,7 @@ namespace IntreDesktop
             this.MaximizeBox = false;
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMenuPrincipal";
+            this.Text = "Menu Principal";
             this.ResumeLayout(false);
 
         }
