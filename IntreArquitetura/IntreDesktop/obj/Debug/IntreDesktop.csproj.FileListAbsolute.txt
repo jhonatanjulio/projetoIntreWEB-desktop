@@ -64,3 +64,5 @@ C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop
 C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CopyComplete
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisar.resources
+C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarProjetos.resources

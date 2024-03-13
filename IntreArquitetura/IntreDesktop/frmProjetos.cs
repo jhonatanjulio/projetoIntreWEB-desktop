@@ -36,7 +36,7 @@ namespace IntreDesktop
 
             btnAlterar.Enabled = false;
             btnCadastrar.Enabled = false;
-            btnDesativar.Enabled = false;
+            btnArquivar.Enabled = false;
             btnLimpar.Enabled = false;
             btnNovo.Focus();
         }

@@ -121,6 +121,18 @@
     <Compile Include="frmOrcamentos.Designer.cs">
       <DependentUpon>frmOrcamentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPesquisar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisar.Designer.cs">
+      <DependentUpon>frmPesquisar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPesquisarProjetos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisarProjetos.Designer.cs">
+      <DependentUpon>frmPesquisarProjetos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProjetos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrcamentos.resx">
       <DependentUpon>frmOrcamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisar.resx">
+      <DependentUpon>frmPesquisar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisarProjetos.resx">
+      <DependentUpon>frmPesquisarProjetos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjetos.resx">
       <DependentUpon>frmProjetos.cs</DependentUpon>

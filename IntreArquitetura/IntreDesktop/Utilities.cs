@@ -9,7 +9,7 @@ namespace IntreDesktop
 {
     class Utilities
     {
-        public static void limparCampos(Control listaItens)
+        public static void limparCamposGeral(Control listaItens)
         {
             // Itera os controles da janela passada no parâmetro,
             // caso o item sendo iterado for do tipo "TextBox", sua propriedade "text" é limpa.
@@ -23,7 +23,7 @@ namespace IntreDesktop
         }
 
         // Função para habilitar e desabilitar os botões
-        public static void habilitarDesabBotao(Control listaItens, string botao)
+        public static void habilitarDesabBotaoGeral(Control listaItens, string botao)
         {
             foreach (Control item in listaItens.Controls)
             {
