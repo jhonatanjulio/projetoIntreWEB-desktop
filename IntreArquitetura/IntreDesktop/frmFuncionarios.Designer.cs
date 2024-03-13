@@ -38,7 +38,6 @@ namespace IntreDesktop
             this.lblUF = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtCPF = new System.Windows.Forms.TextBox();
-            this.txtDataNasc = new System.Windows.Forms.TextBox();
             this.txtDataExp = new System.Windows.Forms.TextBox();
             this.txtRG = new System.Windows.Forms.TextBox();
             this.cbbUF = new System.Windows.Forms.ComboBox();
@@ -49,13 +48,14 @@ namespace IntreDesktop
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.dtpDataNasc = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(340, 170);
+            this.lblNome.Location = new System.Drawing.Point(251, 150);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(74, 25);
             this.lblNome.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace IntreDesktop
             // 
             this.lblCPF.AutoSize = true;
             this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCPF.Location = new System.Drawing.Point(634, 170);
+            this.lblCPF.Location = new System.Drawing.Point(545, 219);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(60, 25);
             this.lblCPF.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace IntreDesktop
             // 
             this.lblDataNasc.AutoSize = true;
             this.lblDataNasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataNasc.Location = new System.Drawing.Point(340, 239);
+            this.lblDataNasc.Location = new System.Drawing.Point(251, 219);
             this.lblDataNasc.Name = "lblDataNasc";
             this.lblDataNasc.Size = new System.Drawing.Size(212, 25);
             this.lblDataNasc.TabIndex = 2;
@@ -85,7 +85,7 @@ namespace IntreDesktop
             // 
             this.lblDataExp.AutoSize = true;
             this.lblDataExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataExp.Location = new System.Drawing.Point(340, 311);
+            this.lblDataExp.Location = new System.Drawing.Point(251, 291);
             this.lblDataExp.Name = "lblDataExp";
             this.lblDataExp.Size = new System.Drawing.Size(267, 25);
             this.lblDataExp.TabIndex = 3;
@@ -95,7 +95,7 @@ namespace IntreDesktop
             // 
             this.lblRG.AutoSize = true;
             this.lblRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRG.Location = new System.Drawing.Point(634, 239);
+            this.lblRG.Location = new System.Drawing.Point(707, 219);
             this.lblRG.Name = "lblRG";
             this.lblRG.Size = new System.Drawing.Size(49, 25);
             this.lblRG.TabIndex = 4;
@@ -105,7 +105,7 @@ namespace IntreDesktop
             // 
             this.lblUF.AutoSize = true;
             this.lblUF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUF.Location = new System.Drawing.Point(629, 311);
+            this.lblUF.Location = new System.Drawing.Point(545, 291);
             this.lblUF.Name = "lblUF";
             this.lblUF.Size = new System.Drawing.Size(46, 25);
             this.lblUF.TabIndex = 5;
@@ -114,31 +114,23 @@ namespace IntreDesktop
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(345, 198);
+            this.txtNome.Location = new System.Drawing.Point(256, 178);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(283, 30);
+            this.txtNome.Size = new System.Drawing.Size(607, 30);
             this.txtNome.TabIndex = 6;
             // 
             // txtCPF
             // 
             this.txtCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPF.Location = new System.Drawing.Point(639, 198);
+            this.txtCPF.Location = new System.Drawing.Point(550, 247);
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.Size = new System.Drawing.Size(125, 30);
+            this.txtCPF.Size = new System.Drawing.Size(151, 30);
             this.txtCPF.TabIndex = 7;
-            // 
-            // txtDataNasc
-            // 
-            this.txtDataNasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataNasc.Location = new System.Drawing.Point(345, 267);
-            this.txtDataNasc.Name = "txtDataNasc";
-            this.txtDataNasc.Size = new System.Drawing.Size(283, 30);
-            this.txtDataNasc.TabIndex = 8;
             // 
             // txtDataExp
             // 
             this.txtDataExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDataExp.Location = new System.Drawing.Point(345, 339);
+            this.txtDataExp.Location = new System.Drawing.Point(256, 319);
             this.txtDataExp.Name = "txtDataExp";
             this.txtDataExp.Size = new System.Drawing.Size(283, 30);
             this.txtDataExp.TabIndex = 9;
@@ -146,18 +138,18 @@ namespace IntreDesktop
             // txtRG
             // 
             this.txtRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRG.Location = new System.Drawing.Point(639, 267);
+            this.txtRG.Location = new System.Drawing.Point(712, 247);
             this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(125, 30);
+            this.txtRG.Size = new System.Drawing.Size(151, 30);
             this.txtRG.TabIndex = 10;
             // 
             // cbbUF
             // 
             this.cbbUF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbUF.FormattingEnabled = true;
-            this.cbbUF.Location = new System.Drawing.Point(634, 336);
+            this.cbbUF.Location = new System.Drawing.Point(550, 316);
             this.cbbUF.Name = "cbbUF";
-            this.cbbUF.Size = new System.Drawing.Size(125, 33);
+            this.cbbUF.Size = new System.Drawing.Size(151, 33);
             this.cbbUF.TabIndex = 12;
             // 
             // btnNovo
@@ -226,7 +218,7 @@ namespace IntreDesktop
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(639, 555);
+            this.btnPesquisar.Location = new System.Drawing.Point(641, 555);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
             this.btnPesquisar.TabIndex = 17;
@@ -266,12 +258,21 @@ namespace IntreDesktop
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = false;
             // 
+            // dtpDataNasc
+            // 
+            this.dtpDataNasc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.dtpDataNasc.Location = new System.Drawing.Point(256, 247);
+            this.dtpDataNasc.Name = "dtpDataNasc";
+            this.dtpDataNasc.Size = new System.Drawing.Size(283, 30);
+            this.dtpDataNasc.TabIndex = 55;
+            // 
             // frmFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1127, 649);
+            this.Controls.Add(this.dtpDataNasc);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnPesquisar);
@@ -282,7 +283,6 @@ namespace IntreDesktop
             this.Controls.Add(this.cbbUF);
             this.Controls.Add(this.txtRG);
             this.Controls.Add(this.txtDataExp);
-            this.Controls.Add(this.txtDataNasc);
             this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.lblUF);
@@ -292,6 +292,7 @@ namespace IntreDesktop
             this.Controls.Add(this.lblCPF);
             this.Controls.Add(this.lblNome);
             this.Name = "frmFuncionarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmFuncionarios";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -308,7 +309,6 @@ namespace IntreDesktop
         private System.Windows.Forms.Label lblUF;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCPF;
-        private System.Windows.Forms.TextBox txtDataNasc;
         private System.Windows.Forms.TextBox txtDataExp;
         private System.Windows.Forms.TextBox txtRG;
         private System.Windows.Forms.ComboBox cbbUF;
@@ -319,5 +319,6 @@ namespace IntreDesktop
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.DateTimePicker dtpDataNasc;
     }
 }
