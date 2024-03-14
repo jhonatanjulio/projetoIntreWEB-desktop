@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace IntreDesktop
 {
@@ -27,9 +28,8 @@ namespace IntreDesktop
             txtComplemento.Enabled = false;
             txtEstado.Enabled = false;
             txtDescricaoAmbiente.Enabled = false;
-            txtFotosAmbiente.Enabled = false;
             cbbMarcenaria.Enabled = false;
-            cbbMetragem.Enabled = false;
+            nudMetragem.Enabled = false;
             cbbRevestimento.Enabled = false;
             cbbTipoImovel.Enabled = false;
             cbbTipoServico.Enabled = false;
@@ -50,9 +50,8 @@ namespace IntreDesktop
             txtComplemento.Enabled = true;
             txtEstado.Enabled = true;
             txtDescricaoAmbiente.Enabled = true;
-            txtFotosAmbiente.Enabled = true;
             cbbMarcenaria.Enabled = true;
-            cbbMetragem.Enabled = true;
+            nudMetragem.Enabled = true;
             cbbRevestimento.Enabled = true;
             cbbTipoImovel.Enabled = true;
             cbbTipoServico.Enabled = true;
@@ -71,10 +70,9 @@ namespace IntreDesktop
             txtCidade.Clear();
             txtComplemento.Clear();
             txtDescricaoAmbiente.Clear();
-            txtFotosAmbiente.Clear();
-
+            nudMetragem.ResetText();
             cbbMarcenaria.Text = "";
-            cbbMetragem.Text = "";
+            
             cbbRevestimento.Text = "";
             cbbTipoImovel.Text = "";
             cbbTipoServico.Text = "";
@@ -83,7 +81,7 @@ namespace IntreDesktop
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            Connection.abrirConexao();
+            
             habilitarCampos();
         }
 
@@ -98,6 +96,36 @@ namespace IntreDesktop
             frmMenuPrincipal abrir = new frmMenuPrincipal();
             abrir.Show();
             this.Hide();
+        }
+
+
+        //Cadastrar projeto 
+        public void cadastrarProjeto()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "insert into tbProjetos(formaContato,logradouro,bairro,estado,cidade,complemento,tipoImovel,tipoServico,metragem,revestimentos,marcenaria,descricaoAmbiente," +
+                "codCli,codAmb) values(@formaContato,@rua,@bairro,@estado,@cidade,@complemento,@tipoImovel,@tipoServico,@metragem,@revestimento,@marcenaria,@descricaoAmbiente);";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@formaContato",MySqlDbType.VarChar,50).Value = txtFormaContato.Text;
+            comm.Parameters.Add("@rua",MySqlDbType.VarChar,50).Value = txtRua.Text;
+            comm.Parameters.Add("@bairro",MySqlDbType.VarChar,50).Value = txtBairro.Text;
+            comm.Parameters.Add("@estado",MySqlDbType.VarChar,2).Value = txtEstado.Text;
+            comm.Parameters.Add("@cidade",MySqlDbType.VarChar,50).Value = txtCidade.Text;
+            comm.Parameters.Add("@complemento",MySqlDbType.VarChar,50).Value = txtComplemento.Text;
+            comm.Parameters.Add("@tipoImovel",MySqlDbType.VarChar,50).Value = cbbTipoImovel.Text;
+            comm.Parameters.Add("@tipoServico",MySqlDbType.VarChar,50).Value = cbbTipoServico.Text;
+            comm.Parameters.Add("@metragem",MySqlDbType.Decimal).Value = nudMetragem.Value;
+            comm.Parameters.Add("@revestimento",MySqlDbType.VarChar,50).Value = cbbRevestimento.Text;
+            comm.Parameters.Add("@marcenaria",MySqlDbType.VarChar,50).Value = cbbMarcenaria.Text;
+            comm.Parameters.Add("@descricaoAmbiente",MySqlDbType.VarChar,50).Value = txtDescricaoAmbiente.Text;
+
+            comm.Connection = Connection.abrirConexao();
+
+            comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
         }
     }
 }
