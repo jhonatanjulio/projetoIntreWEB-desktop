@@ -150,7 +150,7 @@ namespace IntreDesktop
             this.btnConcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConcluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnConcluir.Image")));
-            this.btnConcluir.Location = new System.Drawing.Point(223, 536);
+            this.btnConcluir.Location = new System.Drawing.Point(210, 566);
             this.btnConcluir.Name = "btnConcluir";
             this.btnConcluir.Size = new System.Drawing.Size(133, 67);
             this.btnConcluir.TabIndex = 10;
@@ -166,7 +166,7 @@ namespace IntreDesktop
             this.btnArquivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArquivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArquivar.Image = ((System.Drawing.Image)(resources.GetObject("btnArquivar.Image")));
-            this.btnArquivar.Location = new System.Drawing.Point(501, 536);
+            this.btnArquivar.Location = new System.Drawing.Point(488, 566);
             this.btnArquivar.Name = "btnArquivar";
             this.btnArquivar.Size = new System.Drawing.Size(133, 67);
             this.btnArquivar.TabIndex = 11;
@@ -312,7 +312,7 @@ namespace IntreDesktop
             this.pnlCarrinho.Controls.Add(this.dgvCarrinhoExtra);
             this.pnlCarrinho.Controls.Add(this.pnlOptionsCarrinho);
             this.pnlCarrinho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlCarrinho.Location = new System.Drawing.Point(105, 124);
+            this.pnlCarrinho.Location = new System.Drawing.Point(99, 143);
             this.pnlCarrinho.Name = "pnlCarrinho";
             this.pnlCarrinho.Size = new System.Drawing.Size(550, 359);
             this.pnlCarrinho.TabIndex = 1;
@@ -393,7 +393,7 @@ namespace IntreDesktop
             this.pnlCalculoValores.Controls.Add(this.lblValorInicial);
             this.pnlCalculoValores.Controls.Add(this.comboBox2);
             this.pnlCalculoValores.Controls.Add(this.cbbOrcamento);
-            this.pnlCalculoValores.Location = new System.Drawing.Point(751, 138);
+            this.pnlCalculoValores.Location = new System.Drawing.Point(745, 157);
             this.pnlCalculoValores.Name = "pnlCalculoValores";
             this.pnlCalculoValores.Size = new System.Drawing.Size(269, 329);
             this.pnlCalculoValores.TabIndex = 6;
@@ -405,7 +405,7 @@ namespace IntreDesktop
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
-            this.btnLimpar.Location = new System.Drawing.Point(779, 536);
+            this.btnLimpar.Location = new System.Drawing.Point(766, 566);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(133, 67);
             this.btnLimpar.TabIndex = 54;
@@ -421,7 +421,7 @@ namespace IntreDesktop
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-            this.btnVoltar.Location = new System.Drawing.Point(918, 536);
+            this.btnVoltar.Location = new System.Drawing.Point(905, 566);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(133, 67);
             this.btnVoltar.TabIndex = 57;
@@ -437,7 +437,7 @@ namespace IntreDesktop
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(640, 536);
+            this.btnPesquisar.Location = new System.Drawing.Point(627, 566);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
             this.btnPesquisar.TabIndex = 56;
@@ -453,7 +453,7 @@ namespace IntreDesktop
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
-            this.btnNovo.Location = new System.Drawing.Point(84, 536);
+            this.btnNovo.Location = new System.Drawing.Point(71, 566);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(133, 67);
             this.btnNovo.TabIndex = 55;
@@ -468,7 +468,7 @@ namespace IntreDesktop
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.Location = new System.Drawing.Point(362, 536);
+            this.btnAlterar.Location = new System.Drawing.Point(349, 566);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(133, 67);
             this.btnAlterar.TabIndex = 58;

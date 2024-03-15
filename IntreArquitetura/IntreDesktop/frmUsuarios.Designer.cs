@@ -58,10 +58,10 @@ namespace IntreDesktop
             this.dgvFuncDisp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvCodFunc,
             this.dgvNomeFunc});
-            this.dgvFuncDisp.Location = new System.Drawing.Point(750, 101);
+            this.dgvFuncDisp.Location = new System.Drawing.Point(749, 101);
             this.dgvFuncDisp.Name = "dgvFuncDisp";
             this.dgvFuncDisp.ReadOnly = true;
-            this.dgvFuncDisp.Size = new System.Drawing.Size(223, 359);
+            this.dgvFuncDisp.Size = new System.Drawing.Size(223, 261);
             this.dgvFuncDisp.TabIndex = 2;
             // 
             // dgvCodFunc
@@ -138,7 +138,7 @@ namespace IntreDesktop
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
-            this.btnLimpar.Location = new System.Drawing.Point(796, 533);
+            this.btnLimpar.Location = new System.Drawing.Point(719, 574);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(133, 67);
             this.btnLimpar.TabIndex = 60;
@@ -154,7 +154,7 @@ namespace IntreDesktop
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
-            this.btnVoltar.Location = new System.Drawing.Point(945, 533);
+            this.btnVoltar.Location = new System.Drawing.Point(858, 574);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(133, 67);
             this.btnVoltar.TabIndex = 59;
@@ -170,7 +170,7 @@ namespace IntreDesktop
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(648, 533);
+            this.btnPesquisar.Location = new System.Drawing.Point(797, 368);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
             this.btnPesquisar.TabIndex = 58;
@@ -186,7 +186,7 @@ namespace IntreDesktop
             this.btnDesativar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDesativar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDesativar.Image = ((System.Drawing.Image)(resources.GetObject("btnDesativar.Image")));
-            this.btnDesativar.Location = new System.Drawing.Point(500, 533);
+            this.btnDesativar.Location = new System.Drawing.Point(580, 574);
             this.btnDesativar.Name = "btnDesativar";
             this.btnDesativar.Size = new System.Drawing.Size(133, 67);
             this.btnDesativar.TabIndex = 57;
@@ -202,7 +202,7 @@ namespace IntreDesktop
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.Location = new System.Drawing.Point(351, 533);
+            this.btnAlterar.Location = new System.Drawing.Point(431, 574);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(133, 67);
             this.btnAlterar.TabIndex = 56;
@@ -218,7 +218,7 @@ namespace IntreDesktop
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
-            this.btnCadastrar.Location = new System.Drawing.Point(205, 533);
+            this.btnCadastrar.Location = new System.Drawing.Point(285, 574);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(133, 67);
             this.btnCadastrar.TabIndex = 55;
@@ -234,7 +234,7 @@ namespace IntreDesktop
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
-            this.btnNovo.Location = new System.Drawing.Point(60, 533);
+            this.btnNovo.Location = new System.Drawing.Point(140, 574);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(133, 67);
             this.btnNovo.TabIndex = 54;
