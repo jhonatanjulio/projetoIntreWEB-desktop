@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +17,8 @@ namespace IntreDesktop
         public int codImg { get; set; }
         public string titulo { get; set; }
         public string descricao { get; set; }
-        public string caminhoImg { get; set; }
+        public List<string> caminhoImg = new List<string>();
         public byte[] img { get; set; }
-
-
-
 
         public frmGaleria()
         {
@@ -75,7 +73,7 @@ namespace IntreDesktop
             this.Hide();
         }
 
-        private void btnInserir_Click(object sender, EventArgs e)
+        private void btnEnviar_Click(object sender, EventArgs e)
         {
             if (txtTitulo.Text.Equals("") || txtDescricao.Text.Equals(""))
             {
@@ -83,6 +81,20 @@ namespace IntreDesktop
             }
             else
             {
+                byte[] foto;
+
+                // ler bytes da foto
+                foreach(string caminho in this.caminhoImg)
+                {
+                    using (var stream = new FileStream(caminho, FileMode.Open, FileAccess.Read))
+                    {
+                        using (var reader = new BinaryReader(stream))
+                        {
+                            foto = reader.ReadBytes((int)stream.Length);
+                        }
+                    }
+                }
+                
                 MessageBox.Show("Inserido com sucesso!");
                 limparCampos();
 
@@ -100,6 +112,27 @@ namespace IntreDesktop
             else
             {
                 //Não excluir
+            }
+        }
+
+        private void btnInserirImg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog abrirImg = new OpenFileDialog();
+            abrirImg.InitialDirectory = ("d:\\imagens\\");
+            abrirImg.FileName = "Imagem";
+            abrirImg.Title = "Procurar Imagem";
+            abrirImg.Filter = ("Arquivos de imagem .jpg e .png|*.jpg; *png|*jpg|*.jpg|*jpeg|*.jpeg|*jfif|*.jfif|*png|*.png");
+            abrirImg.Multiselect = false;
+            if (abrirImg.ShowDialog() == DialogResult.OK)
+                this.caminhoImg.Add(abrirImg.FileName);
+
+            if (this.caminhoImg.Count > 0)
+                pcbPreview.Load(this.caminhoImg[0]);
+
+            lstImagens.Items.Clear();
+            foreach (string nomeArq in this.caminhoImg)
+            {
+                lstImagens.Items.Add(Path.GetFileName(nomeArq)); //PEGAR PELO INDEX DA LISTA MESMO INDEX DA LISTA CAMINHOIMG
             }
         }
     }
