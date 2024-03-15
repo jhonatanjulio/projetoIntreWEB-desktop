@@ -32,23 +32,28 @@ namespace IntreDesktop
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGaleria));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblDescricao = new System.Windows.Forms.Label();
-            this.lblCarregarFotos = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.txtCarregarFotos = new System.Windows.Forms.TextBox();
-            this.btnInserir = new System.Windows.Forms.Button();
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.btnInserirImg = new System.Windows.Forms.Button();
+            this.pcbPreview = new System.Windows.Forms.PictureBox();
+            this.lstImagens = new System.Windows.Forms.ListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeletarImg = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPreview)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(244, 65);
+            this.lblTitulo.Location = new System.Drawing.Point(117, 72);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(71, 25);
@@ -59,62 +64,44 @@ namespace IntreDesktop
             // 
             this.lblDescricao.AutoSize = true;
             this.lblDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescricao.Location = new System.Drawing.Point(244, 166);
+            this.lblDescricao.Location = new System.Drawing.Point(116, 134);
             this.lblDescricao.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(114, 25);
             this.lblDescricao.TabIndex = 1;
             this.lblDescricao.Text = "Descrição:";
             // 
-            // lblCarregarFotos
-            // 
-            this.lblCarregarFotos.AutoSize = true;
-            this.lblCarregarFotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarregarFotos.Location = new System.Drawing.Point(244, 399);
-            this.lblCarregarFotos.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblCarregarFotos.Name = "lblCarregarFotos";
-            this.lblCarregarFotos.Size = new System.Drawing.Size(162, 25);
-            this.lblCarregarFotos.TabIndex = 2;
-            this.lblCarregarFotos.Text = "Carregar Fotos:";
-            // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(249, 93);
+            this.txtTitulo.Location = new System.Drawing.Point(122, 100);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(629, 31);
+            this.txtTitulo.Size = new System.Drawing.Size(430, 31);
             this.txtTitulo.TabIndex = 3;
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(249, 194);
+            this.txtDescricao.Location = new System.Drawing.Point(121, 162);
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(629, 168);
+            this.txtDescricao.Size = new System.Drawing.Size(430, 168);
             this.txtDescricao.TabIndex = 4;
             // 
-            // txtCarregarFotos
+            // btnEnviar
             // 
-            this.txtCarregarFotos.Location = new System.Drawing.Point(249, 427);
-            this.txtCarregarFotos.Name = "txtCarregarFotos";
-            this.txtCarregarFotos.Size = new System.Drawing.Size(629, 31);
-            this.txtCarregarFotos.TabIndex = 5;
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnInserir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInserir.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInserir.Image = ((System.Drawing.Image)(resources.GetObject("btnInserir.Image")));
-            this.btnInserir.Location = new System.Drawing.Point(122, 570);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(133, 67);
-            this.btnInserir.TabIndex = 6;
-            this.btnInserir.Text = "Inserir";
-            this.btnInserir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInserir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInserir.UseVisualStyleBackColor = false;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnEnviar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Image = ((System.Drawing.Image)(resources.GetObject("btnEnviar.Image")));
+            this.btnEnviar.Location = new System.Drawing.Point(122, 570);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(133, 67);
+            this.btnEnviar.TabIndex = 6;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEnviar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEnviar.UseVisualStyleBackColor = false;
+            this.btnEnviar.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // btnAlterar
             // 
@@ -199,22 +186,83 @@ namespace IntreDesktop
             this.btnLimpar.UseVisualStyleBackColor = false;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // btnInserirImg
+            // 
+            this.btnInserirImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnInserirImg.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInserirImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserirImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInserirImg.Image = ((System.Drawing.Image)(resources.GetObject("btnInserirImg.Image")));
+            this.btnInserirImg.Location = new System.Drawing.Point(17, 55);
+            this.btnInserirImg.Name = "btnInserirImg";
+            this.btnInserirImg.Size = new System.Drawing.Size(124, 43);
+            this.btnInserirImg.TabIndex = 55;
+            this.btnInserirImg.Text = "Inserir";
+            this.btnInserirImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInserirImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInserirImg.UseVisualStyleBackColor = false;
+            // 
+            // pcbPreview
+            // 
+            this.pcbPreview.Location = new System.Drawing.Point(602, 121);
+            this.pcbPreview.Name = "pcbPreview";
+            this.pcbPreview.Size = new System.Drawing.Size(424, 341);
+            this.pcbPreview.TabIndex = 56;
+            this.pcbPreview.TabStop = false;
+            // 
+            // lstImagens
+            // 
+            this.lstImagens.FormattingEnabled = true;
+            this.lstImagens.ItemHeight = 25;
+            this.lstImagens.Location = new System.Drawing.Point(153, 49);
+            this.lstImagens.Name = "lstImagens";
+            this.lstImagens.Size = new System.Drawing.Size(260, 104);
+            this.lstImagens.TabIndex = 57;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnDeletarImg);
+            this.groupBox1.Controls.Add(this.lstImagens);
+            this.groupBox1.Controls.Add(this.btnInserirImg);
+            this.groupBox1.Location = new System.Drawing.Point(122, 336);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(430, 174);
+            this.groupBox1.TabIndex = 58;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Inserir Imagens:";
+            // 
+            // btnDeletarImg
+            // 
+            this.btnDeletarImg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnDeletarImg.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeletarImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletarImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletarImg.Image = ((System.Drawing.Image)(resources.GetObject("btnDeletarImg.Image")));
+            this.btnDeletarImg.Location = new System.Drawing.Point(17, 104);
+            this.btnDeletarImg.Name = "btnDeletarImg";
+            this.btnDeletarImg.Size = new System.Drawing.Size(124, 43);
+            this.btnDeletarImg.TabIndex = 59;
+            this.btnDeletarImg.Text = "Deletar";
+            this.btnDeletarImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeletarImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeletarImg.UseVisualStyleBackColor = false;
+            // 
             // frmGaleria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1127, 649);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pcbPreview);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
-            this.Controls.Add(this.btnInserir);
-            this.Controls.Add(this.txtCarregarFotos);
+            this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtTitulo);
-            this.Controls.Add(this.lblCarregarFotos);
             this.Controls.Add(this.lblDescricao);
             this.Controls.Add(this.lblTitulo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,6 +270,8 @@ namespace IntreDesktop
             this.Name = "frmGaleria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGaleria";
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPreview)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,15 +281,18 @@ namespace IntreDesktop
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblDescricao;
-        private System.Windows.Forms.Label lblCarregarFotos;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.TextBox txtCarregarFotos;
-        private System.Windows.Forms.Button btnInserir;
+        private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnInserirImg;
+        private System.Windows.Forms.PictureBox pcbPreview;
+        private System.Windows.Forms.ListBox lstImagens;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnDeletarImg;
     }
 }
