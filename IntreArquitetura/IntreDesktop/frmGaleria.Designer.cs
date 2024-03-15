@@ -45,6 +45,7 @@ namespace IntreDesktop
             this.lstImagens = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeletarImg = new System.Windows.Forms.Button();
+            this.abrirImg = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPreview)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +102,7 @@ namespace IntreDesktop
             this.btnEnviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEnviar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEnviar.UseVisualStyleBackColor = false;
-            this.btnEnviar.Click += new System.EventHandler(this.btnInserir_Click);
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // btnAlterar
             // 
@@ -201,19 +202,22 @@ namespace IntreDesktop
             this.btnInserirImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInserirImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInserirImg.UseVisualStyleBackColor = false;
+            this.btnInserirImg.Click += new System.EventHandler(this.btnInserirImg_Click);
             // 
             // pcbPreview
             // 
             this.pcbPreview.Location = new System.Drawing.Point(602, 121);
             this.pcbPreview.Name = "pcbPreview";
             this.pcbPreview.Size = new System.Drawing.Size(424, 341);
+            this.pcbPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbPreview.TabIndex = 56;
             this.pcbPreview.TabStop = false;
             // 
             // lstImagens
             // 
+            this.lstImagens.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstImagens.FormattingEnabled = true;
-            this.lstImagens.ItemHeight = 25;
+            this.lstImagens.ItemHeight = 20;
             this.lstImagens.Location = new System.Drawing.Point(153, 49);
             this.lstImagens.Name = "lstImagens";
             this.lstImagens.Size = new System.Drawing.Size(260, 104);
@@ -247,6 +251,10 @@ namespace IntreDesktop
             this.btnDeletarImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeletarImg.UseVisualStyleBackColor = false;
             // 
+            // abrirImg
+            // 
+            this.abrirImg.FileName = "openFileDialog1";
+            // 
             // frmGaleria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -269,7 +277,7 @@ namespace IntreDesktop
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmGaleria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmGaleria";
+            this.Text = "S";
             ((System.ComponentModel.ISupportInitialize)(this.pcbPreview)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -294,5 +302,6 @@ namespace IntreDesktop
         private System.Windows.Forms.ListBox lstImagens;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDeletarImg;
+        private System.Windows.Forms.OpenFileDialog abrirImg;
     }
 }
