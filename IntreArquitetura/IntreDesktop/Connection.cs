@@ -9,7 +9,7 @@ namespace IntreDesktop
 {
     class Connection
     {
-        private static string userPass = "Server=localhost;Port=3306;Database=dbaluguelmesa;Uid=admindb;Pwd=123456";
+        private static string userPass = "Server=localhost;Port=3306;Database=dbintre;Uid=admindb;Pwd=123456";
         private static MySqlConnection con = null;
 
         public static MySqlConnection abrirConexao()
