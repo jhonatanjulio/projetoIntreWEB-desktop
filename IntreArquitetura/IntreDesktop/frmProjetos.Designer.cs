@@ -56,13 +56,13 @@ namespace IntreDesktop
             this.cbbRevestimento = new System.Windows.Forms.ComboBox();
             this.lblMarcenaria = new System.Windows.Forms.Label();
             this.cbbMarcenaria = new System.Windows.Forms.ComboBox();
-            this.txtDescricaoAmbiente = new System.Windows.Forms.TextBox();
             this.lblDescricaoAmbiente = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnArquivar = new System.Windows.Forms.Button();
             this.nudMetragem = new System.Windows.Forms.NumericUpDown();
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.lblNome = new System.Windows.Forms.Label();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.cbbCliente = new System.Windows.Forms.ComboBox();
+            this.cbbAmbiente = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudMetragem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,6 +130,7 @@ namespace IntreDesktop
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnNovo
             // 
@@ -350,14 +351,6 @@ namespace IntreDesktop
             this.cbbMarcenaria.Size = new System.Drawing.Size(460, 33);
             this.cbbMarcenaria.TabIndex = 47;
             // 
-            // txtDescricaoAmbiente
-            // 
-            this.txtDescricaoAmbiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescricaoAmbiente.Location = new System.Drawing.Point(624, 461);
-            this.txtDescricaoAmbiente.Name = "txtDescricaoAmbiente";
-            this.txtDescricaoAmbiente.Size = new System.Drawing.Size(460, 30);
-            this.txtDescricaoAmbiente.TabIndex = 50;
-            // 
             // lblDescricaoAmbiente
             // 
             this.lblDescricaoAmbiente.AutoSize = true;
@@ -415,23 +408,37 @@ namespace IntreDesktop
             this.nudMetragem.Size = new System.Drawing.Size(217, 30);
             this.nudMetragem.TabIndex = 55;
             // 
-            // txtNome
+            // lblCliente
             // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(81, 57);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(460, 30);
-            this.txtNome.TabIndex = 57;
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(77, 30);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(85, 25);
+            this.lblCliente.TabIndex = 56;
+            this.lblCliente.Text = "Cliente:";
             // 
-            // lblNome
+            // cbbCliente
             // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNome.Location = new System.Drawing.Point(77, 30);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(74, 25);
-            this.lblNome.TabIndex = 56;
-            this.lblNome.Text = "Nome:";
+            this.cbbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbCliente.FormattingEnabled = true;
+            this.cbbCliente.Items.AddRange(new object[] {
+            "a"});
+            this.cbbCliente.Location = new System.Drawing.Point(82, 54);
+            this.cbbCliente.Name = "cbbCliente";
+            this.cbbCliente.Size = new System.Drawing.Size(460, 33);
+            this.cbbCliente.TabIndex = 57;
+            this.cbbCliente.SelectedIndexChanged += new System.EventHandler(this.cbbCliente_SelectedIndexChanged);
+            // 
+            // cbbAmbiente
+            // 
+            this.cbbAmbiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbAmbiente.FormattingEnabled = true;
+            this.cbbAmbiente.Location = new System.Drawing.Point(623, 462);
+            this.cbbAmbiente.Name = "cbbAmbiente";
+            this.cbbAmbiente.Size = new System.Drawing.Size(460, 33);
+            this.cbbAmbiente.TabIndex = 58;
+            this.cbbAmbiente.SelectedIndexChanged += new System.EventHandler(this.cbbAmbiente_SelectedIndexChanged);
             // 
             // frmProjetos
             // 
@@ -439,12 +446,12 @@ namespace IntreDesktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1127, 649);
-            this.Controls.Add(this.txtNome);
-            this.Controls.Add(this.lblNome);
+            this.Controls.Add(this.cbbAmbiente);
+            this.Controls.Add(this.cbbCliente);
+            this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.nudMetragem);
             this.Controls.Add(this.btnArquivar);
             this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.txtDescricaoAmbiente);
             this.Controls.Add(this.lblDescricaoAmbiente);
             this.Controls.Add(this.lblMarcenaria);
             this.Controls.Add(this.cbbMarcenaria);
@@ -512,12 +519,12 @@ namespace IntreDesktop
         private System.Windows.Forms.ComboBox cbbRevestimento;
         private System.Windows.Forms.Label lblMarcenaria;
         private System.Windows.Forms.ComboBox cbbMarcenaria;
-        private System.Windows.Forms.TextBox txtDescricaoAmbiente;
         private System.Windows.Forms.Label lblDescricaoAmbiente;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnArquivar;
         private System.Windows.Forms.NumericUpDown nudMetragem;
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label lblNome;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.ComboBox cbbCliente;
+        private System.Windows.Forms.ComboBox cbbAmbiente;
     }
 }
