@@ -14,56 +14,80 @@ namespace IntreDesktop
 {
     public partial class frmGaleria : Form
     {
-        public int codImg { get; set; }
-        public string titulo { get; set; }
-        public string descricao { get; set; }
-        public List<string> caminhoImg = new List<string>();
-        public byte[] img { get; set; }
+        public int codImg = 1;
+        public List<byte[]> imgByteList = new List<byte[]>();
 
         public frmGaleria()
         {
             InitializeComponent();
         }
 
-    public void limparCampos()
+        public void limparCampos()
         {
             txtTitulo.Clear();
             txtDescricao.Clear();
             txtTitulo.Focus();
+
+            imgByteList.Clear();
+            lstImagens.Items.Clear();
+            pcbPreview.Image = null;
         }
 
-        //Enviar Imagem
-        //public void cadastrarProjeto()
-        //{
-        //    MySqlCommand comm = new MySqlCommand();
-        //    comm.CommandText = "insert into tbProjetos(formaContato,logradouro,bairro,estado,cidade,complemento,tipoImovel,tipoServico,metragem,revestimentos,marcenaria,descricaoAmbiente," +
-        //        "codCli,codAmb) values(@formaContato,@rua,@bairro,@estado,@cidade,@complemento,@tipoImovel,@tipoServico,@metragem,@revestimento,@marcenaria,@descricaoAmbiente);";
-        //    comm.CommandType = CommandType.Text;
+        // Pesquisar Codigo Img
+        public void pesquisarCodImg()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codImg+1 from tbGaleria order by codImg desc;";
+            comm.CommandType = CommandType.Text;
 
-        //    comm.Parameters.Clear();
-        //    comm.Parameters.Add("@formaContato", MySqlDbType.VarChar, 50).Value = txtFormaContato.Text;
-        //    comm.Parameters.Add("@rua", MySqlDbType.VarChar, 50).Value = txtRua.Text;
-        //    comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
-        //    comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = txtEstado.Text;
-        //    comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
-        //    comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 50).Value = txtComplemento.Text;
-        //    comm.Parameters.Add("@tipoImovel", MySqlDbType.VarChar, 50).Value = cbbTipoImovel.Text;
-        //    comm.Parameters.Add("@tipoServico", MySqlDbType.VarChar, 50).Value = cbbTipoServico.Text;
-        //    comm.Parameters.Add("@metragem", MySqlDbType.Decimal).Value = nudMetragem.Value;
-        //    comm.Parameters.Add("@revestimento", MySqlDbType.VarChar, 50).Value = cbbRevestimento.Text;
-        //    comm.Parameters.Add("@marcenaria", MySqlDbType.VarChar, 50).Value = cbbMarcenaria.Text;
-        //    comm.Parameters.Add("@descricaoAmbiente", MySqlDbType.VarChar, 50).Value = txtDescricaoAmbiente.Text;
+            comm.Connection = Connection.abrirConexao();
+            MySqlDataReader DR;
 
-        //    comm.Connection = Connection.abrirConexao();
+            DR = comm.ExecuteReader();
+            DR.Read();
 
-        //    comm.ExecuteNonQuery();
+            codImg = Convert.ToInt32(DR.GetValue(0));
 
-        //    Connection.fecharConexao();
-        //}
+            Connection.fecharConexao();
+        }
+
+        // Enviar Imagem
+        public void cadastrarProjeto(byte[] img)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "insert into tbGaleria(codImg, tituloGal, descricaoGal, fotosGaleria) values(@codImg, @tituloGal, @descricaoGal, @fotosGaleria);";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
+            comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
+            comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
+            comm.Parameters.Add("@fotosGaleria", MySqlDbType.VarBinary).Value = img;
+
+            comm.Connection = Connection.abrirConexao();
+
+            comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+        }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        public static Image ConvertToImage(System.Data.Linq.Binary iBinary)
+        {
+            
+            var arrayBinary = iBinary.ToArray();
+            Image rImage = null;
+
+            using (MemoryStream ms = new MemoryStream(arrayBinary))
+            {
+
+                rImage = Image.FromStream(ms);
+            }
+            return rImage;
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -75,29 +99,19 @@ namespace IntreDesktop
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (txtTitulo.Text.Equals("") || txtDescricao.Text.Equals(""))
+            if (txtTitulo.Text.Equals("") || txtDescricao.Text.Equals("") || imgByteList.Count == 0)
             {
                 MessageBox.Show("Preencha todos o campos!");
             }
             else
             {
-                byte[] foto;
-
-                // ler bytes da foto
-                foreach(string caminho in this.caminhoImg)
+                foreach (byte[] byteImg in imgByteList)
                 {
-                    using (var stream = new FileStream(caminho, FileMode.Open, FileAccess.Read))
-                    {
-                        using (var reader = new BinaryReader(stream))
-                        {
-                            foto = reader.ReadBytes((int)stream.Length);
-                        }
-                    }
+                    cadastrarProjeto(byteImg);
                 }
-                
                 MessageBox.Show("Inserido com sucesso!");
+                pesquisarCodImg();
                 limparCampos();
-
             }
         }
 
@@ -109,10 +123,6 @@ namespace IntreDesktop
                 //Excluir
                 MessageBox.Show("Excluido com sucesso");
             }
-            else
-            {
-                //Não excluir
-            }
         }
 
         private void btnInserirImg_Click(object sender, EventArgs e)
@@ -123,17 +133,59 @@ namespace IntreDesktop
             abrirImg.Title = "Procurar Imagem";
             abrirImg.Filter = ("Arquivos de imagem .jpg e .png|*.jpg; *png|*jpg|*.jpg|*jpeg|*.jpeg|*jfif|*.jfif|*png|*.png");
             abrirImg.Multiselect = false;
-            if (abrirImg.ShowDialog() == DialogResult.OK)
-                this.caminhoImg.Add(abrirImg.FileName);
-
-            if (this.caminhoImg.Count > 0)
-                pcbPreview.Load(this.caminhoImg[0]);
-
-            lstImagens.Items.Clear();
-            foreach (string nomeArq in this.caminhoImg)
+            
+            if (abrirImg.ShowDialog() == DialogResult.OK) // converter a foto inserida em bytes[] e add o byte da foto na lista de bytes (imagens) img
             {
-                lstImagens.Items.Add(Path.GetFileName(nomeArq)); //PEGAR PELO INDEX DA LISTA MESMO INDEX DA LISTA CAMINHOIMG
+                byte[] foto = null;
+                using (var stream = new FileStream(abrirImg.FileName, FileMode.Open, FileAccess.Read))
+                {
+                    using (var reader = new BinaryReader(stream))
+                    {
+                        foto = reader.ReadBytes((int)stream.Length);
+                    }
+                }
+                imgByteList.Add(foto);
+                lstImagens.Items.Add("Imagem " + imgByteList.Count.ToString());
+                lstImagens.SelectedIndex = imgByteList.Count - 1;
+                try
+                {
+                    pcbPreview.Image = ConvertToImage(foto);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro! Imagem inválida ou corrompida.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    imgByteList.RemoveAt(imgByteList.Count - 1);
+                    lstImagens.Items.RemoveAt(lstImagens.Items.Count - 1);
+                }
             }
+        }
+
+        private void btnTeste_Click(object sender, EventArgs e) // ação de carregar lista quando pesquisar (já pronto pra quando implementar o select do mysql)
+        {
+            lstImagens.Items.Clear();
+            for (int i = 0; i < imgByteList.Count; i++)
+            {
+                lstImagens.Items.Add("Imagem " + (i + 1).ToString());
+            }
+        }
+
+        private void lstImagens_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lstImagens.Items.Count > 0)
+                    pcbPreview.Image = ConvertToImage(imgByteList[lstImagens.SelectedIndex]);
+            }
+            catch (Exception)
+            {
+                lstImagens.SelectedIndex = lstImagens.Items.Count - 1;
+            }
+            
+        }
+
+        private void frmGaleria_Load(object sender, EventArgs e) // carregar codigo dos ultimos registros inseridos e atualizar a var global codImg para prox inserts
+        {
+            pesquisarCodImg();
         }
     }
 }
