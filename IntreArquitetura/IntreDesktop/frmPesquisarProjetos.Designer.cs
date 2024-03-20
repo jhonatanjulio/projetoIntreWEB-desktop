@@ -29,15 +29,33 @@ namespace IntreDesktop
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisarProjetos));
             this.dgvPesquisa = new System.Windows.Forms.DataGridView();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.rdbNome = new System.Windows.Forms.RadioButton();
             this.rdbAndamento = new System.Windows.Forms.RadioButton();
             this.rdbArquivados = new System.Windows.Forms.RadioButton();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbTipoPesquisar.SuspendLayout();
             this.gpbPesquisar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisa)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(471, 484);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(171, 484);
+            // 
+            // btnAtivar
+            // 
+            this.btnAtivar.Location = new System.Drawing.Point(321, 484);
             // 
             // gpbTipoPesquisar
             // 
@@ -51,10 +69,13 @@ namespace IntreDesktop
             // 
             // dgvPesquisa
             // 
-            this.dgvPesquisa.AllowUserToAddRows = false;
-            this.dgvPesquisa.AllowUserToDeleteRows = false;
             this.dgvPesquisa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.dgvPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPesquisa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
             this.dgvPesquisa.Location = new System.Drawing.Point(107, 164);
             this.dgvPesquisa.Name = "dgvPesquisa";
             this.dgvPesquisa.ReadOnly = true;
@@ -109,11 +130,56 @@ namespace IntreDesktop
             this.rdbArquivados.Text = "Arquivados";
             this.rdbArquivados.UseVisualStyleBackColor = true;
             // 
+            // btnAlterar
+            // 
+            this.btnAlterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnAlterar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
+            this.btnAlterar.Location = new System.Drawing.Point(620, 484);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(133, 67);
+            this.btnAlterar.TabIndex = 62;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAlterar.UseVisualStyleBackColor = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nome:";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 170;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tipo de imovel:";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 170;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Tipo de serviço:";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 170;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Status:";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 170;
+            // 
             // frmPesquisarProjetos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 563);
+            this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.dgvPesquisa);
             this.Name = "frmPesquisarProjetos";
             this.Text = "frmPesquisarProjetos";
@@ -123,6 +189,7 @@ namespace IntreDesktop
             this.Controls.SetChildIndex(this.btnAtivar, 0);
             this.Controls.SetChildIndex(this.gpbTipoPesquisar, 0);
             this.Controls.SetChildIndex(this.gpbPesquisar, 0);
+            this.Controls.SetChildIndex(this.btnAlterar, 0);
             this.gpbTipoPesquisar.ResumeLayout(false);
             this.gpbTipoPesquisar.PerformLayout();
             this.gpbPesquisar.ResumeLayout(false);
@@ -139,5 +206,10 @@ namespace IntreDesktop
         private System.Windows.Forms.RadioButton rdbArquivados;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton rdbNome;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

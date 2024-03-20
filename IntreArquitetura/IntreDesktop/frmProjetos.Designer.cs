@@ -98,6 +98,7 @@ namespace IntreDesktop
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnAlterar
             // 
@@ -259,6 +260,7 @@ namespace IntreDesktop
             // 
             // cbbTipoImovel
             // 
+            this.cbbTipoImovel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTipoImovel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTipoImovel.FormattingEnabled = true;
             this.cbbTipoImovel.Items.AddRange(new object[] {
@@ -290,6 +292,7 @@ namespace IntreDesktop
             // 
             // cbbTipoServico
             // 
+            this.cbbTipoServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTipoServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTipoServico.FormattingEnabled = true;
             this.cbbTipoServico.Items.AddRange(new object[] {
@@ -321,6 +324,7 @@ namespace IntreDesktop
             // 
             // cbbRevestimento
             // 
+            this.cbbRevestimento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRevestimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbRevestimento.FormattingEnabled = true;
             this.cbbRevestimento.Items.AddRange(new object[] {
@@ -342,6 +346,7 @@ namespace IntreDesktop
             // 
             // cbbMarcenaria
             // 
+            this.cbbMarcenaria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbMarcenaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbMarcenaria.FormattingEnabled = true;
             this.cbbMarcenaria.Items.AddRange(new object[] {
@@ -420,6 +425,7 @@ namespace IntreDesktop
             // 
             // cbbCliente
             // 
+            this.cbbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbCliente.FormattingEnabled = true;
             this.cbbCliente.Items.AddRange(new object[] {
@@ -432,6 +438,7 @@ namespace IntreDesktop
             // 
             // cbbAmbiente
             // 
+            this.cbbAmbiente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbAmbiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbAmbiente.FormattingEnabled = true;
             this.cbbAmbiente.Location = new System.Drawing.Point(623, 462);
