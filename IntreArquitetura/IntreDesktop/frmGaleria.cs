@@ -21,6 +21,10 @@ namespace IntreDesktop
         {
             InitializeComponent();
         }
+        public frmGaleria(int codImg, string tit, string desc, List<byte[]> bytesList)
+        {
+        }
+
 
         public void limparCampos()
         {
@@ -44,9 +48,11 @@ namespace IntreDesktop
             MySqlDataReader DR;
 
             DR = comm.ExecuteReader();
-            DR.Read();
-
-            codImg = Convert.ToInt32(DR.GetValue(0));
+            
+            if (DR.Read())
+            {
+                codImg = Convert.ToInt32(DR.GetValue(0));
+            }
 
             Connection.fecharConexao();
         }
