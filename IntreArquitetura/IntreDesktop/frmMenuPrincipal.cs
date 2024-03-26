@@ -16,5 +16,19 @@ namespace IntreDesktop
         {
             InitializeComponent();
         }
+
+        private void btnProjetos_Click(object sender, EventArgs e)
+        {
+            frmProjetos abrir = new frmProjetos();
+            abrir.Show();
+            this.Hide();
+        }
+
+        private void btnGaleria_Click(object sender, EventArgs e)
+        {
+            frmGaleria abrir = new frmGaleria();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

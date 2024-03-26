@@ -14,15 +14,22 @@ namespace IntreDesktop
 {
     public partial class frmGaleria : Form
     {
-        public int codImg = 1;
-        public List<byte[]> imgByteList = new List<byte[]>();
+        private int codImg = 1;
+        private List<byte[]> imgByteList = new List<byte[]>();
 
         public frmGaleria()
         {
             InitializeComponent();
         }
-        public frmGaleria(int codImg, string tit, string desc, List<byte[]> bytesList)
+        public frmGaleria(int cod, string tit, string desc, List<byte[]> bytesList)
         {
+            txtTitulo.Text = tit;
+            txtDescricao.Text = desc;
+            codImg = cod;
+            foreach (byte[] bytes in bytesList)
+            {
+                imgByteList.Add(bytes);
+            }
         }
 
 
@@ -82,7 +89,7 @@ namespace IntreDesktop
             limparCampos();
         }
 
-        public static Image ConvertToImage(System.Data.Linq.Binary iBinary)
+        public static Image ConvertToImage(System.Data.Linq.Binary iBinary) // função converter o byte[] em img
         {
             
             var arrayBinary = iBinary.ToArray();
@@ -192,6 +199,18 @@ namespace IntreDesktop
         private void frmGaleria_Load(object sender, EventArgs e) // carregar codigo dos ultimos registros inseridos e atualizar a var global codImg para prox inserts
         {
             pesquisarCodImg();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisarGaleria abrir = new frmPesquisarGaleria();
+            abrir.Show();
+            this.Hide();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

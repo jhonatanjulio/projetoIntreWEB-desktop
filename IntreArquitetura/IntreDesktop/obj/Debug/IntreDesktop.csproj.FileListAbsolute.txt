@@ -218,3 +218,46 @@ C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquit
 C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
 C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
 C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\MySql.Data.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Buffers.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Memory.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\ZstdNet.dll
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.pdb
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\MySql.Data.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Buffers.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Memory.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.AssemblyReference.cache
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmClientes.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmFuncionarios.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmGaleria.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmLogin.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmMenuPrincipal.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmOrcamentos.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisar.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarProjetos.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmProjetos.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmUsuarios.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.Properties.Resources.resources
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.GenerateResource.cache
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CoreCompileInputs.cache
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CopyComplete
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
+C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
