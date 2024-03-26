@@ -15,14 +15,74 @@ namespace IntreDesktop
     {
         private int codCli;
         private int codAmb;
+        //string[] listAmb = new string[5];
+        List<string> listAmb = new List<string>();
+
+
+        //verificando as checkBox
+        public void verificando()
+        {
+            if (ckbSalaEstar.Checked)
+            {
+                listAmb.Add("Sala de Estar");
+            }
+            if (ckbSalaJantar.Checked)
+            {
+                listAmb.Add("Sala de Jantar");
+            }
+            if (ckbCozinhas.Checked)
+            {
+                listAmb.Add("Cozinha");
+            }
+            if (ckbSuite.Checked)
+            {
+                listAmb.Add("Suíte");
+            }
+            if (ckbVaranda.Checked)
+            {
+                listAmb.Add("Varanda");
+            }
+            if (ckbQuarto.Checked)
+            {
+                listAmb.Add("Quarto");
+            }
+            if (ckbDoisQuarto.Checked)
+            {
+                listAmb.Add("2 Quartos");
+            }
+            if (ckbTresQuarto.Checked)
+            {
+                listAmb.Add("3 Quartos");
+            }
+            if (ckbBanheiro.Checked)
+            {
+                listAmb.Add("Banheiro Social");
+            }
+            if (ckbEscritorio.Checked)
+            {
+                listAmb.Add("Escritório");
+            }
+
+            if (ckbAreaServico.Checked)
+            {
+                listAmb.Add("Área de Serviço");
+            }
+            if (ckbOutros.Checked)
+            {
+                listAmb.Add(txtOutros.Text);
+            }
+        }
+
 
         public frmProjetos()
         {
             InitializeComponent();
             carregaNomeCLi();
-            carregaAmb();
+            codigoAmbiente();
             desabilitarCampos();
+
         }
+
 
         public void desabilitarCampos()
         {
@@ -33,7 +93,7 @@ namespace IntreDesktop
             txtCidade.Enabled = false;
             txtComplemento.Enabled = false;
             txtEstado.Enabled = false;
-            cbbAmbiente.Enabled = false;
+            gpbAmbientes.Enabled = false;
             cbbMarcenaria.Enabled = false;
             nudMetragem.Enabled = false;
             cbbRevestimento.Enabled = false;
@@ -56,7 +116,7 @@ namespace IntreDesktop
             txtCidade.Enabled = true;
             txtComplemento.Enabled = true;
             txtEstado.Enabled = true;
-            cbbAmbiente.Enabled = true;
+            gpbAmbientes.Enabled = true;
             cbbMarcenaria.Enabled = true;
             nudMetragem.Enabled = true;
             cbbRevestimento.Enabled = true;
@@ -77,7 +137,7 @@ namespace IntreDesktop
             txtBairro.Clear();
             txtCidade.Clear();
             txtComplemento.Clear();
-            cbbAmbiente.SelectedIndex = -1;
+
             nudMetragem.ResetText();
             cbbMarcenaria.SelectedIndex = -1;
 
@@ -130,7 +190,7 @@ namespace IntreDesktop
         }
 
         //Carrega nome ambiente ccb
-        public void carregaAmb()
+        /*public void carregaAmb()
         {
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "SELECT nomeAmb FROM `tbambientes`;";
@@ -148,7 +208,7 @@ namespace IntreDesktop
             }
 
             Connection.fecharConexao();
-        }
+        }*/
 
 
 
@@ -171,24 +231,27 @@ namespace IntreDesktop
 
             //txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
 
-            if(cbbCliente.SelectedIndex != -1)
+            if (cbbCliente.SelectedIndex != -1)
             {
                 codCli = DR.GetInt16(0);
             }
-            
+
 
             Connection.fecharConexao();
         }
 
+
+        //int codAmbb;
         //Carrega codigo do ambiente
         public void codigoAmbiente()
         {
+
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT codAmb FROM `tbambientes` WHERE nomeAmb = @ambiente;";
+            comm.CommandText = "SELECT codAmb FROM `tbprojetos`;";
             comm.CommandType = CommandType.Text;
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@ambiente", MySqlDbType.VarChar, 50).Value = cbbAmbiente.SelectedItem;
+            //comm.Parameters.Clear();
+            //comm.Parameters.Add("@ambiente", MySqlDbType.Int32).Value = codAmbb;
 
             comm.Connection = Connection.abrirConexao();
             MySqlDataReader DR;
@@ -196,14 +259,27 @@ namespace IntreDesktop
 
             DR.Read();
 
-            //txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
-            if(cbbAmbiente.SelectedIndex != -1)
-            {
-                codAmb = DR.GetInt16(0);
-            }
-            
+            codAmb = (DR.GetInt32(0) + 1);
+
+
 
             Connection.fecharConexao();
+        }
+
+
+        //insert da tabela ambientes
+        public void cadastrarAmbiente()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            if (ckbAreaServico.Checked)
+            {
+
+            }
+
         }
 
         //Cadastrar projeto 
@@ -226,10 +302,10 @@ namespace IntreDesktop
             comm.Parameters.Add("@metragem", MySqlDbType.Decimal).Value = nudMetragem.Value;
             comm.Parameters.Add("@revestimento", MySqlDbType.VarChar, 50).Value = cbbRevestimento.Text;
             comm.Parameters.Add("@marcenaria", MySqlDbType.VarChar, 50).Value = cbbMarcenaria.Text;
-            comm.Parameters.Add("@descricaoAmbiente", MySqlDbType.VarChar, 50).Value = cbbAmbiente.Text;
+            comm.Parameters.Add("@descricaoAmbiente", MySqlDbType.VarChar, 50).Value = txtDescricaoAmbiente.Text;
             comm.Parameters.Add("@status", MySqlDbType.Bit).Value = true;
             comm.Parameters.Add("@codCli", MySqlDbType.Int16).Value = codCli;
-            comm.Parameters.Add("@codAmb", MySqlDbType.Int16).Value = codAmb;
+            comm.Parameters.Add("@codAmb", MySqlDbType.VarChar, 50).Value = codAmb;
 
             comm.Connection = Connection.abrirConexao();
 
@@ -242,16 +318,16 @@ namespace IntreDesktop
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if(txtRua.Text.Equals(" ") || txtFormaContato.Text.Equals("") || cbbCliente.Text.Equals("") || txtEstado.Text.Equals("")|| txtComplemento.Text.Equals("")
-                || txtCidade.Text.Equals("") || txtBairro.Text.Equals("") || cbbMarcenaria.Text.Equals("")|| cbbAmbiente.Text.Equals("") || cbbRevestimento.Text.Equals("")
-                || cbbTipoImovel.Text.Equals("")|| cbbTipoServico.Text.Equals("") || txtComplemento.Text.Equals(""))
+            if (txtRua.Text.Equals(" ") || txtFormaContato.Text.Equals("") || cbbCliente.Text.Equals("") || txtEstado.Text.Equals("") || txtComplemento.Text.Equals("")
+                || txtCidade.Text.Equals("") || txtBairro.Text.Equals("") || cbbMarcenaria.Text.Equals("") || cbbRevestimento.Text.Equals("")
+                || cbbTipoImovel.Text.Equals("") || cbbTipoServico.Text.Equals("") || txtComplemento.Text.Equals(""))
             {
                 MessageBox.Show("Preencha todos os campos!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 limparCampos();
             }
             else
             {
-                if(cadastrarProjeto() == 1)
+                if (cadastrarProjeto() == 1)
                 {
                     MessageBox.Show("Cadastrado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     limparCampos();
@@ -263,10 +339,10 @@ namespace IntreDesktop
                     limparCampos();
                     desabilitarCampos();
                 }
-                
+
             }
-            
-            
+
+
         }
 
         private void cbbCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -276,7 +352,7 @@ namespace IntreDesktop
 
         private void cbbAmbiente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            codigoAmbiente();
+            //  codigoAmbiente();
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -284,6 +360,21 @@ namespace IntreDesktop
             frmPesquisarProjetos abrir = new frmPesquisarProjetos();
             abrir.Show();
             this.Hide();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            verificando();
+            foreach (string item in listAmb)
+            {
+                MessageBox.Show(item);
+
+            }
         }
     }
 }

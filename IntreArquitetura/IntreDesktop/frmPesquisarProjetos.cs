@@ -128,6 +128,7 @@ namespace IntreDesktop
             limpar();
         }
 
+
         private void dgvPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             for (int i = 0; i < dgvPesquisa.Rows[e.RowIndex].Cells.Count; i++)
@@ -144,14 +145,14 @@ namespace IntreDesktop
                         break;
                     case "coluna3":
                         tipoServico = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break; 
+                        break;
                     case "coluna4":
                         status = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
                         break;
                 }
             }
 
-            MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoServico + " " + status);
+            MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
         }
     }
 }
