@@ -17,6 +17,7 @@ namespace IntreDesktop
         private int codImg = 0;
         private string tituloGal;
         private string descricaoGal;
+        private List<byte[]> imgByteList = new List<byte[]>();
 
         public frmPesquisarGaleria()
         {
@@ -35,7 +36,7 @@ namespace IntreDesktop
         public void pesquisarGalTitulo()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select codImg, tituloGal, descricaoGal from tbGaleria where tituloGal like @titulo ";
+            comm.CommandText = "select codImg, tituloGal, descricaoGal, fotosGaleria from tbGaleria where tituloGal like @titulo ";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -49,10 +50,13 @@ namespace IntreDesktop
             dgvPesquisa.Rows.Clear();
             while (DR.Read())
             {
-                if (Convert.ToInt32(DR.GetString("codImg")) != cod)
+                if (DR.HasRows)
                 {
-                    dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
-                    cod = Convert.ToInt32(DR.GetString("codImg"));
+                    if (Convert.ToInt32(DR.GetString("codImg")) != cod)
+                    {
+                        dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
+                        cod = Convert.ToInt32(DR.GetString("codImg"));
+                    }
                 }
             }
             Connection.fecharConexao();
@@ -76,14 +80,19 @@ namespace IntreDesktop
             dgvPesquisa.Rows.Clear();
             while (DR.Read())
             {
-                if (Convert.ToInt32(DR.GetString("codImg")) != cod)
+                if (DR.HasRows)
                 {
-                    dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
-                    cod = Convert.ToInt32(DR.GetString("codImg"));
+                    if (Convert.ToInt32(DR.GetString("codImg")) != cod)
+                    {
+                        dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
+                        cod = Convert.ToInt32(DR.GetString("codImg"));
+                    }
                 }
             }
             Connection.fecharConexao();
         }
+
+
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -113,6 +122,32 @@ namespace IntreDesktop
             limparCampos();
         }
 
+        private void pesquisarBytes() //função sql para pesquisar os bytes das fotos inseridas
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select fotosGaleria from tbGaleria where codImg = @codImg";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
+
+            comm.Connection = Connection.abrirConexao();
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+            byte[] byteImg = null;
+            imgByteList.Clear();
+            while (DR.Read())
+            {
+                if (DR.HasRows)
+                {
+                    byteImg = (byte[])DR.GetValue(0);
+                    imgByteList.Add(byteImg);
+                }
+            }
+            Connection.fecharConexao();
+        }
+
         private void dgvPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             for (int i = 0; i < dgvPesquisa.Rows[e.RowIndex].Cells.Count; i++)
@@ -131,9 +166,23 @@ namespace IntreDesktop
                         descricaoGal = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
                         break;
                 }
-            }
 
-            MessageBox.Show(codImg.ToString() + " " + tituloGal + " " + descricaoGal);
+                pesquisarBytes();
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (imgByteList.Count > 0)
+            {
+                frmGaleria abrir = new frmGaleria(codImg, tituloGal, descricaoGal, imgByteList);
+                abrir.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Selecione pelo menos um registro!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
         }
     }
 }
