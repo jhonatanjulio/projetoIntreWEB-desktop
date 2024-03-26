@@ -218,3 +218,4 @@ C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquit
 C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
 C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
 C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
