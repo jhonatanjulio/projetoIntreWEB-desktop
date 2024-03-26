@@ -263,7 +263,6 @@ C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\I
 C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
 C:\Users\jhonatan.jgmachado\Documents\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
 =======
-<<<<<<< HEAD
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
@@ -307,7 +306,6 @@ C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CopyComplete
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
-=======
 C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
 >>>>>>> ad18a21f0acd645343326440a3612a1e43fccb50
 >>>>>>> 07163f325e651139c968994c06f037966eed7a38
