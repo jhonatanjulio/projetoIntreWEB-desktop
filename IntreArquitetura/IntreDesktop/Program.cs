@@ -16,7 +16,11 @@ namespace IntreDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new frmLogin());
+=======
+            Application.Run(new frmProjetos());
+>>>>>>> ad18a21f0acd645343326440a3612a1e43fccb50
         }
     }
 }

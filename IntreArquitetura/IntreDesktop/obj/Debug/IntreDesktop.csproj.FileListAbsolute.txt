@@ -218,6 +218,7 @@ C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquit
 C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
 C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
 C:\Users\jhonatan.jgmachado\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+<<<<<<< HEAD
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
@@ -261,3 +262,6 @@ C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CopyComplete
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
+=======
+C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+>>>>>>> ad18a21f0acd645343326440a3612a1e43fccb50
