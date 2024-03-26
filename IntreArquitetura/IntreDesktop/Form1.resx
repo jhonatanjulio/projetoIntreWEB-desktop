@@ -117,29 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="coluna1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
-  <metadata name="coluna2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="pageSetupDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>138, 17</value>
   </metadata>
-  <metadata name="coluna3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="coluna4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAlterar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAUtJREFUSEvtljFOw0AQRV1xAGvXDSeIJZgZihRBdHQUXIAubaSUuUKORQNJx0GQ
-        KAI0CAjj6DuKktmwbGzc5EkjSx7//7Pj2N7sSFNILj12PJdCznGqfSinPjl+Zi9LrRfydIlWe3DB1+x5
-        gdBV6Y94J0c3uKR5qJA78vyxGboO9/ypox/i0uZQ07EGfG0HbtU3eZlA0jxG4BKtdjkoWP8ktzqWe3by
-        ZhlZBWl6sN6vqSX+rSBPC65WagljChZpwavxGsKYgkXiip28WsKYgkVisCHSN9EA7SgsD7TCJIk2OHMX
-        V7sevEA7zK5o/whjSt/VM1iEsYRopQd7GcEijCVEKy3YyVOZlSewCGOJ0fp7sIbqt/kU8v1YBmjFBevj
-        qPf0sRpv1EprLDO02uVfgzv9iHeybanpZKNW08nWtIZzLsnJQ3XEqSMHkmU/H+ildUxY5mAAAAAASUVO
-        RK5CYII=
-</value>
-  </data>
 </root>

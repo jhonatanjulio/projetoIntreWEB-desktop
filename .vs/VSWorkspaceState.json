@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\IntreArquitetura",
+    "\\IntreArquitetura\\IntreDesktop"
   ],
+  "SelectedNode": "\\IntreArquitetura\\IntreDesktop\\frmLogin.resx",
   "PreviewInSolutionExplorer": false
 }
