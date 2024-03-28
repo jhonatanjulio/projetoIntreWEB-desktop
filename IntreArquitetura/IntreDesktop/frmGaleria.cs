@@ -65,7 +65,7 @@ namespace IntreDesktop
             MySqlDataReader DR;
 
             DR = comm.ExecuteReader();
-            
+
             if (DR.Read())
             {
                 codImg = Convert.ToInt32(DR.GetValue(0));
@@ -138,14 +138,14 @@ namespace IntreDesktop
 
             Connection.fecharConexao();
 
-            foreach(byte[] imgAdd in imgByteList)
+            foreach (byte[] imgAdd in imgByteList)
             {
                 if (!(listaImg.Contains(imgAdd)))
                 {
                     inserirImagens(codigoImg, imgAdd);
                 }
-            } // deu tudo errado aqui
-        }
+            }
+        } // deu tudo errado aqui
 
         public void inserirImagens(int codigoImg, byte[] img)
         {
@@ -173,7 +173,7 @@ namespace IntreDesktop
 
         public static Image ConvertToImage(System.Data.Linq.Binary iBinary) // função converter o byte[] em img
         {
-            
+
             var arrayBinary = iBinary.ToArray();
             Image rImage = null;
 
@@ -228,7 +228,7 @@ namespace IntreDesktop
             abrirImg.Title = "Procurar Imagem";
             abrirImg.Filter = ("Arquivos de imagem .jpg e .png|*.jpg; *png|*jpg|*.jpg|*jpeg|*.jpeg|*jfif|*.jfif|*png|*.png");
             abrirImg.Multiselect = false;
-            
+
             if (abrirImg.ShowDialog() == DialogResult.OK) // converter a foto inserida em bytes[] e add o byte da foto na lista de bytes (imagens) img
             {
                 byte[] foto = null;
@@ -261,7 +261,7 @@ namespace IntreDesktop
                         imgByteList.RemoveAt(imgByteList.Count - 1);
                         lstImagens.Items.RemoveAt(lstImagens.Items.Count - 1);
                     }
-                }  
+                }
             }
         }
 
@@ -276,7 +276,7 @@ namespace IntreDesktop
             {
                 lstImagens.SelectedIndex = lstImagens.Items.Count - 1;
             }
-            
+
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)

@@ -152,7 +152,21 @@ namespace IntreDesktop
                 }
             }
 
-            MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
+            //MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            frmProjetos abrir = new frmProjetos(nomeCli,tipoImovel,tipoServico,status);
+            abrir.Show();
+            this.Hide();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            frmProjetos abrir = new frmProjetos();
+            abrir.Show();
+            this.Hide();
         }
     }
 }

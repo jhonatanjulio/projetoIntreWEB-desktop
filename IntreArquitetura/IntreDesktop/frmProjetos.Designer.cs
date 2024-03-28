@@ -78,7 +78,7 @@ namespace IntreDesktop
             this.ckbCozinhas = new System.Windows.Forms.CheckBox();
             this.ckbSalaJantar = new System.Windows.Forms.CheckBox();
             this.ckbSalaEstar = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTeste = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMetragem)).BeginInit();
             this.gpbAmbientes.SuspendLayout();
             this.SuspendLayout();
@@ -490,13 +490,13 @@ namespace IntreDesktop
             // lblOutros
             // 
             this.lblOutros.AutoSize = true;
+            this.lblOutros.Enabled = false;
             this.lblOutros.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOutros.Location = new System.Drawing.Point(18, 132);
             this.lblOutros.Name = "lblOutros";
             this.lblOutros.Size = new System.Drawing.Size(82, 25);
             this.lblOutros.TabIndex = 62;
             this.lblOutros.Text = "Outros:";
-            this.lblOutros.Visible = false;
             // 
             // txtOutros
             // 
@@ -505,7 +505,6 @@ namespace IntreDesktop
             this.txtOutros.Name = "txtOutros";
             this.txtOutros.Size = new System.Drawing.Size(429, 29);
             this.txtOutros.TabIndex = 12;
-            this.txtOutros.Visible = false;
             // 
             // ckbOutros
             // 
@@ -516,6 +515,7 @@ namespace IntreDesktop
             this.ckbOutros.TabIndex = 11;
             this.ckbOutros.Text = "Outros:";
             this.ckbOutros.UseVisualStyleBackColor = true;
+            this.ckbOutros.CheckedChanged += new System.EventHandler(this.ckbOutros_CheckedChanged);
             // 
             // ckbTresQuarto
             // 
@@ -627,15 +627,15 @@ namespace IntreDesktop
             this.ckbSalaEstar.Text = "Sala de Estar";
             this.ckbSalaEstar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnTeste
             // 
-            this.button1.Location = new System.Drawing.Point(-2, 340);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 62;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnTeste.Location = new System.Drawing.Point(13, 542);
+            this.btnTeste.Name = "btnTeste";
+            this.btnTeste.Size = new System.Drawing.Size(75, 23);
+            this.btnTeste.TabIndex = 62;
+            this.btnTeste.Text = "button1";
+            this.btnTeste.UseVisualStyleBackColor = true;
+            this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
             // 
             // frmProjetos
             // 
@@ -643,7 +643,7 @@ namespace IntreDesktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1127, 649);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTeste);
             this.Controls.Add(this.gpbAmbientes);
             this.Controls.Add(this.txtDescricaoAmbiente);
             this.Controls.Add(this.cbbCliente);
@@ -741,6 +741,6 @@ namespace IntreDesktop
         private System.Windows.Forms.CheckBox ckbCozinhas;
         private System.Windows.Forms.CheckBox ckbSalaJantar;
         private System.Windows.Forms.CheckBox ckbSalaEstar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTeste;
     }
 }
