@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -143,9 +144,24 @@ namespace IntreDesktop
                 {
                     byteImg = (byte[])DR.GetValue(0);
                     imgByteList.Add(byteImg);
+                    
                 }
             }
+            
             Connection.fecharConexao();
+        }
+        public static Image ConvertToImage(System.Data.Linq.Binary iBinary) // função converter o byte[] em img
+        {
+
+            var arrayBinary = iBinary.ToArray();
+            Image rImage = null;
+
+            using (MemoryStream ms = new MemoryStream(arrayBinary))
+            {
+
+                rImage = Image.FromStream(ms);
+            }
+            return rImage;
         }
 
         private void dgvPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -166,9 +182,8 @@ namespace IntreDesktop
                         descricaoGal = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
                         break;
                 }
-
-                pesquisarBytes();
             }
+            pesquisarBytes();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)

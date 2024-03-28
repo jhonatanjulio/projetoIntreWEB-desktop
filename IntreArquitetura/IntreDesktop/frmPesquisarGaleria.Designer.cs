@@ -38,7 +38,6 @@ namespace IntreDesktop
             this.dgvTituloGal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDescGal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCampoTexto = new System.Windows.Forms.TextBox();
-            this.lstLoop = new System.Windows.Forms.ListBox();
             this.gpbPesquisar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisa)).BeginInit();
             this.SuspendLayout();
@@ -155,20 +154,11 @@ namespace IntreDesktop
             this.txtCampoTexto.Size = new System.Drawing.Size(460, 30);
             this.txtCampoTexto.TabIndex = 65;
             // 
-            // lstLoop
-            // 
-            this.lstLoop.FormattingEnabled = true;
-            this.lstLoop.Location = new System.Drawing.Point(707, 179);
-            this.lstLoop.Name = "lstLoop";
-            this.lstLoop.Size = new System.Drawing.Size(166, 186);
-            this.lstLoop.TabIndex = 66;
-            // 
             // frmPesquisarGaleria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 563);
-            this.Controls.Add(this.lstLoop);
             this.Controls.Add(this.txtCampoTexto);
             this.Controls.Add(this.dgvPesquisa);
             this.Controls.Add(this.btnAlterar);
@@ -182,7 +172,6 @@ namespace IntreDesktop
             this.Controls.SetChildIndex(this.btnAlterar, 0);
             this.Controls.SetChildIndex(this.dgvPesquisa, 0);
             this.Controls.SetChildIndex(this.txtCampoTexto, 0);
-            this.Controls.SetChildIndex(this.lstLoop, 0);
             this.gpbPesquisar.ResumeLayout(false);
             this.gpbPesquisar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisa)).EndInit();
@@ -201,6 +190,5 @@ namespace IntreDesktop
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTituloGal;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDescGal;
         private System.Windows.Forms.TextBox txtCampoTexto;
-        private System.Windows.Forms.ListBox lstLoop;
     }
 }
