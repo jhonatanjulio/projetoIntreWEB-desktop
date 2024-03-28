@@ -120,6 +120,7 @@ namespace IntreDesktop
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -153,6 +154,7 @@ namespace IntreDesktop
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnVoltar
             // 
@@ -265,6 +267,7 @@ namespace IntreDesktop
             this.btnTeste.TabIndex = 59;
             this.btnTeste.Text = "button1";
             this.btnTeste.UseVisualStyleBackColor = true;
+            this.btnTeste.Visible = false;
             this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
             // 
             // frmGaleria
@@ -290,7 +293,7 @@ namespace IntreDesktop
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmGaleria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "S";
+            this.Text = "Intrê.WEB - Galeria";
             this.Load += new System.EventHandler(this.frmGaleria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPreview)).EndInit();
             this.groupBox1.ResumeLayout(false);

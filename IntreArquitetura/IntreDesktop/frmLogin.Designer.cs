@@ -30,35 +30,36 @@ namespace IntreDesktop
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.btnNovo = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnEntrar = new System.Windows.Forms.Button();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnNovo
+            // btnEntrar
             // 
-            this.btnNovo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
-            this.btnNovo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.Location = new System.Drawing.Point(724, 404);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(133, 44);
-            this.btnNovo.TabIndex = 27;
-            this.btnNovo.Text = "Entrar";
-            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrar.Location = new System.Drawing.Point(724, 404);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(133, 44);
+            this.btnEntrar.TabIndex = 27;
+            this.btnEntrar.Text = "Entrar";
+            this.btnEntrar.UseVisualStyleBackColor = false;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
-            // txtEmail
+            // txtSenha
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(616, 337);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(346, 30);
-            this.txtEmail.TabIndex = 24;
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Location = new System.Drawing.Point(616, 337);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(346, 30);
+            this.txtSenha.TabIndex = 24;
             // 
             // lblEmail
             // 
@@ -70,13 +71,13 @@ namespace IntreDesktop
             this.lblEmail.TabIndex = 23;
             this.lblEmail.Text = "Senha:";
             // 
-            // txtNome
+            // txtUsuario
             // 
-            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(616, 244);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(346, 30);
-            this.txtNome.TabIndex = 22;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(616, 244);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(346, 30);
+            this.txtUsuario.TabIndex = 22;
             // 
             // lblNome
             // 
@@ -105,10 +106,10 @@ namespace IntreDesktop
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1131, 653);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.btnEntrar);
+            this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblNome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmLogin";
@@ -121,10 +122,10 @@ namespace IntreDesktop
         }
 
         #endregion
-        private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

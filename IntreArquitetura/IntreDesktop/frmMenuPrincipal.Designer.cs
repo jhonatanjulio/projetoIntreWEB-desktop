@@ -55,6 +55,7 @@ namespace IntreDesktop
             this.btnProjetos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProjetos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnProjetos.UseVisualStyleBackColor = false;
+            this.btnProjetos.Click += new System.EventHandler(this.btnProjetos_Click);
             // 
             // btnFuncionarios
             // 
@@ -81,7 +82,7 @@ namespace IntreDesktop
             this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUsuarios.Location = new System.Drawing.Point(448, 21);
+            this.btnUsuarios.Location = new System.Drawing.Point(452, 21);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(216, 245);
             this.btnUsuarios.TabIndex = 2;
@@ -115,7 +116,7 @@ namespace IntreDesktop
             this.btnOrcamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrcamentos.Image = ((System.Drawing.Image)(resources.GetObject("btnOrcamentos.Image")));
             this.btnOrcamentos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOrcamentos.Location = new System.Drawing.Point(448, 307);
+            this.btnOrcamentos.Location = new System.Drawing.Point(788, 307);
             this.btnOrcamentos.Name = "btnOrcamentos";
             this.btnOrcamentos.Size = new System.Drawing.Size(216, 245);
             this.btnOrcamentos.TabIndex = 5;
@@ -132,7 +133,7 @@ namespace IntreDesktop
             this.btnGaleria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGaleria.Image = ((System.Drawing.Image)(resources.GetObject("btnGaleria.Image")));
             this.btnGaleria.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGaleria.Location = new System.Drawing.Point(788, 307);
+            this.btnGaleria.Location = new System.Drawing.Point(452, 307);
             this.btnGaleria.Name = "btnGaleria";
             this.btnGaleria.Size = new System.Drawing.Size(216, 245);
             this.btnGaleria.TabIndex = 6;
@@ -140,6 +141,7 @@ namespace IntreDesktop
             this.btnGaleria.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGaleria.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnGaleria.UseVisualStyleBackColor = false;
+            this.btnGaleria.Click += new System.EventHandler(this.btnGaleria_Click);
             // 
             // btnDeslogar
             // 
@@ -147,7 +149,7 @@ namespace IntreDesktop
             this.btnDeslogar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeslogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeslogar.Image = ((System.Drawing.Image)(resources.GetObject("btnDeslogar.Image")));
-            this.btnDeslogar.Location = new System.Drawing.Point(448, 583);
+            this.btnDeslogar.Location = new System.Drawing.Point(452, 583);
             this.btnDeslogar.Name = "btnDeslogar";
             this.btnDeslogar.Size = new System.Drawing.Size(216, 41);
             this.btnDeslogar.TabIndex = 7;
