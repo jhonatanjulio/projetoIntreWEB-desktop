@@ -15,64 +15,15 @@ namespace IntreDesktop
     {
         private int codCli;
         private int codAmb;
-        //string[] listAmb = new string[5];
-        List<string> listAmb = new List<string>();
-
-
-        //verificando as checkBox
-        public void verificando()
-        {
-            if (ckbSalaEstar.Checked)
-            {
-                listAmb.Add("Sala de Estar");
-            }
-            if (ckbSalaJantar.Checked)
-            {
-                listAmb.Add("Sala de Jantar");
-            }
-            if (ckbCozinhas.Checked)
-            {
-                listAmb.Add("Cozinha");
-            }
-            if (ckbSuite.Checked)
-            {
-                listAmb.Add("Suíte");
-            }
-            if (ckbVaranda.Checked)
-            {
-                listAmb.Add("Varanda");
-            }
-            if (ckbQuarto.Checked)
-            {
-                listAmb.Add("Quarto");
-            }
-            if (ckbDoisQuarto.Checked)
-            {
-                listAmb.Add("2 Quartos");
-            }
-            if (ckbTresQuarto.Checked)
-            {
-                listAmb.Add("3 Quartos");
-            }
-            if (ckbBanheiro.Checked)
-            {
-                listAmb.Add("Banheiro Social");
-            }
-            if (ckbEscritorio.Checked)
-            {
-                listAmb.Add("Escritório");
-            }
-
-            if (ckbAreaServico.Checked)
-            {
-                listAmb.Add("Área de Serviço");
-            }
-            if (ckbOutros.Checked)
-            {
-                listAmb.Add(txtOutros.Text);
-            }
-        }
-
+        List<string> listAmb = new List<string>() {null};
+        string nomesAmb;
+        string selectNomesAmb;
+       
+        string nomeCliAlte;
+        string tipoImoAlte;
+        string tipoSerALte;
+        string statusAlte;
+       
 
         public frmProjetos()
         {
@@ -81,7 +32,79 @@ namespace IntreDesktop
             codigoAmbiente();
             desabilitarCampos();
 
+        } 
+        
+
+        public frmProjetos(string nomeCli, string tipoImovel, string tipoServico, string status)
+        {
+            InitializeComponent();
+
+            nomeCliAlte = nomeCli;
+            tipoImoAlte = tipoImovel;
+            tipoSerALte = tipoServico;
+            statusAlte = status;
+
         }
+
+        
+
+        //verificando as checkBox
+        public void verificando()
+        {
+
+            if (ckbSalaEstar.Checked)
+            {
+                listAmb.Add("sala_de_estar");
+            }
+            if (ckbSalaJantar.Checked)
+            {
+                listAmb.Add("sala_de_jantar");
+            }
+            if (ckbCozinhas.Checked)
+            {
+                listAmb.Add("cozinha");
+            }
+            if (ckbSuite.Checked)
+            {
+                listAmb.Add("suite");
+            }
+            if (ckbVaranda.Checked)
+            {
+                listAmb.Add("varanda");
+            }
+            if (ckbQuarto.Checked)
+            {
+                listAmb.Add("quarto");
+            }
+            if (ckbDoisQuarto.Checked)
+            {
+                listAmb.Add("2_quartos");
+            }
+            if (ckbTresQuarto.Checked)
+            {
+                listAmb.Add("3_quartos");
+            }
+            if (ckbBanheiro.Checked)
+            {
+                listAmb.Add("banheiro_social");
+            }
+            if (ckbEscritorio.Checked)
+            {
+                listAmb.Add("escritorio");
+            }
+
+            if (ckbAreaServico.Checked)
+            {
+                listAmb.Add("area_de_servico");
+            }
+            if (ckbOutros.Checked)
+            {
+                listAmb.Add(txtOutros.Text);
+            }
+        }
+
+
+        
 
 
         public void desabilitarCampos()
@@ -99,8 +122,9 @@ namespace IntreDesktop
             cbbRevestimento.Enabled = false;
             cbbTipoImovel.Enabled = false;
             cbbTipoServico.Enabled = false;
+            txtDescricaoAmbiente.Enabled = false;
 
-            btnAlterar.Enabled = false;
+            btnAlterar.Enabled = true;
             btnCadastrar.Enabled = false;
             btnArquivar.Enabled = false;
             btnLimpar.Enabled = false;
@@ -122,6 +146,7 @@ namespace IntreDesktop
             cbbRevestimento.Enabled = true;
             cbbTipoImovel.Enabled = true;
             cbbTipoServico.Enabled = true;
+            txtDescricaoAmbiente.Enabled = true;
 
             btnLimpar.Enabled = true;
             btnCadastrar.Enabled = true;
@@ -137,13 +162,26 @@ namespace IntreDesktop
             txtBairro.Clear();
             txtCidade.Clear();
             txtComplemento.Clear();
+            txtDescricaoAmbiente.Clear();
 
             nudMetragem.ResetText();
             cbbMarcenaria.SelectedIndex = -1;
-
             cbbRevestimento.SelectedIndex = -1;
             cbbTipoImovel.SelectedIndex = -1;
             cbbTipoServico.SelectedIndex = -1;
+
+            ckbSalaEstar.Checked = false;
+            ckbSalaJantar.Checked = false;
+            ckbCozinhas.Checked = false;
+            ckbSuite.Checked = false;
+            ckbVaranda.Checked = false;
+            ckbQuarto.Checked = false;
+            ckbDoisQuarto.Checked = false;
+            ckbTresQuarto.Checked = false;
+            ckbBanheiro.Checked = false;
+            ckbEscritorio.Checked = false;
+            ckbAreaServico.Checked = false;
+            ckbOutros.Checked = false;
         }
 
 
@@ -189,27 +227,7 @@ namespace IntreDesktop
             Connection.fecharConexao();
         }
 
-        //Carrega nome ambiente ccb
-        /*public void carregaAmb()
-        {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT nomeAmb FROM `tbambientes`;";
-            comm.CommandType = CommandType.Text;
-
-            comm.Connection = Connection.abrirConexao();
-            MySqlDataReader DR;
-            DR = comm.ExecuteReader();
-
-           cbbAmbiente.Items.Clear();
-
-            while (DR.Read())
-            {
-                cbbAmbiente.Items.Add(DR.GetString(0));
-            }
-
-            Connection.fecharConexao();
-        }*/
-
+        
 
 
 
@@ -229,7 +247,7 @@ namespace IntreDesktop
 
             DR.Read();
 
-            //txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
+            
 
             if (cbbCliente.SelectedIndex != -1)
             {
@@ -241,17 +259,37 @@ namespace IntreDesktop
         }
 
 
-        //int codAmbb;
+        //Insert tabela ambientes
+        public int insertAmbiente()
+        {
+            verificando();
+            nomesAmb = String.Join(" ", listAmb.ToArray());
+
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "insert into tbAmbientes(nomeAmb)values(@nomesAmb);";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nomesAmb", MySqlDbType.VarChar, 100).Value = nomesAmb;
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+
+            return res;
+        }
+
+
         //Carrega codigo do ambiente
         public void codigoAmbiente()
         {
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT codAmb FROM `tbprojetos`;";
+            comm.CommandText = "SELECT codAmb FROM tbambientes ORDER BY codAmb DESC;";
             comm.CommandType = CommandType.Text;
 
-            //comm.Parameters.Clear();
-            //comm.Parameters.Add("@ambiente", MySqlDbType.Int32).Value = codAmbb;
 
             comm.Connection = Connection.abrirConexao();
             MySqlDataReader DR;
@@ -259,27 +297,11 @@ namespace IntreDesktop
 
             DR.Read();
 
-            codAmb = (DR.GetInt32(0) + 1);
-
+            codAmb = DR.GetInt32(0) + 1;
+            
 
 
             Connection.fecharConexao();
-        }
-
-
-        //insert da tabela ambientes
-        public void cadastrarAmbiente()
-        {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "";
-            comm.CommandType = CommandType.Text;
-
-            comm.Parameters.Clear();
-            if (ckbAreaServico.Checked)
-            {
-
-            }
-
         }
 
         //Cadastrar projeto 
@@ -305,7 +327,7 @@ namespace IntreDesktop
             comm.Parameters.Add("@descricaoAmbiente", MySqlDbType.VarChar, 50).Value = txtDescricaoAmbiente.Text;
             comm.Parameters.Add("@status", MySqlDbType.Bit).Value = true;
             comm.Parameters.Add("@codCli", MySqlDbType.Int16).Value = codCli;
-            comm.Parameters.Add("@codAmb", MySqlDbType.VarChar, 50).Value = codAmb;
+            comm.Parameters.Add("@codAmb", MySqlDbType.Int32).Value = codAmb;
 
             comm.Connection = Connection.abrirConexao();
 
@@ -318,16 +340,17 @@ namespace IntreDesktop
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            
             if (txtRua.Text.Equals(" ") || txtFormaContato.Text.Equals("") || cbbCliente.Text.Equals("") || txtEstado.Text.Equals("") || txtComplemento.Text.Equals("")
                 || txtCidade.Text.Equals("") || txtBairro.Text.Equals("") || cbbMarcenaria.Text.Equals("") || cbbRevestimento.Text.Equals("")
                 || cbbTipoImovel.Text.Equals("") || cbbTipoServico.Text.Equals("") || txtComplemento.Text.Equals(""))
             {
                 MessageBox.Show("Preencha todos os campos!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                limparCampos();
+                
             }
             else
             {
-                if (cadastrarProjeto() == 1)
+                if (insertAmbiente() == 1 && cadastrarProjeto() == 1)
                 {
                     MessageBox.Show("Cadastrado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     limparCampos();
@@ -341,19 +364,19 @@ namespace IntreDesktop
                 }
 
             }
-
+            listAmb.Clear();
 
         }
+
+
+
 
         private void cbbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
             codigoCliente();
         }
 
-        private void cbbAmbiente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //  codigoAmbiente();
-        }
+        
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -364,9 +387,68 @@ namespace IntreDesktop
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            buscarAmb();
+            char delimiter = ' ';
+            List<string> stringList = selectNomesAmb.Split(delimiter).ToList();
+            
 
+            foreach (string item in stringList)
+            {
+                MessageBox.Show(item);
+
+            }
         }
 
+        private void ckbOutros_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbOutros.Checked)
+            {
+                lblOutros.Enabled = true;
+                txtOutros.Enabled = true;
+            }
+            else
+            {
+                lblOutros.Enabled = false;
+                txtOutros.Enabled = false;
+            }
+        }
+
+
+
+
+        //select nome ambientes
+        public void buscarAmb()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "SELECT nomeAmb FROM tbambientes where codAmb = 2;";
+            comm.CommandType = CommandType.Text;
+
+
+            comm.Connection = Connection.abrirConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            DR.Read();
+
+            selectNomesAmb = DR.GetString(0);
+
+
+
+            Connection.fecharConexao();
+        }
+
+        private void btnTeste_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(nomeCliAlte);
+            MessageBox.Show(tipoImoAlte);
+            MessageBox.Show(tipoSerALte);
+            MessageBox.Show(statusAlte);
+        }
+
+
+
+
+        /*
         private void button1_Click(object sender, EventArgs e)
         {
             verificando();
@@ -376,5 +458,6 @@ namespace IntreDesktop
 
             }
         }
+        */
     }
 }
