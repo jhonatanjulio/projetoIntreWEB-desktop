@@ -16,13 +16,16 @@ namespace IntreDesktop
     {
         private int codImg = 1;
         private List<byte[]> imgByteList = new List<byte[]>();
+        private List<byte[]> imgByteListRemoved = new List<byte[]>();
 
         public frmGaleria()
         {
             InitializeComponent();
+            pesquisarCodImg(); // carregar codigo dos ultimos registros inseridos e atualizar a var global codImg para prox inserts
         }
         public frmGaleria(int cod, string tit, string desc, List<byte[]> bytesList)
         {
+            InitializeComponent();
             txtTitulo.Text = tit;
             txtDescricao.Text = desc;
             codImg = cod;
@@ -30,8 +33,14 @@ namespace IntreDesktop
             {
                 imgByteList.Add(bytes);
             }
-        }
 
+            lstImagens.Items.Clear();
+            for (int i = 0; i < imgByteList.Count; i++)
+            {
+                lstImagens.Items.Add("Imagem " + (i + 1).ToString());
+            }
+            lstImagens.SelectedIndex = 0;
+        }
 
         public void limparCampos()
         {
@@ -40,6 +49,7 @@ namespace IntreDesktop
             txtTitulo.Focus();
 
             imgByteList.Clear();
+            imgByteListRemoved.Clear();
             lstImagens.Items.Clear();
             pcbPreview.Image = null;
         }
@@ -75,7 +85,79 @@ namespace IntreDesktop
             comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
             comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
             comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
-            comm.Parameters.Add("@fotosGaleria", MySqlDbType.VarBinary).Value = img;
+            comm.Parameters.Add("@fotosGaleria", MySqlDbType.Blob).Value = img;
+
+            comm.Connection = Connection.abrirConexao();
+
+            comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+        }
+
+        public void alterarProjeto()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "update tbGaleria set tituloGal = @tituloGal, descricaoGal = @descricaoGal where codImg = @codImg ;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
+            comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
+            comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
+
+            comm.Connection = Connection.abrirConexao();
+
+            comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+        }
+
+        public void pesquisarImagens(int codigoImg)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            List<byte[]> listaImg = new List<byte[]>();
+            comm.CommandText = "select fotosGaleria from tbGaleria where codImg = @codImg;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codigoImg;
+
+            comm.Connection = Connection.abrirConexao();
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+
+            while (DR.Read())
+            {
+                if (DR.HasRows)
+                {
+                    listaImg.Add((byte[])DR.GetValue(0));
+                    MessageBox.Show(codigoImg.ToString());
+                }
+            }
+
+            Connection.fecharConexao();
+
+            foreach(byte[] imgAdd in imgByteList)
+            {
+                if (!(listaImg.Contains(imgAdd)))
+                {
+                    inserirImagens(codigoImg, imgAdd);
+                }
+            } // deu tudo errado aqui
+        }
+
+        public void inserirImagens(int codigoImg, byte[] img)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "insert into tbGaleria(codImg, tituloGal, descricaoGal, fotosGaleria) values(@codImg, @tituloGal, @descricaoGal, @fotosGaleria);";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codigoImg;
+            comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
+            comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
+            comm.Parameters.Add("@fotosGaleria", MySqlDbType.Blob).Value = img;
 
             comm.Connection = Connection.abrirConexao();
 
@@ -150,35 +232,36 @@ namespace IntreDesktop
             if (abrirImg.ShowDialog() == DialogResult.OK) // converter a foto inserida em bytes[] e add o byte da foto na lista de bytes (imagens) img
             {
                 byte[] foto = null;
+                bool isBigger = false;
                 using (var stream = new FileStream(abrirImg.FileName, FileMode.Open, FileAccess.Read))
                 {
+                    if (stream.Length > 16777216)
+                        isBigger = true;
                     using (var reader = new BinaryReader(stream))
                     {
                         foto = reader.ReadBytes((int)stream.Length);
                     }
                 }
-                imgByteList.Add(foto);
-                lstImagens.Items.Add("Imagem " + imgByteList.Count.ToString());
-                lstImagens.SelectedIndex = imgByteList.Count - 1;
-                try
+                if (isBigger)
                 {
-                    pcbPreview.Image = ConvertToImage(foto);
+                    MessageBox.Show("Erro! O tamanho da imagem deve ser no máximo de 16MB.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("Erro! Imagem inválida ou corrompida.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    imgByteList.RemoveAt(imgByteList.Count - 1);
-                    lstImagens.Items.RemoveAt(lstImagens.Items.Count - 1);
-                }
-            }
-        }
-
-        private void btnTeste_Click(object sender, EventArgs e) // ação de carregar lista quando pesquisar (já pronto pra quando implementar o select do mysql)
-        {
-            lstImagens.Items.Clear();
-            for (int i = 0; i < imgByteList.Count; i++)
-            {
-                lstImagens.Items.Add("Imagem " + (i + 1).ToString());
+                    imgByteList.Add(foto);
+                    lstImagens.Items.Add("Imagem " + imgByteList.Count.ToString());
+                    lstImagens.SelectedIndex = imgByteList.Count - 1;
+                    try
+                    {
+                        pcbPreview.Image = ConvertToImage(foto);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Erro! Imagem inválida ou corrompida.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                        imgByteList.RemoveAt(imgByteList.Count - 1);
+                        lstImagens.Items.RemoveAt(lstImagens.Items.Count - 1);
+                    }
+                }  
             }
         }
 
@@ -196,11 +279,6 @@ namespace IntreDesktop
             
         }
 
-        private void frmGaleria_Load(object sender, EventArgs e) // carregar codigo dos ultimos registros inseridos e atualizar a var global codImg para prox inserts
-        {
-            pesquisarCodImg();
-        }
-
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             frmPesquisarGaleria abrir = new frmPesquisarGaleria();
@@ -210,7 +288,24 @@ namespace IntreDesktop
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            alterarProjeto();
+            pesquisarImagens(codImg);
+        }
 
+        private void btnDeletarImg_Click(object sender, EventArgs e)
+        {
+            imgByteListRemoved.Add(imgByteList[lstImagens.SelectedIndex]);
+            imgByteList.RemoveAt(lstImagens.SelectedIndex);
+            lstImagens.Items.RemoveAt(lstImagens.SelectedIndex);
+
+            lstImagens.Items.Clear();
+            for (int i = 0; i < imgByteList.Count; i++)
+            {
+                lstImagens.Items.Add("Imagem " + (i + 1).ToString());
+            }
+
+            if (lstImagens.Items.Count < 1)
+                pcbPreview.Image = null;
         }
     }
 }

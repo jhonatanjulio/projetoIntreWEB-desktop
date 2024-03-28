@@ -46,7 +46,6 @@ namespace IntreDesktop
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDeletarImg = new System.Windows.Forms.Button();
             this.abrirImg = new System.Windows.Forms.OpenFileDialog();
-            this.btnTeste = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbPreview)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -254,21 +253,11 @@ namespace IntreDesktop
             this.btnDeletarImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeletarImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeletarImg.UseVisualStyleBackColor = false;
+            this.btnDeletarImg.Click += new System.EventHandler(this.btnDeletarImg_Click);
             // 
             // abrirImg
             // 
             this.abrirImg.FileName = "openFileDialog1";
-            // 
-            // btnTeste
-            // 
-            this.btnTeste.Location = new System.Drawing.Point(747, 48);
-            this.btnTeste.Name = "btnTeste";
-            this.btnTeste.Size = new System.Drawing.Size(125, 49);
-            this.btnTeste.TabIndex = 59;
-            this.btnTeste.Text = "button1";
-            this.btnTeste.UseVisualStyleBackColor = true;
-            this.btnTeste.Visible = false;
-            this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
             // 
             // frmGaleria
             // 
@@ -276,7 +265,6 @@ namespace IntreDesktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1127, 649);
-            this.Controls.Add(this.btnTeste);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pcbPreview);
             this.Controls.Add(this.btnLimpar);
@@ -294,7 +282,6 @@ namespace IntreDesktop
             this.Name = "frmGaleria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Intrê.WEB - Galeria";
-            this.Load += new System.EventHandler(this.frmGaleria_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbPreview)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -320,6 +307,5 @@ namespace IntreDesktop
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDeletarImg;
         private System.Windows.Forms.OpenFileDialog abrirImg;
-        private System.Windows.Forms.Button btnTeste;
     }
 }
