@@ -15,27 +15,30 @@ namespace IntreDesktop
     public partial class frmGaleria : Form
     {
         private int codImg = 1;
-        private List<byte[]> imgByteList = new List<byte[]>();
+        private List<byte[]> imgByteListTot = new List<byte[]>();
+        private List<byte[]> imgByteListAdd = new List<byte[]>();
         private List<byte[]> imgByteListRemoved = new List<byte[]>();
 
         public frmGaleria()
         {
             InitializeComponent();
+            desabBotoes();
             pesquisarCodImg(); // carregar codigo dos ultimos registros inseridos e atualizar a var global codImg para prox inserts
         }
         public frmGaleria(int cod, string tit, string desc, List<byte[]> bytesList)
         {
             InitializeComponent();
+            habBotoes();
             txtTitulo.Text = tit;
             txtDescricao.Text = desc;
             codImg = cod;
             foreach (byte[] bytes in bytesList)
             {
-                imgByteList.Add(bytes);
+                imgByteListTot.Add(bytes);
             }
 
             lstImagens.Items.Clear();
-            for (int i = 0; i < imgByteList.Count; i++)
+            for (int i = 0; i < imgByteListTot.Count; i++)
             {
                 lstImagens.Items.Add("Imagem " + (i + 1).ToString());
             }
@@ -48,10 +51,29 @@ namespace IntreDesktop
             txtDescricao.Clear();
             txtTitulo.Focus();
 
-            imgByteList.Clear();
+            imgByteListTot.Clear();
+            imgByteListAdd.Clear();
             imgByteListRemoved.Clear();
             lstImagens.Items.Clear();
             pcbPreview.Image = null;
+        }
+
+        public void desabBotoes()
+        {
+            btnEnviar.Enabled = true;
+            btnAlterar.Enabled = false;
+            btnExcluir.Enabled = false;
+
+            btnEnviar.Focus();
+        }
+
+        public void habBotoes()
+        {
+            btnEnviar.Enabled = false;
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+
+            btnAlterar.Focus();
         }
 
         // Pesquisar Codigo Img
@@ -112,41 +134,6 @@ namespace IntreDesktop
             Connection.fecharConexao();
         }
 
-        public void pesquisarImagens(int codigoImg)
-        {
-            MySqlCommand comm = new MySqlCommand();
-            List<byte[]> listaImg = new List<byte[]>();
-            comm.CommandText = "select fotosGaleria from tbGaleria where codImg = @codImg;";
-            comm.CommandType = CommandType.Text;
-
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codigoImg;
-
-            comm.Connection = Connection.abrirConexao();
-            MySqlDataReader DR;
-
-            DR = comm.ExecuteReader();
-
-            while (DR.Read())
-            {
-                if (DR.HasRows)
-                {
-                    listaImg.Add((byte[])DR.GetValue(0));
-                    MessageBox.Show(codigoImg.ToString());
-                }
-            }
-
-            Connection.fecharConexao();
-
-            foreach (byte[] imgAdd in imgByteList)
-            {
-                if (!(listaImg.Contains(imgAdd)))
-                {
-                    inserirImagens(codigoImg, imgAdd);
-                }
-            }
-        } // deu tudo errado aqui
-
         public void inserirImagens(int codigoImg, byte[] img)
         {
             MySqlCommand comm = new MySqlCommand();
@@ -166,9 +153,26 @@ namespace IntreDesktop
             Connection.fecharConexao();
         }
 
+        public void deletarImagens(byte[] img)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "delete from tbGaleria where fotosGaleria = @foto;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@foto", MySqlDbType.Blob).Value = img;
+
+            comm.Connection = Connection.abrirConexao();
+
+            comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+        }
+
         private void btnLimpar_Click(object sender, EventArgs e)
         {
             limparCampos();
+            desabBotoes();
         }
 
         public static Image ConvertToImage(System.Data.Linq.Binary iBinary) // função converter o byte[] em img
@@ -194,19 +198,20 @@ namespace IntreDesktop
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (txtTitulo.Text.Equals("") || txtDescricao.Text.Equals("") || imgByteList.Count == 0)
+            if (txtTitulo.Text.Equals("") && txtDescricao.Text.Equals("") && imgByteListAdd.Count == 0)
             {
-                MessageBox.Show("Preencha todos o campos!");
+                MessageBox.Show("Erro! Preencha todos os campos e insira pelo menos uma imagem!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else
             {
-                foreach (byte[] byteImg in imgByteList)
+                foreach (byte[] byteImg in imgByteListAdd)
                 {
                     cadastrarProjeto(byteImg);
                 }
                 MessageBox.Show("Inserido com sucesso!");
                 pesquisarCodImg();
                 limparCampos();
+                desabBotoes();
             }
         }
 
@@ -217,6 +222,8 @@ namespace IntreDesktop
             {
                 //Excluir
                 MessageBox.Show("Excluido com sucesso");
+                limparCampos();
+                desabBotoes();
             }
         }
 
@@ -248,9 +255,10 @@ namespace IntreDesktop
                 }
                 else
                 {
-                    imgByteList.Add(foto);
-                    lstImagens.Items.Add("Imagem " + imgByteList.Count.ToString());
-                    lstImagens.SelectedIndex = imgByteList.Count - 1;
+                    imgByteListTot.Add(foto);
+                    imgByteListAdd.Add(foto);
+                    lstImagens.Items.Add("Imagem " + imgByteListTot.Count.ToString());
+                    lstImagens.SelectedIndex = imgByteListTot.Count - 1;
                     try
                     {
                         pcbPreview.Image = ConvertToImage(foto);
@@ -258,7 +266,8 @@ namespace IntreDesktop
                     catch (Exception)
                     {
                         MessageBox.Show("Erro! Imagem inválida ou corrompida.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        imgByteList.RemoveAt(imgByteList.Count - 1);
+                        imgByteListTot.Remove(foto);
+                        imgByteListAdd.Remove(foto);
                         lstImagens.Items.RemoveAt(lstImagens.Items.Count - 1);
                     }
                 }
@@ -270,7 +279,7 @@ namespace IntreDesktop
             try
             {
                 if (lstImagens.Items.Count > 0)
-                    pcbPreview.Image = ConvertToImage(imgByteList[lstImagens.SelectedIndex]);
+                    pcbPreview.Image = ConvertToImage(imgByteListTot[lstImagens.SelectedIndex]);
             }
             catch (Exception)
             {
@@ -288,24 +297,58 @@ namespace IntreDesktop
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            alterarProjeto();
-            pesquisarImagens(codImg);
+            
+            if (!(txtTitulo.Text.Equals("") && txtDescricao.Text.Equals("") && imgByteListAdd.Count == 0))
+            {
+                DialogResult resp = MessageBox.Show("Deseja realmente alterar? (Ao confirmar, as alterações não poderão ser canceladas.)", "Mensagem do sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (resp == DialogResult.Yes)
+                {
+                    alterarProjeto();
+                    if (imgByteListAdd.Count > 0)
+                    {
+                        foreach (byte[] img in imgByteListAdd)
+                        {
+                            inserirImagens(codImg, img);
+                        }
+                    }
+                    if (imgByteListRemoved.Count > 0)
+                    {
+                        foreach (byte[] img in imgByteListRemoved)
+                        {
+                            deletarImagens(img);
+                        }
+                    }
+                    limparCampos();
+                    desabBotoes();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Erro! Preencha todos os campos e insira pelo menos uma imagem!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void btnDeletarImg_Click(object sender, EventArgs e)
         {
-            imgByteListRemoved.Add(imgByteList[lstImagens.SelectedIndex]);
-            imgByteList.RemoveAt(lstImagens.SelectedIndex);
-            lstImagens.Items.RemoveAt(lstImagens.SelectedIndex);
-
-            lstImagens.Items.Clear();
-            for (int i = 0; i < imgByteList.Count; i++)
+            DialogResult resp = MessageBox.Show("Deseja realmente deletar essa imagem? (Ao confirmar, a imagem não poderá ser restituída.)", "Mensagem do sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+            if (resp == DialogResult.Yes)
             {
-                lstImagens.Items.Add("Imagem " + (i + 1).ToString());
-            }
+                imgByteListRemoved.Add(imgByteListTot[lstImagens.SelectedIndex]);
+                imgByteListAdd.Remove(imgByteListTot[lstImagens.SelectedIndex]);
+                imgByteListTot.Remove(imgByteListTot[lstImagens.SelectedIndex]);
+                lstImagens.Items.RemoveAt(lstImagens.SelectedIndex);
 
-            if (lstImagens.Items.Count < 1)
-                pcbPreview.Image = null;
+                lstImagens.Items.Clear();
+                for (int i = 0; i < imgByteListTot.Count; i++)
+                {
+                    lstImagens.Items.Add("Imagem " + (i + 1).ToString());
+                }
+
+                if (lstImagens.Items.Count < 1)
+                    pcbPreview.Image = null;
+
+                lstImagens.SelectedIndex = lstImagens.Items.Count - 1;
+            }
         }
     }
 }

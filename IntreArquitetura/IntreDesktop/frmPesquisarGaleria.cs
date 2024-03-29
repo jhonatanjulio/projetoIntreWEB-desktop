@@ -47,16 +47,16 @@ namespace IntreDesktop
             MySqlDataReader DR;
 
             DR = comm.ExecuteReader();
-            int cod = 0;
+            List<int> cod = new List<int>();
             dgvPesquisa.Rows.Clear();
             while (DR.Read())
             {
                 if (DR.HasRows)
                 {
-                    if (Convert.ToInt32(DR.GetString("codImg")) != cod)
+                    if (!cod.Contains((int)DR.GetValue(0)))
                     {
                         dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
-                        cod = Convert.ToInt32(DR.GetString("codImg"));
+                        cod.Add((int)DR.GetValue(0));
                     }
                 }
             }
@@ -77,16 +77,16 @@ namespace IntreDesktop
             MySqlDataReader DR;
 
             DR = comm.ExecuteReader();
-            int cod = 0;
+            List<int> cod = new List<int>();
             dgvPesquisa.Rows.Clear();
             while (DR.Read())
             {
                 if (DR.HasRows)
                 {
-                    if (Convert.ToInt32(DR.GetString("codImg")) != cod)
+                    if (!cod.Contains((int)DR.GetValue(0)))
                     {
                         dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
-                        cod = Convert.ToInt32(DR.GetString("codImg"));
+                        cod.Add((int)DR.GetValue(0));
                     }
                 }
             }
@@ -198,6 +198,13 @@ namespace IntreDesktop
             {
                 MessageBox.Show("Selecione pelo menos um registro!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            frmGaleria abrir = new frmGaleria();
+            abrir.Show();
+            this.Hide();
         }
     }
 }

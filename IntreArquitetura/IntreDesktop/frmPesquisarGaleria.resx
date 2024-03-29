@@ -163,4 +163,12 @@
   <metadata name="dgvDescGal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="btnVoltar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAIlJREFUSEvtlj0KgDAMRnuIxp9L2JTi/XESpS46eBxNJIM4ucQO5kGXL8Pj6xDi
+        DOMtXd1VCLgEwEEifS6pjxtCPOhNEuuCDfX0uLKU2u499I2M9DCpKiZVpYiUIVlmKS8JXhYS61NM/Pzq
+        5FMrI31MbnKTf8L99AkQZ4m/geXUOAePo0TGr3HuBIFlapqhLmnUAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

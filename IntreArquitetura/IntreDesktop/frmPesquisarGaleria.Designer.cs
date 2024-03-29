@@ -38,18 +38,19 @@ namespace IntreDesktop
             this.dgvTituloGal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDescGal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCampoTexto = new System.Windows.Forms.TextBox();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.gpbPesquisar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisa)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(396, 484);
+            this.btnLimpar.Location = new System.Drawing.Point(318, 484);
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(248, 484);
+            this.btnPesquisar.Location = new System.Drawing.Point(170, 484);
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnAtivar
@@ -79,7 +80,7 @@ namespace IntreDesktop
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAlterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.Image = ((System.Drawing.Image)(resources.GetObject("btnAlterar.Image")));
-            this.btnAlterar.Location = new System.Drawing.Point(545, 484);
+            this.btnAlterar.Location = new System.Drawing.Point(467, 484);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(133, 67);
             this.btnAlterar.TabIndex = 63;
@@ -154,16 +155,34 @@ namespace IntreDesktop
             this.txtCampoTexto.Size = new System.Drawing.Size(460, 30);
             this.txtCampoTexto.TabIndex = 65;
             // 
+            // btnVoltar
+            // 
+            this.btnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
+            this.btnVoltar.Location = new System.Drawing.Point(618, 484);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(133, 67);
+            this.btnVoltar.TabIndex = 66;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVoltar.UseVisualStyleBackColor = false;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
             // frmPesquisarGaleria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 563);
+            this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.txtCampoTexto);
             this.Controls.Add(this.dgvPesquisa);
             this.Controls.Add(this.btnAlterar);
             this.Name = "frmPesquisarGaleria";
-            this.Text = "frmPesquisarGaleria";
+            this.Text = "7";
             this.Controls.SetChildIndex(this.btnPesquisar, 0);
             this.Controls.SetChildIndex(this.btnLimpar, 0);
             this.Controls.SetChildIndex(this.btnAtivar, 0);
@@ -172,6 +191,7 @@ namespace IntreDesktop
             this.Controls.SetChildIndex(this.btnAlterar, 0);
             this.Controls.SetChildIndex(this.dgvPesquisa, 0);
             this.Controls.SetChildIndex(this.txtCampoTexto, 0);
+            this.Controls.SetChildIndex(this.btnVoltar, 0);
             this.gpbPesquisar.ResumeLayout(false);
             this.gpbPesquisar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisa)).EndInit();
@@ -190,5 +210,6 @@ namespace IntreDesktop
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTituloGal;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDescGal;
         private System.Windows.Forms.TextBox txtCampoTexto;
+        private System.Windows.Forms.Button btnVoltar;
     }
 }
