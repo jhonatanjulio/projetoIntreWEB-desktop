@@ -69,7 +69,7 @@ namespace IntreDesktop
             this.lblDescricao.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(114, 25);
-            this.lblDescricao.TabIndex = 1;
+            this.lblDescricao.TabIndex = 2;
             this.lblDescricao.Text = "Descrição:";
             // 
             // txtTitulo
@@ -77,7 +77,7 @@ namespace IntreDesktop
             this.txtTitulo.Location = new System.Drawing.Point(122, 100);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(430, 31);
-            this.txtTitulo.TabIndex = 3;
+            this.txtTitulo.TabIndex = 1;
             // 
             // txtDescricao
             // 
@@ -85,7 +85,7 @@ namespace IntreDesktop
             this.txtDescricao.Multiline = true;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(430, 168);
-            this.txtDescricao.TabIndex = 4;
+            this.txtDescricao.TabIndex = 3;
             // 
             // btnEnviar
             // 
@@ -97,7 +97,7 @@ namespace IntreDesktop
             this.btnEnviar.Location = new System.Drawing.Point(122, 570);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(133, 67);
-            this.btnEnviar.TabIndex = 6;
+            this.btnEnviar.TabIndex = 8;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEnviar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -114,7 +114,7 @@ namespace IntreDesktop
             this.btnAlterar.Location = new System.Drawing.Point(270, 570);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(133, 67);
-            this.btnAlterar.TabIndex = 7;
+            this.btnAlterar.TabIndex = 9;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -131,7 +131,7 @@ namespace IntreDesktop
             this.btnExcluir.Location = new System.Drawing.Point(419, 570);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(133, 67);
-            this.btnExcluir.TabIndex = 8;
+            this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,7 +148,7 @@ namespace IntreDesktop
             this.btnPesquisar.Location = new System.Drawing.Point(569, 570);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(133, 67);
-            this.btnPesquisar.TabIndex = 9;
+            this.btnPesquisar.TabIndex = 11;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -165,7 +165,7 @@ namespace IntreDesktop
             this.btnVoltar.Location = new System.Drawing.Point(867, 570);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(133, 67);
-            this.btnVoltar.TabIndex = 10;
+            this.btnVoltar.TabIndex = 13;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -182,8 +182,8 @@ namespace IntreDesktop
             this.btnLimpar.Location = new System.Drawing.Point(717, 570);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(133, 67);
-            this.btnLimpar.TabIndex = 54;
-            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.TabIndex = 12;
+            this.btnLimpar.Text = "Cancelar";
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = false;
@@ -199,7 +199,7 @@ namespace IntreDesktop
             this.btnInserirImg.Location = new System.Drawing.Point(17, 55);
             this.btnInserirImg.Name = "btnInserirImg";
             this.btnInserirImg.Size = new System.Drawing.Size(124, 43);
-            this.btnInserirImg.TabIndex = 55;
+            this.btnInserirImg.TabIndex = 5;
             this.btnInserirImg.Text = "Inserir";
             this.btnInserirImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInserirImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -223,7 +223,7 @@ namespace IntreDesktop
             this.lstImagens.Location = new System.Drawing.Point(153, 49);
             this.lstImagens.Name = "lstImagens";
             this.lstImagens.Size = new System.Drawing.Size(260, 104);
-            this.lstImagens.TabIndex = 57;
+            this.lstImagens.TabIndex = 7;
             this.lstImagens.SelectedIndexChanged += new System.EventHandler(this.lstImagens_SelectedIndexChanged);
             // 
             // groupBox1
@@ -234,7 +234,7 @@ namespace IntreDesktop
             this.groupBox1.Location = new System.Drawing.Point(122, 336);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(430, 174);
-            this.groupBox1.TabIndex = 58;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Inserir Imagens:";
             // 
@@ -248,7 +248,7 @@ namespace IntreDesktop
             this.btnDeletarImg.Location = new System.Drawing.Point(17, 104);
             this.btnDeletarImg.Name = "btnDeletarImg";
             this.btnDeletarImg.Size = new System.Drawing.Size(124, 43);
-            this.btnDeletarImg.TabIndex = 59;
+            this.btnDeletarImg.TabIndex = 6;
             this.btnDeletarImg.Text = "Deletar";
             this.btnDeletarImg.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeletarImg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
