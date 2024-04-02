@@ -36,61 +36,83 @@ namespace IntreDesktop
         // Pesquisar por Titulo:
         public void pesquisarGalTitulo()
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select codImg, tituloGal, descricaoGal, fotosGaleria from tbGaleria where tituloGal like @titulo ";
-            comm.CommandType = CommandType.Text;
-
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@titulo", MySqlDbType.VarChar).Value = "%" + txtCampoTexto.Text + "%";
-
-            comm.Connection = Connection.abrirConexao();
-            MySqlDataReader DR;
-
-            DR = comm.ExecuteReader();
-            List<int> cod = new List<int>();
-            dgvPesquisa.Rows.Clear();
-            while (DR.Read())
+            try
             {
-                if (DR.HasRows)
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "select codImg, tituloGal, descricaoGal, fotosGaleria from tbGaleria where tituloGal like @titulo ";
+                comm.CommandType = CommandType.Text;
+
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@titulo", MySqlDbType.VarChar).Value = "%" + txtCampoTexto.Text + "%";
+
+                comm.Connection = Connection.abrirConexao();
+                MySqlDataReader DR;
+
+                DR = comm.ExecuteReader();
+                List<int> cod = new List<int>();
+                dgvPesquisa.Rows.Clear();
+                while (DR.Read())
                 {
-                    if (!cod.Contains((int)DR.GetValue(0)))
+                    if (DR.HasRows)
                     {
-                        dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
-                        cod.Add((int)DR.GetValue(0));
+                        if (!cod.Contains((int)DR.GetValue(0)))
+                        {
+                            dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
+                            cod.Add((int)DR.GetValue(0));
+                        }
                     }
                 }
+                Connection.fecharConexao();
             }
-            Connection.fecharConexao();
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao pesquisar os projetos! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         // Pesquisar por Descrição:
         public void pesquisarGalDesc()
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select codImg, tituloGal, descricaoGal from tbGaleria where descricaoGal like @desc ";
-            comm.CommandType = CommandType.Text;
-
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@desc", MySqlDbType.VarChar).Value = "%" + txtCampoTexto.Text + "%";
-
-            comm.Connection = Connection.abrirConexao();
-            MySqlDataReader DR;
-
-            DR = comm.ExecuteReader();
-            List<int> cod = new List<int>();
-            dgvPesquisa.Rows.Clear();
-            while (DR.Read())
+            try
             {
-                if (DR.HasRows)
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "select codImg, tituloGal, descricaoGal from tbGaleria where descricaoGal like @desc ";
+                comm.CommandType = CommandType.Text;
+
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@desc", MySqlDbType.VarChar).Value = "%" + txtCampoTexto.Text + "%";
+
+                comm.Connection = Connection.abrirConexao();
+                MySqlDataReader DR;
+
+                DR = comm.ExecuteReader();
+                List<int> cod = new List<int>();
+                dgvPesquisa.Rows.Clear();
+                while (DR.Read())
                 {
-                    if (!cod.Contains((int)DR.GetValue(0)))
+                    if (DR.HasRows)
                     {
-                        dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
-                        cod.Add((int)DR.GetValue(0));
+                        if (!cod.Contains((int)DR.GetValue(0)))
+                        {
+                            dgvPesquisa.Rows.Add(DR.GetString("codImg"), DR.GetString("tituloGal"), DR.GetString("descricaoGal"));
+                            cod.Add((int)DR.GetValue(0));
+                        }
                     }
                 }
+                Connection.fecharConexao();
             }
-            Connection.fecharConexao();
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao pesquisar os projetos! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
 
@@ -125,27 +147,39 @@ namespace IntreDesktop
 
         private void pesquisarBytes() //função sql para pesquisar os bytes das fotos inseridas
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select fotosGaleria from tbGaleria where codImg = @codImg";
-            comm.CommandType = CommandType.Text;
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
-
-            comm.Connection = Connection.abrirConexao();
-            MySqlDataReader DR;
-
-            DR = comm.ExecuteReader();
-            byte[] byteImg = null;
-            imgByteList.Clear();
-            while (DR.Read())
+            try
             {
-                if (DR.HasRows)
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "select fotosGaleria from tbGaleria where codImg = @codImg";
+                comm.CommandType = CommandType.Text;
+
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
+
+                comm.Connection = Connection.abrirConexao();
+                MySqlDataReader DR;
+
+                DR = comm.ExecuteReader();
+                byte[] byteImg = null;
+                imgByteList.Clear();
+                while (DR.Read())
                 {
-                    byteImg = (byte[])DR.GetValue(0);
-                    imgByteList.Add(byteImg);
-                    
+                    if (DR.HasRows)
+                    {
+                        byteImg = (byte[])DR.GetValue(0);
+                        imgByteList.Add(byteImg);
+
+                    }
                 }
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao pesquisar as imagens! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             
             Connection.fecharConexao();
@@ -166,24 +200,32 @@ namespace IntreDesktop
 
         private void dgvPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < dgvPesquisa.Rows[e.RowIndex].Cells.Count; i++)
+            try
             {
-                string columnName = dgvPesquisa.Columns[dgvPesquisa.Rows[e.RowIndex].Cells[i].ColumnIndex].Name;
-
-                switch (columnName)
+                for (int i = 0; i < dgvPesquisa.Rows[e.RowIndex].Cells.Count; i++)
                 {
-                    case "dgvCodImg":
-                        codImg = Convert.ToInt32(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break;
-                    case "dgvTituloGal": 
-                        tituloGal = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break;
-                    case "dgvDescGal": 
-                        descricaoGal = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break;
+                    string columnName = dgvPesquisa.Columns[dgvPesquisa.Rows[e.RowIndex].Cells[i].ColumnIndex].Name;
+
+                    switch (columnName)
+                    {
+                        case "dgvCodImg":
+                            codImg = Convert.ToInt32(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
+                        case "dgvTituloGal":
+                            tituloGal = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
+                        case "dgvDescGal":
+                            descricaoGal = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
+                    }
                 }
+                pesquisarBytes();
             }
-            pesquisarBytes();
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecione um registro!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
+
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)

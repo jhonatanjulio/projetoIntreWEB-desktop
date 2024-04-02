@@ -61,6 +61,7 @@ namespace IntreDesktop
             // 
             this.btnFuncionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.btnFuncionarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFuncionarios.Enabled = false;
             this.btnFuncionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("btnFuncionarios.Image")));
@@ -78,6 +79,7 @@ namespace IntreDesktop
             // 
             this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuarios.Enabled = false;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
@@ -95,6 +97,7 @@ namespace IntreDesktop
             // 
             this.btnClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClientes.Enabled = false;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.Image = ((System.Drawing.Image)(resources.GetObject("btnClientes.Image")));
@@ -112,6 +115,7 @@ namespace IntreDesktop
             // 
             this.btnOrcamentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(196)))), ((int)(((byte)(214)))));
             this.btnOrcamentos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOrcamentos.Enabled = false;
             this.btnOrcamentos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrcamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrcamentos.Image = ((System.Drawing.Image)(resources.GetObject("btnOrcamentos.Image")));
@@ -157,6 +161,7 @@ namespace IntreDesktop
             this.btnDeslogar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeslogar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeslogar.UseVisualStyleBackColor = false;
+            this.btnDeslogar.Click += new System.EventHandler(this.btnDeslogar_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -176,7 +181,7 @@ namespace IntreDesktop
             this.MaximizeBox = false;
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal";
+            this.Text = "Intrê.WEB - Menu Principal";
             this.ResumeLayout(false);
 
         }

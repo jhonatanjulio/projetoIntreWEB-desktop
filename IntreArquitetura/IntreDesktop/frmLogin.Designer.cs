@@ -55,11 +55,13 @@ namespace IntreDesktop
             // 
             // txtSenha
             // 
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSenha.Font = new System.Drawing.Font("Wingdings", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.txtSenha.Location = new System.Drawing.Point(616, 337);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = 'l';
             this.txtSenha.Size = new System.Drawing.Size(346, 30);
             this.txtSenha.TabIndex = 24;
+            this.txtSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSenha_KeyDown);
             // 
             // lblEmail
             // 
@@ -78,6 +80,7 @@ namespace IntreDesktop
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(346, 30);
             this.txtUsuario.TabIndex = 22;
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // lblNome
             // 
@@ -112,9 +115,10 @@ namespace IntreDesktop
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblNome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "Intrê.WEB - Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
