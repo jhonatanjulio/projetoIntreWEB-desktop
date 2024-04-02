@@ -15,15 +15,17 @@ namespace IntreDesktop
     {
         private int codCli;
         private int codAmb;
-        List<string> listAmb = new List<string>() {null};
+        List<string> listAmb = new List<string>() { null };
         string nomesAmb;
         string selectNomesAmb;
-       
+
         string nomeCliAlte;
         string tipoImoAlte;
         string tipoSerALte;
         string statusAlte;
-       
+
+        private int codCliAlte;
+
 
         public frmProjetos()
         {
@@ -32,21 +34,26 @@ namespace IntreDesktop
             codigoAmbiente();
             desabilitarCampos();
 
-        } 
-        
+        }
 
-        public frmProjetos(string nomeCli, string tipoImovel, string tipoServico, string status)
+
+        public frmProjetos(string nomeCli, string tipoImovel, string tipoServico, string status, int codCli)
         {
             InitializeComponent();
+            carregaNomeCLi();
 
             nomeCliAlte = nomeCli;
             tipoImoAlte = tipoImovel;
             tipoSerALte = tipoServico;
             statusAlte = status;
+            codCliAlte = codCli;
 
+
+            carregaInfos();
+            alterarCkb();
         }
 
-        
+
 
         //verificando as checkBox
         public void verificando()
@@ -99,12 +106,12 @@ namespace IntreDesktop
             }
             if (ckbOutros.Checked)
             {
-                listAmb.Add(txtOutros.Text);
+                listAmb.Add("*." + txtOutros.Text.Replace(" ", "_"));
             }
         }
 
 
-        
+
 
 
         public void desabilitarCampos()
@@ -227,7 +234,7 @@ namespace IntreDesktop
             Connection.fecharConexao();
         }
 
-        
+
 
 
 
@@ -247,7 +254,7 @@ namespace IntreDesktop
 
             DR.Read();
 
-            
+
 
             if (cbbCliente.SelectedIndex != -1)
             {
@@ -298,7 +305,7 @@ namespace IntreDesktop
             DR.Read();
 
             codAmb = DR.GetInt32(0) + 1;
-            
+
 
 
             Connection.fecharConexao();
@@ -340,13 +347,13 @@ namespace IntreDesktop
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            
+
             if (txtRua.Text.Equals(" ") || txtFormaContato.Text.Equals("") || cbbCliente.Text.Equals("") || txtEstado.Text.Equals("") || txtComplemento.Text.Equals("")
                 || txtCidade.Text.Equals("") || txtBairro.Text.Equals("") || cbbMarcenaria.Text.Equals("") || cbbRevestimento.Text.Equals("")
                 || cbbTipoImovel.Text.Equals("") || cbbTipoServico.Text.Equals("") || txtComplemento.Text.Equals(""))
             {
                 MessageBox.Show("Preencha todos os campos!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                
+
             }
             else
             {
@@ -376,7 +383,7 @@ namespace IntreDesktop
             codigoCliente();
         }
 
-        
+
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
@@ -387,16 +394,7 @@ namespace IntreDesktop
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            buscarAmb();
-            char delimiter = ' ';
-            List<string> stringList = selectNomesAmb.Split(delimiter).ToList();
-            
 
-            foreach (string item in stringList)
-            {
-                MessageBox.Show(item);
-
-            }
         }
 
         private void ckbOutros_CheckedChanged(object sender, EventArgs e)
@@ -420,7 +418,7 @@ namespace IntreDesktop
         public void buscarAmb()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT nomeAmb FROM tbambientes where codAmb = 2;";
+            comm.CommandText = "SELECT nomeAmb FROM tbambientes where codAmb = 10;";
             comm.CommandType = CommandType.Text;
 
 
@@ -437,27 +435,111 @@ namespace IntreDesktop
             Connection.fecharConexao();
         }
 
-        private void btnTeste_Click(object sender, EventArgs e)
+
+        //Alteração
+        public void carregaInfos()
         {
-            MessageBox.Show(nomeCliAlte);
-            MessageBox.Show(tipoImoAlte);
-            MessageBox.Show(tipoSerALte);
-            MessageBox.Show(statusAlte);
+            {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "SELECT * from tbprojetos WHERE codCli = @codCli and tipoImovel = @tipoImo and tipoServico = @tipoServ;";
+                comm.CommandType = CommandType.Text;
+
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@codCli", MySqlDbType.VarChar, 100).Value = codCliAlte;
+                comm.Parameters.Add("@tipoImo", MySqlDbType.VarChar, 100).Value = tipoImoAlte;
+                comm.Parameters.Add("@tipoServ", MySqlDbType.VarChar, 100).Value = tipoSerALte;
+
+                comm.Connection = Connection.abrirConexao();
+
+                MySqlDataReader DR;
+                DR = comm.ExecuteReader();
+                DR.Read();
+
+                txtFormaContato.Text = DR.GetString(1);
+                txtRua.Text = DR.GetString(2);
+                txtBairro.Text = DR.GetString(3);
+                txtEstado.Text = DR.GetString(4);
+                txtCidade.Text = DR.GetString(5);
+                txtComplemento.Text = DR.GetString(6);
+                cbbTipoImovel.SelectedItem = tipoImoAlte;
+                cbbTipoServico.SelectedItem = tipoSerALte;
+                nudMetragem.Value = DR.GetInt32(9);
+                cbbRevestimento.SelectedItem = DR.GetString(10);
+                cbbMarcenaria.SelectedItem = DR.GetString(11);
+                txtDescricaoAmbiente.Text = DR.GetString(12);
+                cbbCliente.Text = nomeCliAlte;
+
+                Connection.fecharConexao();
+            }
         }
 
-
-
-
-        /*
-        private void button1_Click(object sender, EventArgs e)
+        //Alterar Checkbox amb
+        public void alterarCkb()
         {
-            verificando();
-            foreach (string item in listAmb)
+            buscarAmb();
+            char delimiter = ' ';
+            List<string> stringList = selectNomesAmb.Split(delimiter).ToList();
+
+
+
+            foreach (string item in stringList)
             {
-                MessageBox.Show(item);
+                if (item.StartsWith("*"))
+                {
+                    char caractere = '.';
+                    List<string> lista = item.Split(caractere).ToList();
+                    txtOutros.Text = lista[1].Replace("_", " ");
+
+                }
+
+                switch (item)
+                {
+                    case "sala_de_estar":
+                        ckbSalaEstar.Checked = true;
+                        break;
+                    case "sala_de_jantar":
+                        ckbSalaJantar.Checked = true;
+                        break;
+                    case "cozinha":
+                        ckbCozinhas.Checked = true;
+                        break;
+                    case "suite":
+                        ckbSuite.Checked = true;
+                        break;
+                    case "varanda":
+                        ckbVaranda.Checked = true;
+                        break;
+                    case "quarto":
+                        ckbQuarto.Checked = true;
+                        break;
+                    case "2_quartos":
+                        ckbDoisQuarto.Checked = true;
+                        break;
+                    case "3_quartos":
+                        ckbTresQuarto.Checked = true;
+                        break;
+                    case "banheiro_social":
+                        ckbBanheiro.Checked = true;
+                        break;
+                    case "escritorio":
+                        ckbEscritorio.Checked = true;
+                        break;
+                    case "area_de_servico":
+                        ckbAreaServico.Checked = true;
+                        break;
+                    default:
+                        ckbOutros.Checked = true;
+                        break;
+
+                }
 
             }
         }
-        */
     }
+
+
+
+
 }
+
+
