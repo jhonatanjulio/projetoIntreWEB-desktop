@@ -181,8 +181,9 @@ namespace IntreDesktop
             this.Controls.Add(this.txtCampoTexto);
             this.Controls.Add(this.dgvPesquisa);
             this.Controls.Add(this.btnAlterar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPesquisarGaleria";
-            this.Text = "7";
+            this.Text = "Intrê.WEB - Pesquisar Galeria";
             this.Controls.SetChildIndex(this.btnPesquisar, 0);
             this.Controls.SetChildIndex(this.btnLimpar, 0);
             this.Controls.SetChildIndex(this.btnAtivar, 0);

@@ -56,6 +56,8 @@ namespace IntreDesktop
             imgByteListRemoved.Clear();
             lstImagens.Items.Clear();
             pcbPreview.Image = null;
+
+            pesquisarCodImg();
         }
 
         public void desabBotoes()
@@ -79,94 +81,174 @@ namespace IntreDesktop
         // Pesquisar Codigo Img
         public void pesquisarCodImg()
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select codImg+1 from tbGaleria order by codImg desc;";
-            comm.CommandType = CommandType.Text;
-
-            comm.Connection = Connection.abrirConexao();
-            MySqlDataReader DR;
-
-            DR = comm.ExecuteReader();
-
-            if (DR.Read())
+            try
             {
-                codImg = Convert.ToInt32(DR.GetValue(0));
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "select codImg+1 from tbGaleria order by codImg desc;";
+                comm.CommandType = CommandType.Text;
+
+                comm.Connection = Connection.abrirConexao();
+                MySqlDataReader DR;
+
+                DR = comm.ExecuteReader();
+
+                if (DR.Read())
+                {
+                    codImg = Convert.ToInt32(DR.GetValue(0));
+                }
+
+                Connection.fecharConexao();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception) {
+                MessageBox.Show("Ocorreu um erro ao carregar o último código da imagem! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
 
-            Connection.fecharConexao();
         }
 
         // Enviar Imagem
         public void cadastrarProjeto(byte[] img)
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "insert into tbGaleria(codImg, tituloGal, descricaoGal, fotosGaleria) values(@codImg, @tituloGal, @descricaoGal, @fotosGaleria);";
-            comm.CommandType = CommandType.Text;
+            try
+            {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "insert into tbGaleria(codImg, tituloGal, descricaoGal, fotosGaleria) values(@codImg, @tituloGal, @descricaoGal, @fotosGaleria);";
+                comm.CommandType = CommandType.Text;
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
-            comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
-            comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
-            comm.Parameters.Add("@fotosGaleria", MySqlDbType.Blob).Value = img;
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
+                comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
+                comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
+                comm.Parameters.Add("@fotosGaleria", MySqlDbType.Blob).Value = img;
 
-            comm.Connection = Connection.abrirConexao();
+                comm.Connection = Connection.abrirConexao();
 
-            comm.ExecuteNonQuery();
+                comm.ExecuteNonQuery();
 
-            Connection.fecharConexao();
+                Connection.fecharConexao();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception) {
+                MessageBox.Show("Ocorreu um erro ao cadastrar o projeto! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         public void alterarProjeto()
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "update tbGaleria set tituloGal = @tituloGal, descricaoGal = @descricaoGal where codImg = @codImg ;";
-            comm.CommandType = CommandType.Text;
+            try
+            {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "update tbGaleria set tituloGal = @tituloGal, descricaoGal = @descricaoGal where codImg = @codImg ;";
+                comm.CommandType = CommandType.Text;
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
-            comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
-            comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
+                comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
+                comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
 
-            comm.Connection = Connection.abrirConexao();
+                comm.Connection = Connection.abrirConexao();
 
-            comm.ExecuteNonQuery();
+                comm.ExecuteNonQuery();
 
-            Connection.fecharConexao();
+                Connection.fecharConexao();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception) {
+                MessageBox.Show("Ocorreu um erro ao alterar o projeto! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         public void inserirImagens(int codigoImg, byte[] img)
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "insert into tbGaleria(codImg, tituloGal, descricaoGal, fotosGaleria) values(@codImg, @tituloGal, @descricaoGal, @fotosGaleria);";
-            comm.CommandType = CommandType.Text;
+            try
+            {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "insert into tbGaleria(codImg, tituloGal, descricaoGal, fotosGaleria) values(@codImg, @tituloGal, @descricaoGal, @fotosGaleria);";
+                comm.CommandType = CommandType.Text;
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codigoImg;
-            comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
-            comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
-            comm.Parameters.Add("@fotosGaleria", MySqlDbType.Blob).Value = img;
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codigoImg;
+                comm.Parameters.Add("@tituloGal", MySqlDbType.VarChar, 50).Value = txtTitulo.Text;
+                comm.Parameters.Add("@descricaoGal", MySqlDbType.VarChar, 50).Value = txtDescricao.Text;
+                comm.Parameters.Add("@fotosGaleria", MySqlDbType.Blob).Value = img;
 
-            comm.Connection = Connection.abrirConexao();
+                comm.Connection = Connection.abrirConexao();
 
-            comm.ExecuteNonQuery();
+                comm.ExecuteNonQuery();
 
-            Connection.fecharConexao();
+                Connection.fecharConexao();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception) {
+                MessageBox.Show("Ocorreu um erro ao inserir a imagem! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
+        // deletar imagens
         public void deletarImagens(byte[] img)
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "delete from tbGaleria where fotosGaleria = @foto;";
-            comm.CommandType = CommandType.Text;
+            try
+            {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "delete from tbGaleria where fotosGaleria = @foto;";
+                comm.CommandType = CommandType.Text;
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@foto", MySqlDbType.Blob).Value = img;
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@foto", MySqlDbType.Blob).Value = img;
 
-            comm.Connection = Connection.abrirConexao();
+                comm.Connection = Connection.abrirConexao();
 
-            comm.ExecuteNonQuery();
+                comm.ExecuteNonQuery();
 
-            Connection.fecharConexao();
+                Connection.fecharConexao();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            } catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao deletar a imagem! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+
+            }
+        }
+
+        public void deletarProjeto()
+        {
+            try
+            {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "delete from tbGaleria where codImg = @codImg;";
+                comm.CommandType = CommandType.Text;
+
+                comm.Parameters.Clear();
+                comm.Parameters.Add("@codImg", MySqlDbType.Int32).Value = codImg;
+
+                comm.Connection = Connection.abrirConexao();
+
+                comm.ExecuteNonQuery();
+
+                Connection.fecharConexao();
+            }
+            catch (MySqlException)
+            {
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception) {
+                MessageBox.Show("Ocorreu um erro ao deletar o projeto! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -208,7 +290,7 @@ namespace IntreDesktop
                 {
                     cadastrarProjeto(byteImg);
                 }
-                MessageBox.Show("Inserido com sucesso!");
+                MessageBox.Show("Inserido com sucesso!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 pesquisarCodImg();
                 limparCampos();
                 desabBotoes();
@@ -221,9 +303,11 @@ namespace IntreDesktop
             if (resp == DialogResult.Yes)
             {
                 //Excluir
-                MessageBox.Show("Excluido com sucesso");
+                deletarProjeto();
+                MessageBox.Show("Excluído com sucesso!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 limparCampos();
                 desabBotoes();
+                
             }
         }
 
