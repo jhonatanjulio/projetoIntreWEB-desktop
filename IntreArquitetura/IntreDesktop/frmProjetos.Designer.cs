@@ -78,7 +78,6 @@ namespace IntreDesktop
             this.ckbCozinhas = new System.Windows.Forms.CheckBox();
             this.ckbSalaJantar = new System.Windows.Forms.CheckBox();
             this.ckbSalaEstar = new System.Windows.Forms.CheckBox();
-            this.btnTeste = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMetragem)).BeginInit();
             this.gpbAmbientes.SuspendLayout();
             this.SuspendLayout();
@@ -282,7 +281,9 @@ namespace IntreDesktop
             this.cbbTipoImovel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTipoImovel.FormattingEnabled = true;
             this.cbbTipoImovel.Items.AddRange(new object[] {
-            "a"});
+            "a",
+            "b",
+            "c"});
             this.cbbTipoImovel.Location = new System.Drawing.Point(830, 204);
             this.cbbTipoImovel.Name = "cbbTipoImovel";
             this.cbbTipoImovel.Size = new System.Drawing.Size(218, 33);
@@ -314,7 +315,9 @@ namespace IntreDesktop
             this.cbbTipoServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTipoServico.FormattingEnabled = true;
             this.cbbTipoServico.Items.AddRange(new object[] {
-            "a"});
+            "a",
+            "b",
+            "c"});
             this.cbbTipoServico.Location = new System.Drawing.Point(360, 283);
             this.cbbTipoServico.Name = "cbbTipoServico";
             this.cbbTipoServico.Size = new System.Drawing.Size(218, 33);
@@ -627,23 +630,12 @@ namespace IntreDesktop
             this.ckbSalaEstar.Text = "Sala de Estar";
             this.ckbSalaEstar.UseVisualStyleBackColor = true;
             // 
-            // btnTeste
-            // 
-            this.btnTeste.Location = new System.Drawing.Point(13, 542);
-            this.btnTeste.Name = "btnTeste";
-            this.btnTeste.Size = new System.Drawing.Size(75, 23);
-            this.btnTeste.TabIndex = 62;
-            this.btnTeste.Text = "button1";
-            this.btnTeste.UseVisualStyleBackColor = true;
-            this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
-            // 
             // frmProjetos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(1127, 649);
-            this.Controls.Add(this.btnTeste);
             this.Controls.Add(this.gpbAmbientes);
             this.Controls.Add(this.txtDescricaoAmbiente);
             this.Controls.Add(this.cbbCliente);
@@ -741,6 +733,5 @@ namespace IntreDesktop
         private System.Windows.Forms.CheckBox ckbCozinhas;
         private System.Windows.Forms.CheckBox ckbSalaJantar;
         private System.Windows.Forms.CheckBox ckbSalaEstar;
-        private System.Windows.Forms.Button btnTeste;
     }
 }

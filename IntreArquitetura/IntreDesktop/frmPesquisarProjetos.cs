@@ -17,6 +17,7 @@ namespace IntreDesktop
         private string tipoImovel;
         private string tipoServico;
         private string status;
+        private int codCli;
 
 
         public frmPesquisarProjetos()
@@ -151,13 +152,41 @@ namespace IntreDesktop
                         break;
                 }
             }
-
+            buscaCodCli();
             //MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
+        }
+
+
+
+        public void buscaCodCli()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select tbclientes.codCli FROM tbprojetos inner join tbclientes where tbclientes.nomeCli = @nome and tbprojetos.tipoImovel = @tipoImovel and tbprojetos.tipoServico = @tipoServico ;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 50).Value = nomeCli;
+            comm.Parameters.Add("@tipoImovel", MySqlDbType.VarChar, 50).Value = tipoImovel;
+            comm.Parameters.Add("@tipoServico", MySqlDbType.VarChar, 50).Value = tipoServico;
+
+
+
+            comm.Connection = Connection.abrirConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            DR.Read();
+
+            codCli = DR.GetInt32(0);
+
+
+
+            Connection.fecharConexao();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            frmProjetos abrir = new frmProjetos(nomeCli,tipoImovel,tipoServico,status);
+            frmProjetos abrir = new frmProjetos(nomeCli,tipoImovel,tipoServico,status, codCli);
             abrir.Show();
             this.Hide();
         }
