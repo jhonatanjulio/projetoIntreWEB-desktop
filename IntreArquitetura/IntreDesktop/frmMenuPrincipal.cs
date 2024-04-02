@@ -30,5 +30,12 @@ namespace IntreDesktop
             abrir.Show();
             this.Hide();
         }
+
+        private void btnDeslogar_Click(object sender, EventArgs e)
+        {
+            frmLogin abrir = new frmLogin();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

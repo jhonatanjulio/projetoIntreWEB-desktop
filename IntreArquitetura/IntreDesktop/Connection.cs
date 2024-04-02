@@ -37,6 +37,7 @@ namespace IntreDesktop
                             System.Windows.Forms.MessageBoxButtons.OK,
                             System.Windows.Forms.MessageBoxIcon.Error,
                             System.Windows.Forms.MessageBoxDefaultButton.Button1);
+                        System.Windows.Forms.Application.Exit();
                         break;
                 }
             }

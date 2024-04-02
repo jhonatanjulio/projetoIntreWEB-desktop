@@ -18,11 +18,12 @@ namespace IntreDesktop
             InitializeComponent();
         }
 
-        public bool autenticarUsuario(string usuario, string senha )
+        public bool autenticarUsuario(string usuario, string senha)
         {
+
             MySqlCommand comm = new MySqlCommand();
 
-            comm.CommandText = "select * from tbUsuarios where login = @usuario and senha = @senha;";
+            comm.CommandText = "select * from tbUsuarios where login = @usuario and senha = md5(@senha);";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -39,6 +40,8 @@ namespace IntreDesktop
             Connection.fecharConexao();
 
             return validar;
+
+
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -47,22 +50,78 @@ namespace IntreDesktop
 
             userName = txtUsuario.Text;
             userSenha = txtSenha.Text;
-
-            if(autenticarUsuario(userName,userSenha))
+            try
             {
-                frmMenuPrincipal abrir = new frmMenuPrincipal();
-                abrir.Show();
-                this.Hide();
+                if (autenticarUsuario(userName, userSenha))
+                {
+                    frmMenuPrincipal abrir = new frmMenuPrincipal();
+                    abrir.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuário ou Senha inválidos!",
+                        "Mensagem do Sistema",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1);
+                    txtUsuario.Clear();
+                    txtSenha.Clear();
+                }
             }
-            else
+            catch (MySqlException)
             {
-                MessageBox.Show("Usuário ou Senha inválidos!",
-                    "Mensagem do Sistema",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1);
-                txtUsuario.Clear();
-                txtSenha.Clear();
+                MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocorreu um erro ao logar! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtSenha.Focus();
+            }
+        }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string userName, userSenha;
+
+                userName = txtUsuario.Text;
+                userSenha = txtSenha.Text;
+                try
+                {
+                    if (autenticarUsuario(userName, userSenha))
+                    {
+                        frmMenuPrincipal abrir = new frmMenuPrincipal();
+                        abrir.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário ou Senha inválidos!",
+                            "Mensagem do Sistema",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1);
+                        txtUsuario.Clear();
+                        txtSenha.Clear();
+                    }
+                }
+                catch (MySqlException)
+                {
+                    MessageBox.Show("Ocorreu um erro no banco de dados! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ocorreu um erro ao logar! Contate o administrador do sistema.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
             }
         }
     }
