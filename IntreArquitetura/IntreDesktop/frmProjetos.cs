@@ -14,7 +14,7 @@ namespace IntreDesktop
     public partial class frmProjetos : Form
     {
         private int codCli;
-        private int codAmb;
+        private int codAmb = 1;
         List<string> listAmb = new List<string>() { null };
         string nomesAmb;
         string selectNomesAmb;
@@ -23,6 +23,7 @@ namespace IntreDesktop
         string tipoImoAlte;
         string tipoSerALte;
         string statusAlte;
+        int codProje;
 
         private int codCliAlte;
 
@@ -37,7 +38,7 @@ namespace IntreDesktop
         }
 
 
-        public frmProjetos(string nomeCli, string tipoImovel, string tipoServico, string status, int codCli)
+        public frmProjetos(string nomeCli, string tipoImovel, string tipoServico, string status, int codCli, int codProj)
         {
             InitializeComponent();
             carregaNomeCLi();
@@ -47,8 +48,9 @@ namespace IntreDesktop
             tipoSerALte = tipoServico;
             statusAlte = status;
             codCliAlte = codCli;
+            codProje = codProj;
 
-
+            
             carregaInfos();
             alterarCkb();
         }
@@ -131,7 +133,7 @@ namespace IntreDesktop
             cbbTipoServico.Enabled = false;
             txtDescricaoAmbiente.Enabled = false;
 
-            btnAlterar.Enabled = true;
+            btnAlterar.Enabled = false;
             btnCadastrar.Enabled = false;
             btnArquivar.Enabled = false;
             btnLimpar.Enabled = false;
@@ -195,6 +197,10 @@ namespace IntreDesktop
         private void btnNovo_Click(object sender, EventArgs e)
         {
             habilitarCampos();
+            if (cbbCliente.Items.Count == 0)
+            {
+                MessageBox.Show("Nenhum cliente cadastrado!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
@@ -217,7 +223,7 @@ namespace IntreDesktop
         public void carregaNomeCLi()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT nomeCli FROM `tbclientes`;";
+            comm.CommandText = "SELECT nomeCli FROM `tbClientes`;";
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Connection.abrirConexao();
@@ -242,7 +248,7 @@ namespace IntreDesktop
         public void codigoCliente()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT codCli FROM tbclientes WHERE nomeCli = @cliente";
+            comm.CommandText = "SELECT codCli FROM tbClientes WHERE nomeCli = @cliente";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -294,7 +300,7 @@ namespace IntreDesktop
         {
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT codAmb FROM tbambientes ORDER BY codAmb DESC;";
+            comm.CommandText = "SELECT codAmb+1 FROM tbAmbientes ORDER BY codAmb DESC;";
             comm.CommandType = CommandType.Text;
 
 
@@ -302,11 +308,12 @@ namespace IntreDesktop
             MySqlDataReader DR;
             DR = comm.ExecuteReader();
 
-            DR.Read();
-
-            codAmb = DR.GetInt32(0) + 1;
 
 
+            if (DR.Read())
+            {
+                codAmb = DR.GetInt32(0);
+            }
 
             Connection.fecharConexao();
         }
@@ -347,7 +354,7 @@ namespace IntreDesktop
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-
+            
             if (txtRua.Text.Equals(" ") || txtFormaContato.Text.Equals("") || cbbCliente.Text.Equals("") || txtEstado.Text.Equals("") || txtComplemento.Text.Equals("")
                 || txtCidade.Text.Equals("") || txtBairro.Text.Equals("") || cbbMarcenaria.Text.Equals("") || cbbRevestimento.Text.Equals("")
                 || cbbTipoImovel.Text.Equals("") || cbbTipoServico.Text.Equals("") || txtComplemento.Text.Equals(""))
@@ -380,7 +387,9 @@ namespace IntreDesktop
 
         private void cbbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             codigoCliente();
+           
         }
 
 
@@ -394,7 +403,30 @@ namespace IntreDesktop
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            if (txtRua.Text.Equals(" ") || txtFormaContato.Text.Equals("") || cbbCliente.Text.Equals("") || txtEstado.Text.Equals("") || txtComplemento.Text.Equals("")
+                || txtCidade.Text.Equals("") || txtBairro.Text.Equals("") || cbbMarcenaria.Text.Equals("") || cbbRevestimento.Text.Equals("")
+                || cbbTipoImovel.Text.Equals("") || cbbTipoServico.Text.Equals("") || txtComplemento.Text.Equals(""))
+            {
+                MessageBox.Show("Preencha todos os campos!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
+            }
+            else
+            {
+                if (alterarProjetos() < 1)
+                {
+                    MessageBox.Show("Alterado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    limparCampos();
+                    desabilitarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao alterar!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                    limparCampos();
+                    desabilitarCampos();
+                }
+
+            }
+            listAmb.Clear();
         }
 
         private void ckbOutros_CheckedChanged(object sender, EventArgs e)
@@ -418,7 +450,7 @@ namespace IntreDesktop
         public void buscarAmb()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT nomeAmb FROM tbambientes where codAmb = 10;";
+            comm.CommandText = "SELECT nomeAmb FROM tbAmbientes where codAmb = 1;";
             comm.CommandType = CommandType.Text;
 
 
@@ -441,7 +473,7 @@ namespace IntreDesktop
         {
             {
                 MySqlCommand comm = new MySqlCommand();
-                comm.CommandText = "SELECT * from tbprojetos WHERE codCli = @codCli and tipoImovel = @tipoImo and tipoServico = @tipoServ;";
+                comm.CommandText = "SELECT * from tbProjetos WHERE codCli = @codCli and tipoImovel = @tipoImo and tipoServico = @tipoServ;";
                 comm.CommandType = CommandType.Text;
 
                 comm.Parameters.Clear();
@@ -535,6 +567,43 @@ namespace IntreDesktop
 
             }
         }
+
+
+        //alterar projetos
+        public int alterarProjetos()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "update tbProjetos set formaContato = @formaContato, logradouro = @rua, bairro = @bairro, estado = @estado, cidade = @cidade, complemento = @complemento, " +
+                "tipoImovel = @tipoImovel, tipoServico = @tipoServico, metragem = @metragem, revestimentos = @revestimento, marcenaria = @marcenaria, descricaoAmbiente = @descricaoAmbiente where codProj = @codProj";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@formaContato", MySqlDbType.VarChar, 50).Value = txtFormaContato.Text;
+            comm.Parameters.Add("@rua", MySqlDbType.VarChar, 50).Value = txtRua.Text;
+            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
+            comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = txtEstado.Text;
+            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
+            comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 50).Value = txtComplemento.Text;
+            comm.Parameters.Add("@tipoImovel", MySqlDbType.VarChar, 50).Value = cbbTipoImovel.Text;
+            comm.Parameters.Add("@tipoServico", MySqlDbType.VarChar, 50).Value = cbbTipoServico.Text;
+            comm.Parameters.Add("@metragem", MySqlDbType.Decimal).Value = nudMetragem.Value;
+            comm.Parameters.Add("@revestimento", MySqlDbType.VarChar, 50).Value = cbbRevestimento.Text;
+            comm.Parameters.Add("@marcenaria", MySqlDbType.VarChar, 50).Value = cbbMarcenaria.Text;
+            comm.Parameters.Add("@descricaoAmbiente", MySqlDbType.VarChar, 50).Value = txtDescricaoAmbiente.Text;
+            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProje;
+
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+            MessageBox.Show(Convert.ToString( res));
+
+            return res;
+        }
+
+        
     }
 
 
