@@ -1,13 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace IntreDesktop
 {
@@ -24,6 +20,8 @@ namespace IntreDesktop
         string tipoSerALte;
         string statusAlte;
         int codProje;
+
+        private int codAmbAlte;
 
         private int codCliAlte;
 
@@ -50,7 +48,7 @@ namespace IntreDesktop
             codCliAlte = codCli;
             codProje = codProj;
 
-            
+            buscarCodAmb();
             carregaInfos();
             alterarCkb();
         }
@@ -412,7 +410,8 @@ namespace IntreDesktop
             }
             else
             {
-                if (alterarProjetos() < 1)
+               
+                if (alterarProjetos(codProje) == 1)
                 {
                     MessageBox.Show("Alterado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     limparCampos();
@@ -443,15 +442,38 @@ namespace IntreDesktop
             }
         }
 
+        //select codAmb
+        public void buscarCodAmb()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "SELECT codAmb FROM tbprojetos WHERE codProj = @codProj;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProje;
 
 
+            comm.Connection = Connection.abrirConexao();
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            DR.Read();
+
+            codAmbAlte = DR.GetInt32(0);
+
+
+            Connection.fecharConexao();
+        }
 
         //select nome ambientes
         public void buscarAmb()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT nomeAmb FROM tbAmbientes where codAmb = 1;";
+            comm.CommandText = "SELECT nomeAmb FROM tbAmbientes where codAmb = @codAmb;";
             comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codAmb", MySqlDbType.Int32).Value = codAmbAlte;
 
 
             comm.Connection = Connection.abrirConexao();
@@ -473,13 +495,14 @@ namespace IntreDesktop
         {
             {
                 MySqlCommand comm = new MySqlCommand();
-                comm.CommandText = "SELECT * from tbProjetos WHERE codCli = @codCli and tipoImovel = @tipoImo and tipoServico = @tipoServ;";
+                comm.CommandText = "SELECT * from tbProjetos WHERE codCli = @codCli and tipoImovel = @tipoImo and tipoServico = @tipoServ and codProj = @codProj";
                 comm.CommandType = CommandType.Text;
 
                 comm.Parameters.Clear();
                 comm.Parameters.Add("@codCli", MySqlDbType.VarChar, 100).Value = codCliAlte;
                 comm.Parameters.Add("@tipoImo", MySqlDbType.VarChar, 100).Value = tipoImoAlte;
                 comm.Parameters.Add("@tipoServ", MySqlDbType.VarChar, 100).Value = tipoSerALte;
+                comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProje;
 
                 comm.Connection = Connection.abrirConexao();
 
@@ -570,11 +593,10 @@ namespace IntreDesktop
 
 
         //alterar projetos
-        public int alterarProjetos()
+        public int alterarProjetos(int cod)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "update tbProjetos set formaContato = @formaContato, logradouro = @rua, bairro = @bairro, estado = @estado, cidade = @cidade, complemento = @complemento, " +
-                "tipoImovel = @tipoImovel, tipoServico = @tipoServico, metragem = @metragem, revestimentos = @revestimento, marcenaria = @marcenaria, descricaoAmbiente = @descricaoAmbiente where codProj = @codProj";
+            comm.CommandText = "UPDATE tbProjetos set formaContato = @formaContato, logradouro = @rua, bairro = @bairro, estado = @estado, cidade = @cidade, complemento = @complemento, tipoImovel = @tipoImovel, tipoServico = @tipoServico, metragem = @metragem, revestimentos = @revestimento, marcenaria = @marcenaria, descricaoAmbiente = @descricaoAmbiente where codProj = @codProj;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -590,17 +612,20 @@ namespace IntreDesktop
             comm.Parameters.Add("@revestimento", MySqlDbType.VarChar, 50).Value = cbbRevestimento.Text;
             comm.Parameters.Add("@marcenaria", MySqlDbType.VarChar, 50).Value = cbbMarcenaria.Text;
             comm.Parameters.Add("@descricaoAmbiente", MySqlDbType.VarChar, 50).Value = txtDescricaoAmbiente.Text;
-            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProje;
+            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = cod;
 
 
             comm.Connection = Connection.abrirConexao();
 
-            int res = comm.ExecuteNonQuery();
+
+
+            int res = 0;
+            res = comm.ExecuteNonQuery();
 
             Connection.fecharConexao();
-            MessageBox.Show(Convert.ToString( res));
 
             return res;
+            
         }
 
         
