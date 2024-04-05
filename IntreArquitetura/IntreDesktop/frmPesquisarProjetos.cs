@@ -154,6 +154,7 @@ namespace IntreDesktop
                 }
             }
             buscaCodCli();
+            buscaCodProj();
             //MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
         }
 
@@ -189,7 +190,7 @@ namespace IntreDesktop
         public void buscaCodProj()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select codProj FROM tbProjetos inner join tbClientes where tbClientes.nomeCli = @nome and tbProjetos.tipoImovel = @tipoImovel and tbProjetos.tipoServico = @tipoServico;";
+            comm.CommandText = "select codProj FROM tbProjetos inner join tbClientes where tbClientes.nomeCli = @nome and tipoImovel = @tipoImovel and tipoServico = @tipoServico;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -206,7 +207,7 @@ namespace IntreDesktop
             DR.Read();
 
             codProj = DR.GetInt32(0);
-
+            
 
 
             Connection.fecharConexao();
