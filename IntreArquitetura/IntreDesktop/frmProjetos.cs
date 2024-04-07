@@ -31,8 +31,8 @@ namespace IntreDesktop
             InitializeComponent();
             carregaNomeCLi();
             codigoAmbiente();
+            Utilities.habilitarDesabBotaoGeral(this, "Inicio");
             desabilitarCampos();
-
         }
 
 
@@ -40,6 +40,7 @@ namespace IntreDesktop
         {
             InitializeComponent();
             carregaNomeCLi();
+            habilitarCampos();
 
             nomeCliAlte = nomeCli;
             tipoImoAlte = tipoImovel;
@@ -56,58 +57,170 @@ namespace IntreDesktop
 
 
         //verificando as checkBox
-        public void verificando()
+        public void verificandoCkb()
         {
+            listAmb.Clear();
 
+            // sala de estar
             if (ckbSalaEstar.Checked)
             {
                 listAmb.Add("sala_de_estar");
             }
+            else
+            {
+                if (listAmb.Contains("sala_de_estar"))
+                {
+                    listAmb.Remove("sala_de_estar");
+                }
+            }
+
+            // sala de jantar
             if (ckbSalaJantar.Checked)
             {
                 listAmb.Add("sala_de_jantar");
             }
+            else
+            {
+                if (listAmb.Contains("sala_de_jantar"))
+                {
+                    listAmb.Remove("sala_de_jantar");
+                }
+            }
+
+            // cozinha
             if (ckbCozinhas.Checked)
             {
                 listAmb.Add("cozinha");
             }
+            else
+            {
+                if (listAmb.Contains("cozinha"))
+                {
+                    listAmb.Remove("cozinha");
+                }
+            }
+
+            // suite
             if (ckbSuite.Checked)
             {
                 listAmb.Add("suite");
             }
+            else
+            {
+                if (listAmb.Contains("suite"))
+                {
+                    listAmb.Remove("suite");
+                }
+            }
+
+            // varanda
             if (ckbVaranda.Checked)
             {
                 listAmb.Add("varanda");
             }
+            else
+            {
+                if (listAmb.Contains("varanda"))
+                {
+                    listAmb.Remove("varanda");
+                }
+            }
+
+            // quarto
             if (ckbQuarto.Checked)
             {
                 listAmb.Add("quarto");
             }
+            else
+            {
+                if (listAmb.Contains("quarto"))
+                {
+                    listAmb.Remove("quarto");
+                }
+            }
+
+            // dois quartos
             if (ckbDoisQuarto.Checked)
             {
                 listAmb.Add("2_quartos");
             }
+            else
+            {
+                if (listAmb.Contains("2_quartos"))
+                {
+                    listAmb.Remove("2_quartos");
+                }
+            }
+
+            // tres quartos
             if (ckbTresQuarto.Checked)
             {
                 listAmb.Add("3_quartos");
             }
+            else
+            {
+                if (listAmb.Contains("3_quartos"))
+                {
+                    listAmb.Remove("3_quartos");
+                }
+            }
+
+            // banheiro
             if (ckbBanheiro.Checked)
             {
                 listAmb.Add("banheiro_social");
             }
+            else
+            {
+                if (listAmb.Contains("banheiro_social"))
+                {
+                    listAmb.Remove("banheiro_social");
+                }
+            }
+
+            // escritorio
             if (ckbEscritorio.Checked)
             {
                 listAmb.Add("escritorio");
             }
+            else
+            {
+                if (listAmb.Contains("escritorio"))
+                {
+                    listAmb.Remove("escritorio");
+                }
+            }
 
+            // area servico
             if (ckbAreaServico.Checked)
             {
                 listAmb.Add("area_de_servico");
             }
+            else
+            {
+                if (listAmb.Contains("area_de_servico"))
+                {
+                    listAmb.Remove("area_de_servico");
+                }
+            }
+
+            // outros
             if (ckbOutros.Checked)
             {
-                listAmb.Add("*." + txtOutros.Text.Replace(" ", "_"));
+                if (!txtOutros.Text.Equals(""))
+                {
+                    listAmb.Add(("*." + txtOutros.Text.Replace(" ", "_")).ToLower());
+                }
             }
+            else
+            {
+                if (listAmb.Contains(("*." + txtOutros.Text.Replace(" ", "_")).ToLower()))
+                {
+                    listAmb.Remove(("*." + txtOutros.Text.Replace(" ", "_")).ToLower());
+                }
+            }
+
+            nomesAmb = String.Join(" ", listAmb.ToArray());
         }
 
 
@@ -130,12 +243,6 @@ namespace IntreDesktop
             cbbTipoImovel.Enabled = false;
             cbbTipoServico.Enabled = false;
             txtDescricaoAmbiente.Enabled = false;
-
-            btnAlterar.Enabled = false;
-            btnCadastrar.Enabled = false;
-            btnArquivar.Enabled = false;
-            btnLimpar.Enabled = false;
-            btnNovo.Focus();
         }
 
         public void habilitarCampos()
@@ -154,10 +261,6 @@ namespace IntreDesktop
             cbbTipoImovel.Enabled = true;
             cbbTipoServico.Enabled = true;
             txtDescricaoAmbiente.Enabled = true;
-
-            btnLimpar.Enabled = true;
-            btnCadastrar.Enabled = true;
-            txtFormaContato.Focus();
         }
 
         public void limparCampos()
@@ -170,6 +273,7 @@ namespace IntreDesktop
             txtCidade.Clear();
             txtComplemento.Clear();
             txtDescricaoAmbiente.Clear();
+            txtOutros.Clear();
 
             nudMetragem.ResetText();
             cbbMarcenaria.SelectedIndex = -1;
@@ -194,19 +298,23 @@ namespace IntreDesktop
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            habilitarCampos();
+            carregaNomeCLi();
             if (cbbCliente.Items.Count == 0)
             {
-                MessageBox.Show("Nenhum cliente cadastrado!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Nenhum cliente cadastrado! Cadastre um cliente antes para prosseguir.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                Utilities.habilitarDesabBotaoGeral(this, "Novo");
+                habilitarCampos();
             }
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            //Utilities.limparCamposGeral(this);
             limparCampos();
-            //Utilities.habilitarDesabBotaoGeral(this,"Limpar");
             desabilitarCampos();
+            Utilities.habilitarDesabBotaoGeral(this, "Limpar");
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -273,8 +381,7 @@ namespace IntreDesktop
         //Insert tabela ambientes
         public int insertAmbiente()
         {
-            verificando();
-            nomesAmb = String.Join(" ", listAmb.ToArray());
+            verificandoCkb();
 
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "insert into tbAmbientes(nomeAmb)values(@nomesAmb);";
@@ -289,6 +396,8 @@ namespace IntreDesktop
 
             Connection.fecharConexao();
 
+            codigoAmbiente();
+            codAmb -= 1;
             return res;
         }
 
@@ -366,15 +475,13 @@ namespace IntreDesktop
                 {
                     MessageBox.Show("Cadastrado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     limparCampos();
+                    Utilities.habilitarDesabBotaoGeral(this, "Cadastrar");
                     desabilitarCampos();
                 }
                 else
                 {
                     MessageBox.Show("Erro ao cadastrar!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    limparCampos();
-                    desabilitarCampos();
                 }
-
             }
             listAmb.Clear();
 
@@ -411,17 +518,16 @@ namespace IntreDesktop
             else
             {
                
-                if (alterarProjetos(codProje) == 1)
+                if (alterarProjetos(codProje) == 1 && alterarAmbientes(codAmbAlte) == 1)
                 {
                     MessageBox.Show("Alterado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     limparCampos();
+                    Utilities.habilitarDesabBotaoGeral(this, "Alterar");
                     desabilitarCampos();
                 }
                 else
                 {
                     MessageBox.Show("Erro ao alterar!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                    limparCampos();
-                    desabilitarCampos();
                 }
 
             }
@@ -430,6 +536,8 @@ namespace IntreDesktop
 
         private void ckbOutros_CheckedChanged(object sender, EventArgs e)
         {
+            verificandoCkb();
+
             if (ckbOutros.Checked)
             {
                 lblOutros.Enabled = true;
@@ -544,7 +652,7 @@ namespace IntreDesktop
                     char caractere = '.';
                     List<string> lista = item.Split(caractere).ToList();
                     txtOutros.Text = lista[1].Replace("_", " ");
-
+                    ckbOutros.Checked = true;
                 }
 
                 switch (item)
@@ -582,12 +690,7 @@ namespace IntreDesktop
                     case "area_de_servico":
                         ckbAreaServico.Checked = true;
                         break;
-                    default:
-                        ckbOutros.Checked = true;
-                        break;
-
                 }
-
             }
         }
 
@@ -628,7 +731,82 @@ namespace IntreDesktop
             
         }
 
-        
+        public int alterarAmbientes(int cod)
+        {
+            verificandoCkb();
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "UPDATE tbAmbientes set nomeAmb = @nomeAmb where codAmb = @codAmb;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nomeAmb", MySqlDbType.VarChar).Value = nomesAmb;
+            comm.Parameters.Add("@codAmb", MySqlDbType.Int32).Value = cod;
+
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = 0;
+            res = comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+
+            return res;
+        }
+
+        private void ckbQuarto_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbVaranda_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbBanheiro_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbSalaJantar_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbSalaEstar_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbEscritorio_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbCozinhas_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbDoisQuarto_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbAreaServico_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbSuite_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
+
+        private void ckbTresQuarto_CheckedChanged(object sender, EventArgs e)
+        {
+            verificandoCkb();
+        }
     }
 
 
