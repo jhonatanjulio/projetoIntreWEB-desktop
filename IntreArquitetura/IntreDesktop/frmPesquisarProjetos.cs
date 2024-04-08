@@ -52,7 +52,7 @@ namespace IntreDesktop
             dgvPesquisa.Rows.Clear();
 
             string status = "Arquivado";
-            
+
             while (DR.Read())
             {
                 if (DR.GetString("status").Equals("True"))
@@ -62,7 +62,7 @@ namespace IntreDesktop
 
                 dgvPesquisa.Rows.Add(DR.GetString("nomeCli"), DR.GetString("tipoImovel"), DR.GetString("tipoServico"), status);
 
-                
+
 
 
             }
@@ -87,7 +87,7 @@ namespace IntreDesktop
             dgvPesquisa.Rows.Clear();
 
             string status = "Arquivado";
-            
+
 
             while (DR.Read())
             {
@@ -120,7 +120,7 @@ namespace IntreDesktop
             }
             else
             {
-                MessageBox.Show("Selecione umas das opções acima!");
+                MessageBox.Show("Selecione umas das opções acima!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             }
 
         }
@@ -133,29 +133,44 @@ namespace IntreDesktop
 
         private void dgvPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < dgvPesquisa.Rows[e.RowIndex].Cells.Count; i++)
+            try
             {
-                string columnName = dgvPesquisa.Columns[dgvPesquisa.Rows[e.RowIndex].Cells[i].ColumnIndex].Name;
 
-                switch (columnName)
+                for (int i = 0; i < dgvPesquisa.Rows[e.RowIndex].Cells.Count; i++)
                 {
-                    case "coluna1":
-                        nomeCli = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break;
-                    case "coluna2":
-                        tipoImovel = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break;
-                    case "coluna3":
-                        tipoServico = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break;
-                    case "coluna4":
-                        status = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
-                        break;
+                    string columnName = dgvPesquisa.Columns[dgvPesquisa.Rows[e.RowIndex].Cells[i].ColumnIndex].Name;
+
+                    switch (columnName)
+                    {
+                        case "coluna1":
+                            nomeCli = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
+                        case "coluna2":
+                            tipoImovel = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
+                        case "coluna3":
+                            tipoServico = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
+                        case "coluna4":
+                            status = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
+                    }
+                }
+                if (nomeCli.Equals("") && tipoImovel.Equals("") && tipoServico.Equals(""))
+                {
+                    MessageBox.Show("Selecione pelo menos um registro!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    buscaCodCli();
+                    buscaCodProj();
+                    //MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
                 }
             }
-            buscaCodCli();
-            buscaCodProj();
-            //MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Selecione um registro!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
         }
 
 
@@ -181,8 +196,6 @@ namespace IntreDesktop
 
             codCli = DR.GetInt32(0);
 
-
-
             Connection.fecharConexao();
         }
 
@@ -207,7 +220,7 @@ namespace IntreDesktop
             DR.Read();
 
             codProj = DR.GetInt32(0);
-            
+
 
 
             Connection.fecharConexao();
@@ -215,9 +228,16 @@ namespace IntreDesktop
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            frmProjetos abrir = new frmProjetos(nomeCli,tipoImovel,tipoServico,status, codCli, codProj);
-            abrir.Show();
-            this.Hide();
+            if (codCli > 0)
+            {
+                frmProjetos abrir = new frmProjetos(nomeCli, tipoImovel, tipoServico, status, codCli, codProj);
+                abrir.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Selecione pelo menos um registro!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -225,6 +245,40 @@ namespace IntreDesktop
             frmProjetos abrir = new frmProjetos();
             abrir.Show();
             this.Hide();
+        }
+
+
+        //Ativar projeto 
+        public int ativarProj()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "UPDATE tbProjetos set status = 1 where codProj = @codProj;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProj;
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+
+            return res;
+        }
+
+        private void btnAtivar_Click(object sender, EventArgs e)
+        {
+            if (ativarProj() == 1)
+            {
+                MessageBox.Show("Ativado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                limpar();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao ativar!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                limpar();
+            }
         }
     }
 }

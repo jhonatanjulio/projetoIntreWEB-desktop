@@ -59,6 +59,7 @@ namespace IntreDesktop
             // btnAtivar
             // 
             this.btnAtivar.Location = new System.Drawing.Point(243, 484);
+            this.btnAtivar.Click += new System.EventHandler(this.btnAtivar_Click);
             // 
             // gpbTipoPesquisar
             // 
@@ -82,7 +83,7 @@ namespace IntreDesktop
             this.coluna2,
             this.coluna3,
             this.coluna4});
-            this.dgvPesquisa.Location = new System.Drawing.Point(107, 164);
+            this.dgvPesquisa.Location = new System.Drawing.Point(107, 136);
             this.dgvPesquisa.Name = "dgvPesquisa";
             this.dgvPesquisa.ReadOnly = true;
             this.dgvPesquisa.Size = new System.Drawing.Size(704, 302);
@@ -210,7 +211,7 @@ namespace IntreDesktop
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.dgvPesquisa);
             this.Name = "frmPesquisarProjetos";
-            this.Text = "frmPesquisarProjetos";
+            this.Text = "Pesquisar Projetos";
             this.Controls.SetChildIndex(this.dgvPesquisa, 0);
             this.Controls.SetChildIndex(this.btnPesquisar, 0);
             this.Controls.SetChildIndex(this.btnLimpar, 0);

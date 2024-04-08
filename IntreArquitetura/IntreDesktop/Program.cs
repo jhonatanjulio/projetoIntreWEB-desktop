@@ -16,7 +16,7 @@ namespace IntreDesktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProjetos());
+            Application.Run(new frmMenuPrincipal());
         }
     }
 }

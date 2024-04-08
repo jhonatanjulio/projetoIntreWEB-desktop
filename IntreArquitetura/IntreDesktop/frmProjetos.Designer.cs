@@ -425,6 +425,7 @@ namespace IntreDesktop
             this.btnArquivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnArquivar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnArquivar.UseVisualStyleBackColor = false;
+            this.btnArquivar.Click += new System.EventHandler(this.btnArquivar_Click);
             // 
             // nudMetragem
             // 
@@ -697,6 +698,7 @@ namespace IntreDesktop
             this.MaximizeBox = false;
             this.Name = "frmProjetos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Projetos";
             ((System.ComponentModel.ISupportInitialize)(this.nudMetragem)).EndInit();
             this.gpbAmbientes.ResumeLayout(false);
             this.gpbAmbientes.PerformLayout();
