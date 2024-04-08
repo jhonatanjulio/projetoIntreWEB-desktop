@@ -13,6 +13,7 @@ namespace IntreDesktop
         private int codAmb = 1;
         List<string> listAmb = new List<string>() { null };
         string nomesAmb;
+        string nomesAmbAlte;
         string selectNomesAmb;
 
         string nomeCliAlte;
@@ -20,6 +21,7 @@ namespace IntreDesktop
         string tipoSerALte;
         string statusAlte;
         int codProje;
+
 
         private int codAmbAlte;
 
@@ -40,6 +42,7 @@ namespace IntreDesktop
         {
             InitializeComponent();
             carregaNomeCLi();
+            habilitarCamposAlterar();
 
             nomeCliAlte = nomeCli;
             tipoImoAlte = tipoImovel;
@@ -160,6 +163,12 @@ namespace IntreDesktop
             txtFormaContato.Focus();
         }
 
+        public void habilitarCamposAlterar()
+        {
+            btnCadastrar.Enabled = false;
+            btnNovo.Enabled = false;
+        }
+
         public void limparCampos()
         {
             cbbCliente.SelectedIndex = -1;
@@ -189,6 +198,8 @@ namespace IntreDesktop
             ckbEscritorio.Checked = false;
             ckbAreaServico.Checked = false;
             ckbOutros.Checked = false;
+            txtOutros.Clear();
+            btnNovo.Enabled = true;
         }
 
 
@@ -379,15 +390,9 @@ namespace IntreDesktop
             listAmb.Clear();
 
         }
-
-
-
-
         private void cbbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             codigoCliente();
-           
         }
 
 
@@ -411,7 +416,7 @@ namespace IntreDesktop
             else
             {
                
-                if (alterarProjetos(codProje) == 1)
+                if (alterarProjetos(codProje) == 1 && updateAmb() == 1)
                 {
                     MessageBox.Show("Alterado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     limparCampos();
@@ -484,8 +489,6 @@ namespace IntreDesktop
 
             selectNomesAmb = DR.GetString(0);
 
-
-
             Connection.fecharConexao();
         }
 
@@ -541,10 +544,10 @@ namespace IntreDesktop
             {
                 if (item.StartsWith("*"))
                 {
+                    ckbOutros.Checked = true;
                     char caractere = '.';
                     List<string> lista = item.Split(caractere).ToList();
                     txtOutros.Text = lista[1].Replace("_", " ");
-
                 }
 
                 switch (item)
@@ -582,9 +585,9 @@ namespace IntreDesktop
                     case "area_de_servico":
                         ckbAreaServico.Checked = true;
                         break;
-                    default:
+                    /*default:
                         ckbOutros.Checked = true;
-                        break;
+                        break;*/
 
                 }
 
@@ -592,7 +595,7 @@ namespace IntreDesktop
         }
 
 
-        //alterar projetos
+        //update projetos
         public int alterarProjetos(int cod)
         {
             MySqlCommand comm = new MySqlCommand();
@@ -628,11 +631,89 @@ namespace IntreDesktop
             
         }
 
+        //update ambientes
+        public int updateAmb()
+        {
+
+            verificando();
+            nomesAmbAlte = String.Join(" ", listAmb.ToArray());
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "UPDATE tbAmbientes set nomeAmb = @nomeAmb WHERE codAmb = @codAmb";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nomeAmb", MySqlDbType.VarChar, 100).Value = nomesAmbAlte;
+            comm.Parameters.Add("@codAmb", MySqlDbType.Int32).Value = codAmbAlte;
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+
+            return res; 
+        }
+
+
+        //Arquivar projeto
+        public int arquivarProje()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "UPDATE tbProjetos set status = 0 where codProj = @codProj;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProje;
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+
+            return res;
+        }
+
+        private void btnArquivar_Click(object sender, EventArgs e)
+        {
+
+            if (arquivarProje() == 1)
+            {
+                MessageBox.Show("Arquivado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                limparCampos();
+                desabilitarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao arquivar!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                limparCampos();
+                desabilitarCampos();
+            }
+        }
+
+
+        //deletar projetos(caso precise)
+        public int deletarProj()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "DELETE from tbProjetos where codProj = @codProj;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProje;
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = comm.ExecuteNonQuery();
+
+            Connection.fecharConexao();
+
+            return res;
+        }
+
+
         
     }
-
-
-
 
 }
 

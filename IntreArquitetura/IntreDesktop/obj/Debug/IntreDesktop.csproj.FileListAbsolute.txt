@@ -306,3 +306,89 @@ C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\
 C:\Users\jeferson.jcaraujo\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
 C:\Users\allan.ssousa1\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
 C:\Users\Pichau\Documents\Visual Studio 2019\projetoIntreWEB-desktop\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\MySql.Data.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Buffers.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Memory.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\ZstdNet.dll
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.pdb
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\MySql.Data.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Buffers.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Memory.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.AssemblyReference.cache
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmClientes.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmFuncionarios.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmGaleria.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmLogin.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmMenuPrincipal.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmOrcamentos.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisar.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarProjetos.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmProjetos.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmUsuarios.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.Properties.Resources.resources
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.GenerateResource.cache
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CoreCompileInputs.cache
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CopyComplete
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
+C:\Users\allan.ssousa1\Documents\Visual Studio 2022\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.AssemblyReference.cache
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmClientes.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmFuncionarios.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmGaleria.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmLogin.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmMenuPrincipal.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmOrcamentos.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisar.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarGaleria.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmPesquisarProjetos.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmProjetos.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.frmUsuarios.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.Properties.Resources.resources
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.GenerateResource.cache
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CoreCompileInputs.cache
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.exe
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.pdb
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe.config
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.exe
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\IntreDesktop.pdb
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\MySql.Data.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Buffers.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Memory.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\ZstdNet.dll
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.pdb
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\Google.Protobuf.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\MySql.Data.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Buffers.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Memory.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Allan\OneDrive - SENAC - SP\coisas do senac\projetoIntreWEB-desktop-main\IntreArquitetura\IntreDesktop\obj\Debug\IntreDesktop.csproj.CopyComplete
