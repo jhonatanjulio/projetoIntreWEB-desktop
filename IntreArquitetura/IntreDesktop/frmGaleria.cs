@@ -324,15 +324,23 @@ namespace IntreDesktop
             {
                 byte[] foto = null;
                 bool isBigger = false;
-                using (var stream = new FileStream(abrirImg.FileName, FileMode.Open, FileAccess.Read))
+                try
                 {
-                    if (stream.Length > 16777216)
-                        isBigger = true;
-                    using (var reader = new BinaryReader(stream))
+                    using (var stream = new FileStream(abrirImg.FileName, FileMode.Open, FileAccess.Read))
                     {
-                        foto = reader.ReadBytes((int)stream.Length);
+                        if (stream.Length > 16777216)
+                            isBigger = true;
+                        using (var reader = new BinaryReader(stream))
+                        {
+                            foto = reader.ReadBytes((int)stream.Length);
+                        }
                     }
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro! Não foi possível ler esta imagem.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+
                 if (isBigger)
                 {
                     MessageBox.Show("Erro! O tamanho da imagem deve ser no máximo de 16MB.", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);

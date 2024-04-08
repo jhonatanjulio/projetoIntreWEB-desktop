@@ -541,6 +541,7 @@ namespace IntreDesktop
             this.ckbTresQuarto.TabIndex = 10;
             this.ckbTresQuarto.Text = "3 Quartos";
             this.ckbTresQuarto.UseVisualStyleBackColor = true;
+            this.ckbTresQuarto.CheckedChanged += new System.EventHandler(this.ckbTresQuarto_CheckedChanged);
             // 
             // ckbSuite
             // 
@@ -551,6 +552,7 @@ namespace IntreDesktop
             this.ckbSuite.TabIndex = 9;
             this.ckbSuite.Text = "Suíte";
             this.ckbSuite.UseVisualStyleBackColor = true;
+            this.ckbSuite.CheckedChanged += new System.EventHandler(this.ckbSuite_CheckedChanged);
             // 
             // ckbAreaServico
             // 
@@ -561,6 +563,7 @@ namespace IntreDesktop
             this.ckbAreaServico.TabIndex = 8;
             this.ckbAreaServico.Text = "Área de Serviço";
             this.ckbAreaServico.UseVisualStyleBackColor = true;
+            this.ckbAreaServico.CheckedChanged += new System.EventHandler(this.ckbAreaServico_CheckedChanged);
             // 
             // ckbEscritorio
             // 
@@ -571,6 +574,7 @@ namespace IntreDesktop
             this.ckbEscritorio.TabIndex = 7;
             this.ckbEscritorio.Text = "Escritório";
             this.ckbEscritorio.UseVisualStyleBackColor = true;
+            this.ckbEscritorio.CheckedChanged += new System.EventHandler(this.ckbEscritorio_CheckedChanged);
             // 
             // ckbBanheiro
             // 
@@ -581,6 +585,7 @@ namespace IntreDesktop
             this.ckbBanheiro.TabIndex = 6;
             this.ckbBanheiro.Text = "Banheiro Social";
             this.ckbBanheiro.UseVisualStyleBackColor = true;
+            this.ckbBanheiro.CheckedChanged += new System.EventHandler(this.ckbBanheiro_CheckedChanged);
             // 
             // ckbDoisQuarto
             // 
@@ -591,6 +596,7 @@ namespace IntreDesktop
             this.ckbDoisQuarto.TabIndex = 5;
             this.ckbDoisQuarto.Text = "2 Quartos";
             this.ckbDoisQuarto.UseVisualStyleBackColor = true;
+            this.ckbDoisQuarto.CheckedChanged += new System.EventHandler(this.ckbDoisQuarto_CheckedChanged);
             // 
             // ckbQuarto
             // 
@@ -601,6 +607,7 @@ namespace IntreDesktop
             this.ckbQuarto.TabIndex = 4;
             this.ckbQuarto.Text = "Quarto";
             this.ckbQuarto.UseVisualStyleBackColor = true;
+            this.ckbQuarto.CheckedChanged += new System.EventHandler(this.ckbQuarto_CheckedChanged);
             // 
             // ckbVaranda
             // 
@@ -611,6 +618,7 @@ namespace IntreDesktop
             this.ckbVaranda.TabIndex = 3;
             this.ckbVaranda.Text = "Varanda";
             this.ckbVaranda.UseVisualStyleBackColor = true;
+            this.ckbVaranda.CheckedChanged += new System.EventHandler(this.ckbVaranda_CheckedChanged);
             // 
             // ckbCozinhas
             // 
@@ -621,6 +629,7 @@ namespace IntreDesktop
             this.ckbCozinhas.TabIndex = 2;
             this.ckbCozinhas.Text = "Cozinhas";
             this.ckbCozinhas.UseVisualStyleBackColor = true;
+            this.ckbCozinhas.CheckedChanged += new System.EventHandler(this.ckbCozinhas_CheckedChanged);
             // 
             // ckbSalaJantar
             // 
@@ -631,6 +640,7 @@ namespace IntreDesktop
             this.ckbSalaJantar.TabIndex = 1;
             this.ckbSalaJantar.Text = "Sala de Jantar";
             this.ckbSalaJantar.UseVisualStyleBackColor = true;
+            this.ckbSalaJantar.CheckedChanged += new System.EventHandler(this.ckbSalaJantar_CheckedChanged);
             // 
             // ckbSalaEstar
             // 
@@ -641,6 +651,7 @@ namespace IntreDesktop
             this.ckbSalaEstar.TabIndex = 0;
             this.ckbSalaEstar.Text = "Sala de Estar";
             this.ckbSalaEstar.UseVisualStyleBackColor = true;
+            this.ckbSalaEstar.CheckedChanged += new System.EventHandler(this.ckbSalaEstar_CheckedChanged);
             // 
             // frmProjetos
             // 

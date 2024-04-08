@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.34407.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntreDesktop", "IntreDesktop\IntreDesktop.csproj", "{AB5E07DC-19C4-429B-AE80-0A85CE5373E5}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IntreDesktopSetup", "IntreDesktopSetup\IntreDesktopSetup.vdproj", "{EEE06208-D515-4EC8-9219-CABA8A4A436B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{AB5E07DC-19C4-429B-AE80-0A85CE5373E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB5E07DC-19C4-429B-AE80-0A85CE5373E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB5E07DC-19C4-429B-AE80-0A85CE5373E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE06208-D515-4EC8-9219-CABA8A4A436B}.Debug|Any CPU.ActiveCfg = Debug
+		{EEE06208-D515-4EC8-9219-CABA8A4A436B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
