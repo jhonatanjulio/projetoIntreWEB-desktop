@@ -308,6 +308,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -811,7 +819,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:IntreDesktopSetup"
         "ProductCode" = "8:{1A296B9A-D9CD-4E34-8E59-301054710B52}"
-        "PackageCode" = "8:{3B92DD80-FE29-4FC6-81EB-59727AE44EFC}"
+        "PackageCode" = "8:{D2990BEE-34E2-4839-B13B-534CEBD99D93}"
         "UpgradeCode" = "8:{4206C67C-2F4F-4685-A3F2-F00A87A1A8A8}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -942,7 +950,7 @@
             "Target" = "8:_21632E0A733842F9B7F61DC7116DE40F"
             "Folder" = "8:_8959574016204369B8506FF805756AF0"
             "WorkingFolder" = "8:_DACD4DBAB7784299AC24F9A997EC9DDE"
-            "Icon" = "8:"
+            "Icon" = "8:_D145FBAF076D4E529563875DDA27CA34"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D376155F016E4FFA9F18C45476035756"
@@ -956,7 +964,7 @@
             "Target" = "8:_21632E0A733842F9B7F61DC7116DE40F"
             "Folder" = "8:_E444F465E4614B7B8A8911669D7DBFEF"
             "WorkingFolder" = "8:_DACD4DBAB7784299AC24F9A997EC9DDE"
-            "Icon" = "8:"
+            "Icon" = "8:_D145FBAF076D4E529563875DDA27CA34"
             "Feature" = "8:"
             }
         }
