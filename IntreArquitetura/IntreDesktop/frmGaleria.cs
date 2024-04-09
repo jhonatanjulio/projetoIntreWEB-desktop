@@ -42,6 +42,15 @@ namespace IntreDesktop
             {
                 lstImagens.Items.Add("Imagem " + (i + 1).ToString());
             }
+
+            if (imgByteListTot.Count > 0)
+            {
+                btnDeletarImg.Enabled = true;
+            }
+            else
+            {
+                btnDeletarImg.Enabled = false;
+            }
             lstImagens.SelectedIndex = 0;
         }
 
@@ -65,6 +74,7 @@ namespace IntreDesktop
             btnEnviar.Enabled = true;
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
+            btnDeletarImg.Enabled = false;
 
             btnEnviar.Focus();
         }
@@ -354,6 +364,7 @@ namespace IntreDesktop
                     try
                     {
                         pcbPreview.Image = ConvertToImage(foto);
+                        btnDeletarImg.Enabled = true;
                     }
                     catch (Exception)
                     {
@@ -438,6 +449,15 @@ namespace IntreDesktop
 
                 if (lstImagens.Items.Count < 1)
                     pcbPreview.Image = null;
+
+                if (imgByteListAdd.Count > 0 || imgByteListTot.Count > 0)
+                {
+                    btnDeletarImg.Enabled = true;
+                }
+                else
+                {
+                    btnDeletarImg.Enabled = false;
+                }
 
                 lstImagens.SelectedIndex = lstImagens.Items.Count - 1;
             }
