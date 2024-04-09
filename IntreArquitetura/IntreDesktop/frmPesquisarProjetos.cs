@@ -41,7 +41,7 @@ namespace IntreDesktop
         public void carregaInfosAtivo()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT tbClientes.nomeCli, tipoImovel, tipoServico, status FROM `tbProjetos` inner join tbClientes on tbProjetos.codCli = tbClientes.codCli where status = 1;";
+            comm.CommandText = "SELECT tbClientes.nomeCli, tipoImovel, tipoServico, status, codProj FROM `tbProjetos` inner join tbClientes on tbProjetos.codCli = tbClientes.codCli where status = 1;";
             comm.CommandType = CommandType.Text;
 
 
@@ -60,7 +60,7 @@ namespace IntreDesktop
                     status = "Ativo";
                 }
 
-                dgvPesquisa.Rows.Add(DR.GetString("nomeCli"), DR.GetString("tipoImovel"), DR.GetString("tipoServico"), status);
+                dgvPesquisa.Rows.Add(DR.GetString("nomeCli"), DR.GetString("tipoImovel"), DR.GetString("tipoServico"), status, DR.GetString("codProj"));
 
 
 
@@ -76,7 +76,7 @@ namespace IntreDesktop
         public void carregaInfosArquivados()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT tbClientes.nomeCli, tipoImovel, tipoServico, status FROM `tbProjetos` inner join tbClientes on tbProjetos.codCli = tbClientes.codCli where status = 0;";
+            comm.CommandText = "SELECT tbClientes.nomeCli, tipoImovel, tipoServico, status, codProj FROM `tbProjetos` inner join tbClientes on tbProjetos.codCli = tbClientes.codCli where status = 0;";
             comm.CommandType = CommandType.Text;
 
 
@@ -96,7 +96,7 @@ namespace IntreDesktop
                     status = "Ativo";
                 }
 
-                dgvPesquisa.Rows.Add(DR.GetString("nomeCli"), DR.GetString("tipoImovel"), DR.GetString("tipoServico"), status);
+                dgvPesquisa.Rows.Add(DR.GetString("nomeCli"), DR.GetString("tipoImovel"), DR.GetString("tipoServico"), status, DR.GetString("codProj"));
 
 
             }
@@ -154,6 +154,9 @@ namespace IntreDesktop
                         case "coluna4":
                             status = Convert.ToString(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
                             break;
+                        case "coluna5":
+                            codProj = Convert.ToInt32(dgvPesquisa.Rows[e.RowIndex].Cells[i].Value);
+                            break;
                     }
                 }
                 if (nomeCli.Equals("") && tipoImovel.Equals("") && tipoServico.Equals(""))
@@ -163,7 +166,6 @@ namespace IntreDesktop
                 else
                 {
                     buscaCodCli();
-                    buscaCodProj();
                     //MessageBox.Show(nomeCli.ToString() + " " + tipoImovel + " " + tipoImovel + " " + status);
                 }
             }
@@ -195,33 +197,6 @@ namespace IntreDesktop
             DR.Read();
 
             codCli = DR.GetInt32(0);
-
-            Connection.fecharConexao();
-        }
-
-
-        public void buscaCodProj()
-        {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select codProj FROM tbProjetos inner join tbClientes where tbClientes.nomeCli = @nome and tipoImovel = @tipoImovel and tipoServico = @tipoServico;";
-            comm.CommandType = CommandType.Text;
-
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 50).Value = nomeCli;
-            comm.Parameters.Add("@tipoImovel", MySqlDbType.VarChar, 50).Value = tipoImovel;
-            comm.Parameters.Add("@tipoServico", MySqlDbType.VarChar, 50).Value = tipoServico;
-
-
-
-            comm.Connection = Connection.abrirConexao();
-            MySqlDataReader DR;
-            DR = comm.ExecuteReader();
-
-            DR.Read();
-
-            codProj = DR.GetInt32(0);
-
-
 
             Connection.fecharConexao();
         }

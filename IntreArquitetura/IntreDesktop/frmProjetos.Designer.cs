@@ -281,9 +281,9 @@ namespace IntreDesktop
             this.cbbTipoImovel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTipoImovel.FormattingEnabled = true;
             this.cbbTipoImovel.Items.AddRange(new object[] {
-            "casa",
-            "apartamento",
-            "sala_comercial"});
+            "Casa",
+            "Apartamento",
+            "Sala Comercial"});
             this.cbbTipoImovel.Location = new System.Drawing.Point(830, 204);
             this.cbbTipoImovel.Name = "cbbTipoImovel";
             this.cbbTipoImovel.Size = new System.Drawing.Size(218, 33);
@@ -315,9 +315,9 @@ namespace IntreDesktop
             this.cbbTipoServico.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTipoServico.FormattingEnabled = true;
             this.cbbTipoServico.Items.AddRange(new object[] {
-            "construir",
-            "reformar",
-            "consultoria"});
+            "Construir",
+            "Reformar",
+            "Consultoria"});
             this.cbbTipoServico.Location = new System.Drawing.Point(360, 283);
             this.cbbTipoServico.Name = "cbbTipoServico";
             this.cbbTipoServico.Size = new System.Drawing.Size(218, 33);
@@ -349,10 +349,10 @@ namespace IntreDesktop
             this.cbbRevestimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbRevestimento.FormattingEnabled = true;
             this.cbbRevestimento.Items.AddRange(new object[] {
-            "manter",
-            "trocar",
-            "trocar_parcial",
-            "ajuda"});
+            "Manter",
+            "Trocar",
+            "Trocar Parcial",
+            "Ajuda para decidir"});
             this.cbbRevestimento.Location = new System.Drawing.Point(831, 282);
             this.cbbRevestimento.Name = "cbbRevestimento";
             this.cbbRevestimento.Size = new System.Drawing.Size(220, 33);
@@ -374,10 +374,10 @@ namespace IntreDesktop
             this.cbbMarcenaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbMarcenaria.FormattingEnabled = true;
             this.cbbMarcenaria.Items.AddRange(new object[] {
-            "manter",
-            "trocar",
-            "trocar_parcial",
-            "ajuda"});
+            "Manter",
+            "Trocar",
+            "Trocar Parcial",
+            "Ajuda para decidir"});
             this.cbbMarcenaria.Location = new System.Drawing.Point(83, 282);
             this.cbbMarcenaria.Name = "cbbMarcenaria";
             this.cbbMarcenaria.Size = new System.Drawing.Size(258, 33);

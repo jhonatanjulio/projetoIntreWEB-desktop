@@ -639,7 +639,6 @@ namespace IntreDesktop
             List<string> stringList = selectNomesAmb.Split(delimiter).ToList();
 
 
-
             foreach (string item in stringList)
             {
                 if (item.StartsWith("*"))
