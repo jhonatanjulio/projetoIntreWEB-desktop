@@ -13,6 +13,7 @@ namespace IntreDesktop
         private int codAmb = 1;
         List<string> listAmb = new List<string>() { null };
         string nomesAmb;
+        string nomesAmbAlte;
         string selectNomesAmb;
 
         string nomeCliAlte;
@@ -20,6 +21,7 @@ namespace IntreDesktop
         string tipoSerALte;
         string statusAlte;
         int codProje;
+
 
         private int codAmbAlte;
 
@@ -293,6 +295,8 @@ namespace IntreDesktop
             ckbEscritorio.Checked = false;
             ckbAreaServico.Checked = false;
             ckbOutros.Checked = false;
+            txtOutros.Clear();
+            btnNovo.Enabled = true;
         }
 
 
@@ -486,15 +490,9 @@ namespace IntreDesktop
             listAmb.Clear();
 
         }
-
-
-
-
         private void cbbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
             codigoCliente();
-           
         }
 
 
@@ -517,7 +515,6 @@ namespace IntreDesktop
             }
             else
             {
-               
                 if (alterarProjetos(codProje) == 1 && alterarAmbientes(codAmbAlte) == 1)
                 {
                     MessageBox.Show("Alterado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
@@ -592,8 +589,6 @@ namespace IntreDesktop
 
             selectNomesAmb = DR.GetString(0);
 
-
-
             Connection.fecharConexao();
         }
 
@@ -644,15 +639,14 @@ namespace IntreDesktop
             List<string> stringList = selectNomesAmb.Split(delimiter).ToList();
 
 
-
             foreach (string item in stringList)
             {
                 if (item.StartsWith("*"))
                 {
+                    ckbOutros.Checked = true;
                     char caractere = '.';
                     List<string> lista = item.Split(caractere).ToList();
                     txtOutros.Text = lista[1].Replace("_", " ");
-                    ckbOutros.Checked = true;
                 }
 
                 switch (item)
@@ -695,7 +689,7 @@ namespace IntreDesktop
         }
 
 
-        //alterar projetos
+        //update projetos
         public int alterarProjetos(int cod)
         {
             MySqlCommand comm = new MySqlCommand();
@@ -720,8 +714,6 @@ namespace IntreDesktop
 
             comm.Connection = Connection.abrirConexao();
 
-
-
             int res = 0;
             res = comm.ExecuteNonQuery();
 
@@ -731,8 +723,10 @@ namespace IntreDesktop
             
         }
 
+        //update ambientes
         public int alterarAmbientes(int cod)
         {
+
             verificandoCkb();
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "UPDATE tbAmbientes set nomeAmb = @nomeAmb where codAmb = @codAmb;";
@@ -742,6 +736,7 @@ namespace IntreDesktop
             comm.Parameters.Add("@nomeAmb", MySqlDbType.VarChar).Value = nomesAmb;
             comm.Parameters.Add("@codAmb", MySqlDbType.Int32).Value = cod;
 
+            comm.Connection = Connection.abrirConexao();
 
             comm.Connection = Connection.abrirConexao();
 
@@ -750,9 +745,45 @@ namespace IntreDesktop
 
             Connection.fecharConexao();
 
+            return res; 
+        }
+
+
+        //Arquivar projeto
+        public int arquivarProje()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "UPDATE tbProjetos set status = 0 where codProj = @codProj;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codProj", MySqlDbType.Int32).Value = codProje;
+
+            comm.Connection = Connection.abrirConexao();
+
+            int res = comm.ExecuteNonQuery();
+            
+            Connection.fecharConexao();
+
             return res;
         }
 
+        private void btnArquivar_Click(object sender, EventArgs e)
+        {
+
+            if (arquivarProje() == 1)
+            {
+                MessageBox.Show("Arquivado com sucesso!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                limparCampos();
+                desabilitarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao arquivar!!", "Mensagem do sistema.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                limparCampos();
+                desabilitarCampos();
+            }
+        }
         private void ckbQuarto_CheckedChanged(object sender, EventArgs e)
         {
             verificandoCkb();
@@ -808,9 +839,6 @@ namespace IntreDesktop
             verificandoCkb();
         }
     }
-
-
-
 
 }
 

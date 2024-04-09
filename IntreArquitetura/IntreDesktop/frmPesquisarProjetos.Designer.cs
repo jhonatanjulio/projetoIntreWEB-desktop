@@ -31,16 +31,17 @@ namespace IntreDesktop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPesquisarProjetos));
             this.dgvPesquisa = new System.Windows.Forms.DataGridView();
-            this.coluna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluna2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluna3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coluna4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.rdbNome = new System.Windows.Forms.RadioButton();
             this.rdbAndamento = new System.Windows.Forms.RadioButton();
             this.rdbArquivados = new System.Windows.Forms.RadioButton();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
+            this.coluna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluna2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluna3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluna4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coluna5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpbTipoPesquisar.SuspendLayout();
             this.gpbPesquisar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPesquisa)).BeginInit();
@@ -59,6 +60,7 @@ namespace IntreDesktop
             // btnAtivar
             // 
             this.btnAtivar.Location = new System.Drawing.Point(243, 484);
+            this.btnAtivar.Click += new System.EventHandler(this.btnAtivar_Click);
             // 
             // gpbTipoPesquisar
             // 
@@ -81,43 +83,14 @@ namespace IntreDesktop
             this.coluna1,
             this.coluna2,
             this.coluna3,
-            this.coluna4});
-            this.dgvPesquisa.Location = new System.Drawing.Point(107, 164);
+            this.coluna4,
+            this.coluna5});
+            this.dgvPesquisa.Location = new System.Drawing.Point(107, 136);
             this.dgvPesquisa.Name = "dgvPesquisa";
             this.dgvPesquisa.ReadOnly = true;
             this.dgvPesquisa.Size = new System.Drawing.Size(704, 302);
             this.dgvPesquisa.TabIndex = 61;
             this.dgvPesquisa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPesquisa_CellClick);
-            // 
-            // coluna1
-            // 
-            this.coluna1.DataPropertyName = "String";
-            this.coluna1.HeaderText = "Nome do cliente:";
-            this.coluna1.Name = "coluna1";
-            this.coluna1.ReadOnly = true;
-            this.coluna1.ToolTipText = "String";
-            this.coluna1.Width = 170;
-            // 
-            // coluna2
-            // 
-            this.coluna2.HeaderText = "Tipo de imovel:";
-            this.coluna2.Name = "coluna2";
-            this.coluna2.ReadOnly = true;
-            this.coluna2.Width = 170;
-            // 
-            // coluna3
-            // 
-            this.coluna3.HeaderText = "Tipo de serviço:";
-            this.coluna3.Name = "coluna3";
-            this.coluna3.ReadOnly = true;
-            this.coluna3.Width = 170;
-            // 
-            // coluna4
-            // 
-            this.coluna4.HeaderText = "Status:";
-            this.coluna4.Name = "coluna4";
-            this.coluna4.ReadOnly = true;
-            this.coluna4.Width = 170;
             // 
             // radioButton3
             // 
@@ -201,6 +174,44 @@ namespace IntreDesktop
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
+            // coluna1
+            // 
+            this.coluna1.DataPropertyName = "String";
+            this.coluna1.HeaderText = "Nome do cliente:";
+            this.coluna1.Name = "coluna1";
+            this.coluna1.ReadOnly = true;
+            this.coluna1.ToolTipText = "String";
+            this.coluna1.Width = 170;
+            // 
+            // coluna2
+            // 
+            this.coluna2.HeaderText = "Tipo de imovel:";
+            this.coluna2.Name = "coluna2";
+            this.coluna2.ReadOnly = true;
+            this.coluna2.Width = 170;
+            // 
+            // coluna3
+            // 
+            this.coluna3.HeaderText = "Tipo de serviço:";
+            this.coluna3.Name = "coluna3";
+            this.coluna3.ReadOnly = true;
+            this.coluna3.Width = 170;
+            // 
+            // coluna4
+            // 
+            this.coluna4.HeaderText = "Status:";
+            this.coluna4.Name = "coluna4";
+            this.coluna4.ReadOnly = true;
+            this.coluna4.Width = 170;
+            // 
+            // coluna5
+            // 
+            this.coluna5.DataPropertyName = "String";
+            this.coluna5.HeaderText = "codigoProj";
+            this.coluna5.Name = "coluna5";
+            this.coluna5.ReadOnly = true;
+            this.coluna5.Visible = false;
+            // 
             // frmPesquisarProjetos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,7 +221,7 @@ namespace IntreDesktop
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.dgvPesquisa);
             this.Name = "frmPesquisarProjetos";
-            this.Text = "frmPesquisarProjetos";
+            this.Text = "Pesquisar Projetos";
             this.Controls.SetChildIndex(this.dgvPesquisa, 0);
             this.Controls.SetChildIndex(this.btnPesquisar, 0);
             this.Controls.SetChildIndex(this.btnLimpar, 0);
@@ -236,10 +247,11 @@ namespace IntreDesktop
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton rdbNome;
         private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.DataGridViewTextBoxColumn coluna1;
         private System.Windows.Forms.DataGridViewTextBoxColumn coluna2;
         private System.Windows.Forms.DataGridViewTextBoxColumn coluna3;
         private System.Windows.Forms.DataGridViewTextBoxColumn coluna4;
-        private System.Windows.Forms.Button btnVoltar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coluna5;
     }
 }
