@@ -9,8 +9,8 @@ namespace IntreDesktop
 {
     class Connection
     {
-        private static string userPass = "Server=localhost;Port=3306;Database=dbintre;Uid=admindb;Pwd=123456";
-        //private static string userPass = "Server=10.23.49.42;Port=3306;Database=dbintre;Uid=admindb;Pwd=123456";
+        //private static string userPass = "Server=localhost;Port=3306;Database=dbintre;Uid=admindb;Pwd=123456";
+        private static string userPass = "Server=10.23.49.42;Port=3306;Database=dbintre;Uid=admindb;Pwd=123456";
         //private static string userPass = "Server=10.23.49.22;Port=3306;Database=dbIntre;Uid=senac;Pwd=123";
         private static MySqlConnection con = null;
 
